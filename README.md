@@ -4,6 +4,10 @@
 This project reads a special version of `.slp` files frame by frame.
 As each frame is read, it is turned into a human readable format that you can then use to take some action in Unity.
  
+## Special Version of SLP
+The structure of a generic `slp` is not compatible with the Unity Serialization library.
+Use the repo here to convert slp into the appropriately structured JSON: https://github.com/true3dco/SlippiFactory/blob/main/README.md
+
 ## Setup
 Animations and models are not provided. 
 Models need to be `.fbx` and animations need to be `.fbx` clips each stored in their own `fbx`
