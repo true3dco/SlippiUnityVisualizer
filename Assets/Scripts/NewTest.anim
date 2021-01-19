@@ -1,0 +1,3092 @@
+animVersion 1.1;
+mayaVersion 2020;
+timeUnit ntsc;
+linearUnit cm;
+angularUnit deg;
+startTime 0.5;
+endTime 38;
+anim |JOBJ_0 0 2 0;
+anim |JOBJ_0|JOBJ_1 0 1 0;
+anim translate.translateZ translateZ |JOBJ_0|JOBJ_1|JOBJ_2 0 1 0;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 -3.7239259 1 -3.7239259 1;
+    7.5 -0.488342 fixed fixed 1 1 0 0 1 0 1;
+    38 0 fixed fixed 1 1 0 0.90218473 1 0.90218473 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3 0 2 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim translate.translateX translateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3 0 2 1;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0.5802 linear linear 1 1 0;
+    7.5 0.699951 linear linear 1 1 0;
+    11 -0.25238 fixed fixed 1 1 0 -2.2584783 1 -2.2584783 1;
+    16 -0.25238 linear linear 1 1 0;
+    18.5 0.552551 linear linear 1 1 0;
+    30.5 0.552551 linear linear 1 1 0;
+    34.5 0.631165 linear linear 1 1 0;
+    38 0.5802 linear linear 1 1 0;
+  }
+}
+anim translate.translateY translateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3 0 2 2;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -1.94165 fixed fixed 1 1 0 -1.6852166 1 -1.6852166 1;
+    7.5 -2.163086 fixed fixed 1 1 0 -16.886672 1 -16.886672 1;
+    11 -5.105713 fixed fixed 1 1 0 -3.3612741 1 -3.3612741 1;
+    16 -5.105713 fixed fixed 1 1 0 3.1519593 1 3.1519593 1;
+    18.5 -3.5 fixed fixed 1 1 0 1.6013392 1 1.6013392 1;
+    30.5 -3.5 fixed fixed 1 1 0 0.12589392 1 0.12589392 1;
+    34.5 -3.047852 fixed fixed 1 1 0 11.771448 1 11.771448 1;
+    38 -1.94165 fixed fixed 1 1 0 15.549979 1 15.549979 1;
+  }
+}
+anim translate.translateZ translateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3 0 2 3;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -0.354004 fixed fixed 1 1 0 2.698231 1 2.698231 1;
+    7.5 0 fixed fixed 1 1 0 -20.367098 1 -20.367098 1;
+    11 -4.209229 fixed fixed 1 1 0 -1.657258 1 -1.657258 1;
+    16 -4.209229 fixed fixed 1 1 0 2.2163042 1 2.2163042 1;
+    18.5 1.299805 fixed fixed 1 1 0 3.6890644 1 3.6890644 1;
+    30.5 1.299805 fixed fixed 1 1 0 -2.0486203 1 -2.0486203 1;
+    34.5 -0.384522 fixed fixed 1 1 0 -12.481518 1 -12.481518 1;
+    38 -0.354004 fixed fixed 1 1 0 0.43362888 1 0.43362888 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4 0 4 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 23.493218 fixed fixed 1 1 0 0 1 0 1;
+    7.5 23.493218 fixed fixed 1 1 0 -8.4653846 1 -8.4653846 1;
+    11 -65.884531 fixed fixed 1 1 0 -10.425148 1 -0.069941115 1;
+    16 -65.884531 fixed fixed 1 1 0 0.062947004 1 10.40468 1;
+    18.5 12.806237 fixed fixed 1 1 0 5.4153112 1 0.22381078 1;
+    30.5 12.806237 fixed fixed 1 1 0 0.090923417 1 -0.10491161 1;
+    38 23.493218 fixed fixed 1 1 0 1.3356937 1 1.3356937 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4 0 4 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -106.99597 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -106.99597 fixed fixed 1 1 0 -1.226892 1 -1.226892 1;
+    11 -119.8791 fixed fixed 1 1 0 -1.5154821 1 0.13767743 1;
+    16 -119.8791 fixed fixed 1 1 0 0.028812797 1 0.028812797 1;
+    18.5 -122.77466 fixed fixed 1 1 0 -0.19984203 1 -0.066213227 1;
+    30.5 -122.77466 fixed fixed 1 1 0 -0.19984203 1 -0.066213227 1;
+    38 -106.99597 fixed fixed 1 1 0 1.9721106 1 1.9721106 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4 0 4 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -36.998864 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -36.998864 fixed fixed 1 1 0 7.4244282 1 7.4244282 1;
+    11 41.31421 fixed fixed 1 1 0 9.152487 1 -0.034970567 1;
+    16 41.31421 fixed fixed 1 1 0 0.041964672 1 -10.670608 1;
+    18.5 -39.411819 fixed fixed 1 1 0 -5.5542346 1 0.0069941141 1;
+    30.5 -39.411819 fixed fixed 1 1 0 -0.062947004 1 0.0069941141 1;
+    38 -36.998864 fixed fixed 1 1 0 0.30074485 1 0.30074485 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_5 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 19.999665 fixed fixed 1 1 0 0 1 0 1;
+    7.5 19.999665 fixed fixed 1 1 0 1.1456315 1 1.1456315 1;
+    11 32.029544 fixed fixed 1 1 0 -1.0014614 1 -1.0014614 1;
+    15 12.488016 fixed fixed 1 1 0 -1.745189 1 -1.745189 1;
+    18.5 18.938318 fixed fixed 1 1 0 0.83859903 1 0.83859903 1;
+    25.5 21.293575 fixed fixed 1 1 0 0 1 0 1;
+    30.5 18.938318 fixed fixed 1 1 0 -0.10353773 1 -0.10353773 1;
+    38 19.999665 fixed fixed 1 1 0 0.13270132 1 0.13270132 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_5 0 0 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 0 1 0 1;
+    7.5 0 fixed fixed 1 1 0 0.92135431 1 0.92135431 1;
+    11 9.6728454 fixed fixed 1 1 0 -0.39296857 1 -0.39296857 1;
+    15 -2.9445447 fixed fixed 1 1 0 0.83992658 1 0.83992658 1;
+    18.5 15.974579 fixed fixed 1 1 0 0.04225829 1 0.04225829 1;
+    25.5 -2.5003878 fixed fixed 1 1 0 0 1 0 1;
+    30.5 15.974579 fixed fixed 1 1 0 0.20028618 1 0.20028618 1;
+    38 0 fixed fixed 1 1 0 -1.9962218 1 -1.9962218 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_5 0 0 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -9.9981135 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -9.9981135 fixed fixed 1 1 0 -0.55951581 1 -0.55951581 1;
+    11 -15.876661 fixed fixed 1 1 0 -0.23779881 1 -0.23779881 1;
+    15 -11.792102 fixed fixed 1 1 0 -4.5599246 1 -4.5599246 1;
+    18.5 -50.147787 fixed fixed 1 1 0 -0.45461022 1 -0.45461022 1;
+    25.5 -16.59704 fixed fixed 1 1 0 0 1 0 1;
+    30.5 -50.147787 fixed fixed 1 1 0 0.52454757 1 0.52454757 1;
+    38 -9.9981135 fixed fixed 1 1 0 5.0052125 1 5.0052125 1;
+  }
+}
+anim |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6 0 1 0;
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -0.83227849 fixed fixed 1 1 0 -0.2657749 1 -0.2657749 1;
+    7.5 -3.0249307 fixed fixed 1 1 0 -0.70637867 1 0.73435173 1;
+    8 -2.6577793 fixed fixed 1 1 0 0.73435173 1 -0.42663508 1;
+    8.5 -2.8710915 fixed fixed 1 1 0 -0.42663508 1 -2.9705007 1;
+    9 -4.3608391 fixed fixed 1 1 0 -2.9705007 1 -7.3760781 1;
+    9.5 -8.0642091 fixed fixed 1 1 0 -7.3760781 1 -10.124751 1;
+    10 -13.166398 fixed fixed 1 1 0 -10.124751 1 -7.6522544 1;
+    10.5 -17.01318 fixed fixed 1 1 0 -7.6522544 1 -2.5306348 1;
+    11 -18.282625 fixed fixed 1 1 0 -2.5306348 1 0.27976285 1;
+    15.5 -18.453997 fixed fixed 1 1 0 -0.55951581 1 -0.55951581 1;
+    16 -18.768722 fixed fixed 1 1 0 -0.62945123 1 0.82526256 1;
+    16.5 -18.356078 fixed fixed 1 1 0 0.82526256 1 6.8022014 1;
+    17 -14.939416 fixed fixed 1 1 0 6.8022014 1 15.278419 1;
+    17.5 -7.1619724 fixed fixed 1 1 0 15.278419 1 12.885989 1;
+    18 -0.63294648 fixed fixed 1 1 0 12.885989 1 0.55951581 1;
+    18.5 -0.35322848 fixed fixed 1 1 0 0.31473274 1 0.31473274 1;
+    19.5 -0.28676538 fixed fixed 1 1 0 0.041964672 1 0.041964672 1;
+    30.5 -0.20981714 fixed fixed 1 1 0 0.034970567 1 1.4894947 1;
+    34 4.1160142 fixed fixed 1 1 0 0.74134507 1 0.74134507 1;
+    34.5 4.4377873 fixed fixed 1 1 0 0.63644469 1 -1.000082 1;
+    35.5 3.1613519 fixed fixed 1 1 0 -1.6922067 1 -1.6922067 1;
+    37.5 -0.33919101 fixed fixed 1 1 0 -1.2168389 1 -1.2168389 1;
+    38 -0.83227849 fixed fixed 1 1 0 -0.97910445 1 -0.97910445 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -24.598281 fixed fixed 1 1 0 -0.076935214 1 -0.076935214 1;
+    1.5 -24.402444 fixed fixed 1 1 0 0.67141187 1 0.67141187 1;
+    6 -22.437142 fixed fixed 1 1 0 -1.8389786 1 -1.8389786 1;
+    6.5 -23.591136 fixed fixed 1 1 0 -2.3071218 1 -3.4031292 1;
+    7 -25.297691 fixed fixed 1 1 0 -3.4031292 1 -4.6712867 1;
+    7.5 -27.640745 fixed fixed 1 1 0 -4.6712867 1 -8.9602916 1;
+    8 -32.151928 fixed fixed 1 1 0 -8.9602916 1 -15.410954 1;
+    8.5 -39.99933 fixed fixed 1 1 0 -15.410954 1 -17.781056 1;
+    9 -49.112682 fixed fixed 1 1 0 -17.781056 1 -15.576451 1;
+    9.5 -57.051012 fixed fixed 1 1 0 -15.576451 1 -10.1794 1;
+    10 -62.177666 fixed fixed 1 1 0 -10.1794 1 -5.0608423 1;
+    10.5 -64.716557 fixed fixed 1 1 0 -5.0608423 1 -1.88091 1;
+    11 -65.660734 fixed fixed 1 1 0 -1.88091 1 -0.14687611 1;
+    16 -65.492858 fixed fixed 1 1 0 0.2657749 1 6.6568375 1;
+    16.5 -62.149706 fixed fixed 1 1 0 6.6568375 1 9.4130768 1;
+    17 -57.407678 fixed fixed 1 1 0 9.4130768 1 11.757893 1;
+    17.5 -51.462668 fixed fixed 1 1 0 11.757893 1 17.89159 1;
+    18 -42.293395 fixed fixed 1 1 0 17.89159 1 7.6039422 1;
+    18.5 -38.474632 fixed fixed 1 1 0 7.6039422 1 0.57350298 1;
+    25.5 -37.096783 fixed fixed 1 1 0 -0.055952902 1 -0.055952902 1;
+    30.5 -37.257669 fixed fixed 1 1 0 0.062947004 1 2.4887305 1;
+    31.5 -34.557892 fixed fixed 1 1 0 2.9984202 1 2.9984202 1;
+    34.5 -27.801631 fixed fixed 1 1 0 0.33571463 1 0.33571463 1;
+    35 -27.857552 fixed fixed 1 1 0 0.13288799 1 0.13288799 1;
+    38 -24.598281 fixed fixed 1 1 0 1.328703 1 1.328703 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -54.547072 fixed fixed 1 1 0 0 1 0 1;
+    2.5 -55.099632 fixed fixed 1 1 0 -0.48957903 1 -0.48957903 1;
+    6 -55.589225 fixed fixed 1 1 0 0.66441848 1 0.66441848 1;
+    7 -54.463191 fixed fixed 1 1 0 1.7551102 1 1.7551102 1;
+    7.5 -53.400068 fixed fixed 1 1 0 2.1324656 1 5.3180363 1;
+    8 -50.728308 fixed fixed 1 1 0 5.3180363 1 11.927225 1;
+    8.5 -44.69936 fixed fixed 1 1 0 11.927225 1 20.817606 1;
+    9 -33.935431 fixed fixed 1 1 0 20.817606 1 30.099516 1;
+    9.5 -17.765072 fixed fixed 1 1 0 30.099516 1 34.51023 1;
+    10 1.1959921 fixed fixed 1 1 0 34.51023 1 29.991611 1;
+    10.5 17.29645 fixed fixed 1 1 0 29.991611 1 16.598079 1;
+    11 25.773303 fixed fixed 1 1 0 16.598079 1 0.12589392 1;
+    16 25.92021 fixed fixed 1 1 0 -0.02797645 1 -13.85274 1;
+    16.5 18.891106 fixed fixed 1 1 0 -13.85274 1 -37.357478 1;
+    17 -1.9933202 fixed fixed 1 1 0 -37.357478 1 -48.309573 1;
+    17.5 -31.305669 fixed fixed 1 1 0 -48.309573 1 -39.872103 1;
+    18 -53.973598 fixed fixed 1 1 0 -39.872103 1 -15.278419 1;
+    18.5 -61.758032 fixed fixed 1 1 0 -15.278419 1 -0.72036523 1;
+    26 -63.471577 fixed fixed 1 1 0 0.076935214 1 0.076935214 1;
+    30.5 -63.226809 fixed fixed 1 1 0 -0.02797645 1 1.6432785 1;
+    34 -57.86232 fixed fixed 1 1 0 1.8669331 1 1.8669331 1;
+    35 -56.022839 fixed fixed 1 1 0 1.3986142 1 1.3986142 1;
+    37.5 -54.686988 fixed fixed 1 1 0 0.24479281 1 0.24479281 1;
+    38 -54.547072 fixed fixed 1 1 0 0.27976285 1 0.27976285 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7|JOBJ_8 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 69.65087 fixed fixed 1 1 0 0.25878091 1 0.25878091 1;
+    1.5 69.643879 fixed fixed 1 1 0 -0.47559158 1 -0.47559158 1;
+    6 68.472353 fixed fixed 1 1 0 2.0765695 1 2.0765695 1;
+    6.5 69.748788 fixed fixed 1 1 0 2.5515855 1 3.5635485 1;
+    7 71.535786 fixed fixed 1 1 0 3.5635485 1 4.6225684 1;
+    7.5 73.854317 fixed fixed 1 1 0 4.6225684 1 7.8247296 1;
+    8 77.785037 fixed fixed 1 1 0 7.8247296 1 11.337295 1;
+    8.5 83.509745 fixed fixed 1 1 0 11.337295 1 10.309136 1;
+    9 88.709852 fixed fixed 1 1 0 10.309136 1 6.1440998 1;
+    9.5 91.790761 fixed fixed 1 1 0 6.1440998 1 1.1539117 1;
+    10 92.371282 fixed fixed 1 1 0 1.1539117 1 -1.9717556 1;
+    11 90.472385 fixed fixed 1 1 0 -1.8180118 1 0.1678584 1;
+    16 91.014403 fixed fixed 1 1 0 0.12589392 1 6.8852367 1;
+    16.5 94.46951 fixed fixed 1 1 0 6.8852367 1 11.75112 1;
+    17 100.40747 fixed fixed 1 1 0 11.75112 1 4.7756651 1;
+    17.5 102.80295 fixed fixed 1 1 0 4.7756651 1 -4.0584834 1;
+    18 100.77119 fixed fixed 1 1 0 -3.6402564 1 -3.6402564 1;
+    18.5 99.152065 fixed fixed 1 1 0 -3.228715 1 -0.2657749 1;
+    27 99.253479 fixed fixed 1 1 0 0.11889984 1 0.11889984 1;
+    30 99.417803 fixed fixed 1 1 0 -0.034970567 1 -0.034970567 1;
+    30.5 99.386348 fixed fixed 1 1 0 -0.46160398 1 -0.46160398 1;
+    31 98.952733 fixed fixed 1 1 0 -0.86722039 1 -2.1604126 1;
+    31.5 97.86864 fixed fixed 1 1 0 -2.1604126 1 -3.1798717 1;
+    32 96.277479 fixed fixed 1 1 0 -3.556574 1 -3.556574 1;
+    34.5 85.461067 fixed fixed 1 1 0 -3.8772889 1 -3.8772889 1;
+    35 83.646109 fixed fixed 1 1 0 -3.8703193 1 -3.8703193 1;
+    38 69.65087 fixed fixed 1 1 0 -4.6921647 1 -4.6921647 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7|JOBJ_8 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7|JOBJ_8 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7|JOBJ_8|JOBJ_9 0 1 0;
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7|JOBJ_8|JOBJ_9|JOBJ_10 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 338.87182 fixed fixed 1 1 0 -0.17485245 1 -0.17485245 1;
+    3.5 337.50096 fixed fixed 1 1 0 -0.51755391 1 -0.51755391 1;
+    6.5 337.22119 fixed fixed 1 1 0 0.67840523 1 0.67840523 1;
+    7.5 338.41019 fixed fixed 1 1 0 1.4755135 1 2.5306348 1;
+    8 339.67614 fixed fixed 1 1 0 2.5306348 1 4.94262 1;
+    8.5 342.15206 fixed fixed 1 1 0 4.94262 1 6.4074943 1;
+    9 345.36933 fixed fixed 1 1 0 6.4074943 1 4.4485356 1;
+    9.5 347.59344 fixed fixed 1 1 0 4.4485356 1 -2.3769751 1;
+    10 346.40444 fixed fixed 1 1 0 -2.3769751 1 -11.805327 1;
+    10.5 340.43846 fixed fixed 1 1 0 -11.805327 1 -15.999216 1;
+    11 332.27633 fixed fixed 1 1 0 -15.999216 1 -0.28675682 1;
+    16 331.90568 fixed fixed 1 1 0 0.041964672 1 28.04501 1;
+    16.5 346.82413 fixed fixed 1 1 0 28.04501 1 12.912915 1;
+    17 353.36358 fixed fixed 1 1 0 12.912915 1 3.3961541 1;
+    17.5 355.06315 fixed fixed 1 1 0 3.3961541 1 -0.020982344 1;
+    18 355.05616 fixed fixed 1 1 0 -0.020982344 1 5.5750695 1;
+    18.5 357.84681 fixed fixed 1 1 0 5.5750695 1 -0.44761645 1;
+    30.5 356.15423 fixed fixed 1 1 0 0.12589392 1 -7.1756889 1;
+    31 352.55228 fixed fixed 1 1 0 -7.3898931 1 -7.3898931 1;
+    32 344.99164 fixed fixed 1 1 0 -7.1065586 1 -7.1065586 1;
+    32.5 341.58552 fixed fixed 1 1 0 -6.7814398 1 -5.7764108 1;
+    33 338.68996 fixed fixed 1 1 0 -5.7764108 1 -4.5599246 1;
+    33.5 336.40988 fixed fixed 1 1 0 -4.5599246 1 -3.2426698 1;
+    34 334.78027 fixed fixed 1 1 0 -3.2426698 1 -1.9228399 1;
+    34.5 333.81507 fixed fixed 1 1 0 -1.9228399 1 1.3916238 1;
+    37.5 338.08148 fixed fixed 1 1 0 1.5663893 1 1.5663893 1;
+    38 338.87182 fixed fixed 1 1 0 1.5803696 1 1.5803696 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7|JOBJ_8|JOBJ_9|JOBJ_10 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -25.325709 fixed fixed 1 1 0 0.020982344 1 0.020982344 1;
+    5 -24.846601 fixed fixed 1 1 0 0.02797645 1 0.02797645 1;
+    7 -25.129872 fixed fixed 1 1 0 -0.25878091 1 -0.25878091 1;
+    8 -25.217305 fixed fixed 1 1 0 0.5525221 1 0.5525221 1;
+    8.5 -24.706685 fixed fixed 1 1 0 1.0140671 1 3.5077553 1;
+    9 -22.9512 fixed fixed 1 1 0 3.5077553 1 6.5044831 1;
+    9.5 -19.684939 fixed fixed 1 1 0 6.5044831 1 8.0660152 1;
+    10 -15.631836 fixed fixed 1 1 0 7.6936579 1 7.6936579 1;
+    10.5 -11.949436 fixed fixed 1 1 0 7.3277201 1 5.5125627 1;
+    11 -9.186748 fixed fixed 1 1 0 5.5125627 1 0.055952902 1;
+    16 -9.1273323 fixed fixed 1 1 0 0.083929322 1 4.5877676 1;
+    16.5 -6.8262765 fixed fixed 1 1 0 4.5877676 1 -0.013988226 1;
+    17 -6.8367616 fixed fixed 1 1 0 -0.013988226 1 -4.2814067 1;
+    17.5 -8.9804259 fixed fixed 1 1 0 -4.6712867 1 -4.6712867 1;
+    18 -11.519316 fixed fixed 1 1 0 -4.7617494 1 -4.7617494 1;
+    18.5 -13.753909 fixed fixed 1 1 0 -4.4554987 1 -0.21681677 1;
+    30.5 -14.547742 fixed fixed 1 1 0 -0.0069941141 1 -3.8912289 1;
+    31 -16.495627 fixed fixed 1 1 0 -4.3162303 1 -4.3162303 1;
+    32.5 -23.566671 fixed fixed 1 1 0 -4.0933208 1 -4.0933208 1;
+    33 -25.423627 fixed fixed 1 1 0 -3.228715 1 -3.228715 1;
+    33.5 -26.801419 fixed fixed 1 1 0 -2.7471074 1 -1.7131745 1;
+    34 -27.661715 fixed fixed 1 1 0 -1.7131745 1 -0.66441848 1;
+    34.5 -27.997468 fixed fixed 1 1 0 -0.66441848 1 0.81826955 1;
+    38 -25.325709 fixed fixed 1 1 0 0.66441848 1 0.66441848 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7|JOBJ_8|JOBJ_9|JOBJ_10 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -16.946716 fixed fixed 1 1 0 0.22381078 1 0.22381078 1;
+    1.5 -16.506112 fixed fixed 1 1 0 0.80428346 1 0.80428346 1;
+    6.5 -14.358895 fixed fixed 1 1 0 -1.8669331 1 -1.8669331 1;
+    7 -15.519937 fixed fixed 1 1 0 -2.3141079 1 -3.3891778 1;
+    7.5 -17.219502 fixed fixed 1 1 0 -3.3891778 1 -8.5754477 1;
+    8 -21.527858 fixed fixed 1 1 0 -8.5754477 1 -14.019977 1;
+    8.5 -28.64789 fixed fixed 1 1 0 -14.019977 1 -17.181142 1;
+    9.5 -46.098179 fixed fixed 1 1 0 -16.939065 1 -12.960039 1;
+    10 -52.665708 fixed fixed 1 1 0 -12.960039 1 -6.0331385 1;
+    10.5 -55.694133 fixed fixed 1 1 0 -6.0331385 1 1.0630138 1;
+    11 -55.1626 fixed fixed 1 1 0 1.4125961 1 1.4125961 1;
+    12 -53.470026 fixed fixed 1 1 0 1.4964847 1 1.4964847 1;
+    15.5 -53.581924 fixed fixed 1 1 0 -2.1604126 1 -2.1604126 1;
+    16 -54.847817 fixed fixed 1 1 0 -2.537618 1 -9.6596807 1;
+    16.5 -59.715724 fixed fixed 1 1 0 -9.6596807 1 11.737564 1;
+    17 -53.784751 fixed fixed 1 1 0 11.737564 1 26.382151 1;
+    17.5 -39.852481 fixed fixed 1 1 0 26.382151 1 23.847979 1;
+    18 -27.38893 fixed fixed 1 1 0 23.847979 1 8.4585035 1;
+    18.5 -23.136551 fixed fixed 1 1 0 8.4585035 1 0.72735849 1;
+    28.5 -20.898406 fixed fixed 1 1 0 -0.34270855 1 -0.34270855 1;
+    30.5 -21.905552 fixed fixed 1 1 0 -0.62945123 1 -3.0333187 1;
+    31.5 -24.52139 fixed fixed 1 1 0 -1.7341431 1 -1.7341431 1;
+    34 -25.353669 fixed fixed 1 1 0 -0.02797645 1 -0.02797645 1;
+    34.5 -25.430617 fixed fixed 1 1 0 0.02797645 1 0.02797645 1;
+    35 -25.318718 fixed fixed 1 1 0 0.21681677 1 1.5873591 1;
+    35.5 -24.528381 fixed fixed 1 1 0 2.0835572 1 2.0835572 1;
+    37.5 -18.296605 fixed fixed 1 1 0 2.9774813 1 2.9774813 1;
+    38 -16.946716 fixed fixed 1 1 0 2.698231 1 2.698231 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_6|JOBJ_7|JOBJ_8|JOBJ_9|JOBJ_10|JOBJ_11 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 0 1 0 1;
+    7.5 0 fixed fixed 1 1 0 0 1 0 1;
+    11 0 linear linear 1 1 0;
+    16 0 fixed fixed 1 1 0 -3.6611743 1 -3.6611743 1;
+    18.5 -27.500886 linear linear 1 1 0;
+    30.5 -27.500886 linear linear 1 1 0;
+    34.5 0 fixed fixed 1 1 0 3.6611743 1 3.6611743 1;
+    38 0 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12 0 1 0;
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -39.523717 fixed fixed 1 1 0 -0.12589392 1 -0.12589392 1;
+    1.5 -39.446826 fixed fixed 1 1 0 0.44062267 1 0.44062267 1;
+    6.5 -39.104083 fixed fixed 1 1 0 -2.3071218 1 -2.3071218 1;
+    7 -40.467952 fixed fixed 1 1 0 -3.1798717 1 -3.1798717 1;
+    7.5 -42.293395 fixed fixed 1 1 0 -3.6402564 1 -5.2485401 1;
+    8 -44.923214 fixed fixed 1 1 0 -5.2485401 1 -8.3621572 1;
+    8.5 -49.126662 fixed fixed 1 1 0 -8.6167091 1 -8.6167091 1;
+    9 -53.595905 fixed fixed 1 1 0 -8.8778744 1 -6.2896845 1;
+    9.5 -56.750266 fixed fixed 1 1 0 -6.2896845 1 -2.0835572 1;
+    10 -57.792362 fixed fixed 1 1 0 -2.0835572 1 1.2308223 1;
+    10.5 -57.176891 fixed fixed 1 1 0 1.2308223 1 3.8563787 1;
+    11 -55.246481 fixed fixed 1 1 0 3.8563787 1 -0.11889984 1;
+    16 -55.211531 fixed fixed 1 1 0 0.16086434 1 6.6222182 1;
+    16.5 -51.88935 fixed fixed 1 1 0 6.6222182 1 7.9557386 1;
+    17 -47.888672 fixed fixed 1 1 0 7.9557386 1 14.953189 1;
+    18 -32.60657 fixed fixed 1 1 0 15.072744 1 6.6637616 1;
+    18.5 -29.263361 fixed fixed 1 1 0 6.6637616 1 0.083929322 1;
+    30.5 -29.032574 fixed fixed 1 1 0 -0.11889984 1 -1.6223096 1;
+    31.5 -30.886035 fixed fixed 1 1 0 -2.3071218 1 -2.3071218 1;
+    34 -38.243844 fixed fixed 1 1 0 -2.7401248 1 -2.7401248 1;
+    35 -40.321045 fixed fixed 1 1 0 -1.2378134 1 -1.2378134 1;
+    38 -39.523717 fixed fixed 1 1 0 0.71337196 1 0.71337196 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 11.029724 fixed fixed 1 1 0 -0.048958788 1 -0.048958788 1;
+    1.5 11.215076 fixed fixed 1 1 0 0.59448363 1 0.59448363 1;
+    6.5 12.096342 fixed fixed 1 1 0 -2.5446024 1 -2.5446024 1;
+    7 10.592615 fixed fixed 1 1 0 -3.4728815 1 -3.4728815 1;
+    7.5 8.6202646 fixed fixed 1 1 0 -3.933047 1 -5.9152043 1;
+    8 5.6547497 fixed fixed 1 1 0 -5.9152043 1 -8.5479363 1;
+    8.5 1.3533836 fixed fixed 1 1 0 -8.5479363 1 -7.4865796 1;
+    9 -2.4024693 fixed fixed 1 1 0 -7.4865796 1 -4.7756651 1;
+    9.5 -4.7979486 fixed fixed 1 1 0 -4.7756651 1 -3.5217041 1;
+    10.5 -8.2949965 fixed fixed 1 1 0 -3.4589316 1 -1.8878979 1;
+    11 -9.2392309 fixed fixed 1 1 0 -1.8878979 1 0 1;
+    16 -9.2567061 fixed fixed 1 1 0 -0.0069941141 1 2.9216396 1;
+    16.5 -7.7914239 fixed fixed 1 1 0 2.9216396 1 6.3728481 1;
+    17 -4.5951215 fixed fixed 1 1 0 6.3728481 1 12.690615 1;
+    17.5 1.8289386 fixed fixed 1 1 0 12.690615 1 25.10323 1;
+    18 15.012869 fixed fixed 1 1 0 25.10323 1 17.279157 1;
+    18.5 23.856931 fixed fixed 1 1 0 17.279157 1 0.61546428 1;
+    27 26.032108 fixed fixed 1 1 0 -0.041964672 1 -0.041964672 1;
+    30.5 25.682375 fixed fixed 1 1 0 -0.12589392 1 -3.556574 1;
+    31 23.902367 fixed fixed 1 1 0 -4.0445475 1 -4.0445475 1;
+    33 14.32744 fixed fixed 1 1 0 -4.2187185 1 -4.2187185 1;
+    33.5 12.390098 fixed fixed 1 1 0 -3.4240562 1 -3.4240562 1;
+    34 10.896855 fixed fixed 1 1 0 -2.9774813 1 -1.9717556 1;
+    34.5 9.9106802 fixed fixed 1 1 0 -1.9717556 1 -0.75533148 1;
+    35 9.5329864 fixed fixed 1 1 0 -0.37068412 1 -0.37068412 1;
+    37.5 10.910835 fixed fixed 1 1 0 0.44062267 1 0.44062267 1;
+    38 11.029724 fixed fixed 1 1 0 0.23779881 1 0.23779881 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -41.090413 fixed fixed 1 1 0 -0.22381078 1 -0.22381078 1;
+    2.5 -42.139556 fixed fixed 1 1 0 -0.71337196 1 -0.71337196 1;
+    6 -43.363509 fixed fixed 1 1 0 0.33571463 1 0.33571463 1;
+    7 -42.5522 fixed fixed 1 1 0 1.5733789 1 1.5733789 1;
+    7.5 -41.524028 fixed fixed 1 1 0 2.0416334 1 4.7478333 1;
+    8 -39.146081 fixed fixed 1 1 0 4.7478333 1 9.7212905 1;
+    8.5 -34.250156 fixed fixed 1 1 0 9.7212905 1 15.602908 1;
+    9 -26.297846 fixed fixed 1 1 0 15.602908 1 18.939803 1;
+    9.5 -16.56209 fixed fixed 1 1 0 18.939803 1 17.989033 1;
+    10 -7.3368392 fixed fixed 1 1 0 17.989033 1 13.376796 1;
+    10.5 -0.55955058 fixed fixed 1 1 0 13.376796 1 5.9013273 1;
+    11 2.3989743 fixed fixed 1 1 0 5.9013273 1 -0.10491161 1;
+    16 1.8604513 fixed fixed 1 1 0 -0.28675682 1 -14.493969 1;
+    16.5 -5.4973582 fixed fixed 1 1 0 -14.493969 1 -33.794564 1;
+    17 -24.00378 fixed fixed 1 1 0 -33.794564 1 -40.137548 1;
+    17.5 -46.867547 fixed fixed 1 1 0 -40.137548 1 -30.258236 1;
+    18 -63.135881 fixed fixed 1 1 0 -30.258236 1 -8.1762458 1;
+    18.5 -67.24141 fixed fixed 1 1 0 -8.1762458 1 -0.36369024 1;
+    30 -68.241565 fixed fixed 1 1 0 -0.15387017 1 -0.15387017 1;
+    30.5 -68.325504 fixed fixed 1 1 0 0.020982344 1 0.020982344 1;
+    31 -68.220595 fixed fixed 1 1 0 0.21681677 1 2.0835572 1;
+    31.5 -67.171452 fixed fixed 1 1 0 2.0835572 1 3.6263103 1;
+    32 -65.359989 fixed fixed 1 1 0 3.6263103 1 4.8104519 1;
+    32.5 -62.947034 fixed fixed 1 1 0 5.2068368 1 5.2068368 1;
+    34.5 -51.672543 fixed fixed 1 1 0 4.7408745 1 4.7408745 1;
+    38 -41.090413 fixed fixed 1 1 0 1.9158512 1 1.9158512 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13|JOBJ_14 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 72.161742 fixed fixed 1 1 0 0.13988205 1 0.13988205 1;
+    1 72.231701 fixed fixed 1 1 0 -0.24479281 1 -0.24479281 1;
+    5 67.615609 fixed fixed 1 1 0 0.38467197 1 0.38467197 1;
+    5.5 68.059708 fixed fixed 1 1 0 0.88819909 1 2.0905438 1;
+    6 69.108851 fixed fixed 1 1 0 2.0905438 1 3.4589316 1;
+    6.5 70.839872 fixed fixed 1 1 0 3.4589316 1 4.9287095 1;
+    7 73.312299 fixed fixed 1 1 0 4.9287095 1 6.4421358 1;
+    7.5 76.543609 fixed fixed 1 1 0 6.4421358 1 11.798545 1;
+    8 82.509532 fixed fixed 1 1 0 11.798545 1 16.775248 1;
+    8.5 91.080866 fixed fixed 1 1 0 16.775248 1 17.90459 1;
+    9 100.26062 fixed fixed 1 1 0 17.90459 1 16.368069 1;
+    9.5 108.61509 fixed fixed 1 1 0 16.368069 1 13.020599 1;
+    10 115.21402 fixed fixed 1 1 0 13.020599 1 8.3483905 1;
+    10.5 119.41397 fixed fixed 1 1 0 8.3483905 1 2.3350637 1;
+    11 120.582 fixed fixed 1 1 0 2.3350637 1 0.74134507 1;
+    14.5 121.3339 fixed fixed 1 1 0 -0.38467197 1 -0.38467197 1;
+    16 120.38617 fixed fixed 1 1 0 -0.7902973 1 -4.7617494 1;
+    16.5 117.99768 fixed fixed 1 1 0 -4.7617494 1 -16.735901 1;
+    17 109.44388 fixed fixed 1 1 0 -16.735901 1 -26.059767 1;
+    17.5 95.703948 fixed fixed 1 1 0 -26.059767 1 -27.494608 1;
+    18 81.114208 fixed fixed 1 1 0 -27.494608 1 -11.812097 1;
+    18.5 75.144733 fixed fixed 1 1 0 -11.812097 1 -1.2378134 1;
+    23 71.710653 fixed fixed 1 1 0 -0.28675682 1 -0.28675682 1;
+    30.5 72.245681 fixed fixed 1 1 0 0.16086434 1 3.0263387 1;
+    31 73.763446 fixed fixed 1 1 0 3.0263387 1 4.6782453 1;
+    31.5 76.106442 fixed fixed 1 1 0 5.0886545 1 5.0886545 1;
+    32.5 81.649293 fixed fixed 1 1 0 5.2693896 1 5.2693896 1;
+    33 84.146186 fixed fixed 1 1 0 4.977395 1 3.8912289 1;
+    33.5 86.094071 fixed fixed 1 1 0 3.8912289 1 2.404915 1;
+    34 87.297053 fixed fixed 1 1 0 2.404915 1 0.60147716 1;
+    34.5 87.597798 fixed fixed 1 1 0 0.60147716 1 -1.4405595 1;
+    35 86.877361 fixed fixed 1 1 0 -1.4405595 1 -3.186849 1;
+    35.5 85.282705 fixed fixed 1 1 0 -3.186849 1 -4.4763861 1;
+    36 83.037627 fixed fixed 1 1 0 -4.9078423 1 -4.9078423 1;
+    37.5 74.665683 fixed fixed 1 1 0 -5.3180363 1 -5.3180363 1;
+    38 72.161742 fixed fixed 1 1 0 -4.9982577 1 -4.9982577 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13|JOBJ_14 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13|JOBJ_14 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13|JOBJ_14|JOBJ_15 0 1 0;
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13|JOBJ_14|JOBJ_15|JOBJ_16 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 6.5814516 fixed fixed 1 1 0 -0.055952902 1 -0.055952902 1;
+    4 6.8856922 fixed fixed 1 1 0 0.10491161 1 0.10491161 1;
+    6.5 6.4136323 fixed fixed 1 1 0 -0.51755391 1 -0.51755391 1;
+    7.5 5.8575767 fixed fixed 1 1 0 -0.53853486 1 -2.991441 1;
+    8.5 2.7871532 fixed fixed 1 1 0 -3.1380027 1 -1.5454181 1;
+    9 2.0107954 fixed fixed 1 1 0 -1.1119594 1 -1.1119594 1;
+    9.5 1.6716044 fixed fixed 1 1 0 -0.67840523 1 -2.3001367 1;
+    10 0.52104782 fixed fixed 1 1 0 -2.3001367 1 -4.6086482 1;
+    11 -4.1300517 fixed fixed 1 1 0 -4.6782453 1 -0.57350298 1;
+    15 -4.5846364 fixed fixed 1 1 0 0.3077388 1 0.3077388 1;
+    16 -4.2069426 fixed fixed 1 1 0 0.4056535 1 -6.2896845 1;
+    16.5 -7.3647995 fixed fixed 1 1 0 -6.2896845 1 -4.0654506 1;
+    17 -9.4001175 fixed fixed 1 1 0 -4.0654506 1 -2.4607933 1;
+    17.5 -10.634555 fixed fixed 1 1 0 -2.4607933 1 3.2845324 1;
+    18 -8.990911 fixed fixed 1 1 0 3.2845324 1 0.38467197 1;
+    21 -7.7669586 fixed fixed 1 1 0 0.27276888 1 0.27276888 1;
+    30 -7.6690401 fixed fixed 1 1 0 -0.055952902 1 -0.055952902 1;
+    30.5 -7.6970004 fixed fixed 1 1 0 0.10491161 1 0.10491161 1;
+    31 -7.5641315 fixed fixed 1 1 0 0.034970567 1 0.034970567 1;
+    33 -7.5536464 fixed fixed 1 1 0 0.75533148 1 0.75533148 1;
+    35.5 -2.1577018 fixed fixed 1 1 0 3.298486 1 3.298486 1;
+    37.5 4.9588351 fixed fixed 1 1 0 3.3752261 1 3.3752261 1;
+    38 6.5814516 fixed fixed 1 1 0 3.2426698 1 3.2426698 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13|JOBJ_14|JOBJ_15|JOBJ_16 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -14.803052 fixed fixed 1 1 0 0.11190571 1 0.11190571 1;
+    3 -13.827362 fixed fixed 1 1 0 0.54552848 1 0.54552848 1;
+    7 -14.075682 fixed fixed 1 1 0 -1.2378134 1 -1.2378134 1;
+    7.5 -14.806547 fixed fixed 1 1 0 -1.454541 1 -3.3961541 1;
+    8 -16.506112 fixed fixed 1 1 0 -3.3961541 1 -7.4244282 1;
+    8.5 -20.237442 fixed fixed 1 1 0 -7.4244282 1 -8.7335805 1;
+    9 -24.633289 fixed fixed 1 1 0 -8.7335805 1 -6.5529677 1;
+    9.5 -27.924015 fixed fixed 1 1 0 -6.5529677 1 -2.3839607 1;
+    10 -29.116512 fixed fixed 1 1 0 -2.3839607 1 0.72036523 1;
+    11 -28.490498 fixed fixed 1 1 0 0.27276888 1 0.27276888 1;
+    12 -28.476518 fixed fixed 1 1 0 -0.0069941141 1 -0.0069941141 1;
+    16 -28.777264 fixed fixed 1 1 0 -0.11190571 1 1.9298275 1;
+    16.5 -27.808621 fixed fixed 1 1 0 1.5524077 1 1.5524077 1;
+    17 -27.22111 fixed fixed 1 1 0 1.174888 1 15.410954 1;
+    17.5 -19.373708 fixed fixed 1 1 0 15.410954 1 21.77552 1;
+    18 -8.0746942 fixed fixed 1 1 0 21.77552 1 13.302931 1;
+    18.5 -1.3323561 fixed fixed 1 1 0 13.302931 1 0.13988205 1;
+    30.5 -1.4862525 fixed fixed 1 1 0 0.020982344 1 -2.1883588 1;
+    33.5 -8.0886744 fixed fixed 1 1 0 -1.7690885 1 -1.7690885 1;
+    37.5 -14.016209 fixed fixed 1 1 0 -1.5384272 1 -1.5384272 1;
+    38 -14.803052 fixed fixed 1 1 0 -1.5733789 1 -1.5733789 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13|JOBJ_14|JOBJ_15|JOBJ_16 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 25.126377 fixed fixed 1 1 0 0.13288799 1 0.13288799 1;
+    3 26.199928 fixed fixed 1 1 0 0.52454757 1 0.52454757 1;
+    6 26.731518 fixed fixed 1 1 0 -0.37767799 1 -0.37767799 1;
+    7 25.965645 fixed fixed 1 1 0 -1.3776417 1 -1.3776417 1;
+    7.5 25.087874 fixed fixed 1 1 0 -1.7481216 1 -4.1629899 1;
+    8 23.003625 fixed fixed 1 1 0 -4.1629899 1 -9.9812309 1;
+    8.5 17.971394 fixed fixed 1 1 0 -9.9812309 1 -15.225368 1;
+    9 10.221911 fixed fixed 1 1 0 -15.225368 1 -16.525831 1;
+    9.5 1.780008 fixed fixed 1 1 0 -16.525831 1 -11.900147 1;
+    10 -4.2314652 fixed fixed 1 1 0 -11.900147 1 -4.288372 1;
+    10.5 -6.3821196 fixed fixed 1 1 0 -4.288372 1 1.1329356 1;
+    11 -5.8156362 fixed fixed 1 1 0 0.65043167 1 0.65043167 1;
+    11.5 -5.7282029 fixed fixed 1 1 0 0.12589392 1 0.12589392 1;
+    16 -5.3365289 fixed fixed 1 1 0 0.2937509 1 7.154952 1;
+    16.5 -1.7450576 fixed fixed 1 1 0 7.154952 1 23.201351 1;
+    17 10.34779 fixed fixed 1 1 0 23.201351 1 34.419888 1;
+    17.5 29.263361 fixed fixed 1 1 0 34.419888 1 28.984372 1;
+    18 44.744853 fixed fixed 1 1 0 28.984372 1 10.793228 1;
+    18.5 50.19328 fixed fixed 1 1 0 10.793228 1 0.44761645 1;
+    29.5 51.326304 fixed fixed 1 1 0 0.069941115 1 0.069941115 1;
+    30.5 51.427718 fixed fixed 1 1 0 -0.069941115 1 -0.069941115 1;
+    31 51.294849 fixed fixed 1 1 0 -0.25878091 1 -2.0765695 1;
+    31.5 50.256191 fixed fixed 1 1 0 -2.0765695 1 -3.5705217 1;
+    32 48.469193 fixed fixed 1 1 0 -3.5705217 1 -4.7060825 1;
+    32.5 46.112216 fixed fixed 1 1 0 -5.0747486 1 -5.0747486 1;
+    34.5 35.32027 fixed fixed 1 1 0 -4.4137223 1 -4.4137223 1;
+    38 25.126377 fixed fixed 1 1 0 -2.3490344 1 -2.3490344 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_12|JOBJ_13|JOBJ_14|JOBJ_15|JOBJ_16|JOBJ_17 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -14.893981 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -14.893981 fixed fixed 1 1 0 -0.70934888 1 -0.70934888 1;
+    11 -22.342718 fixed fixed 1 1 0 -0.87623729 1 -0.87623729 1;
+    16 -22.342718 fixed fixed 1 1 0 0.53474889 1 0.53474889 1;
+    18.5 -18.331555 fixed fixed 1 1 0 0.27659858 1 0.27659858 1;
+    30.5 -18.331555 fixed fixed 1 1 0 0.17629434 1 0.17629434 1;
+    38 -14.893981 fixed fixed 1 1 0 0.42971207 1 0.42971207 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -21.69923 fixed fixed 1 1 0 -0.023685455 1 -0.023685455 1;
+    7 -21.853126 fixed fixed 1 1 0 0.26235439 1 0.26235439 1;
+    8.5 -20.807478 fixed fixed 1 1 0 1.2600179 1 1.2600179 1;
+    10.5 -18.195192 fixed fixed 1 1 0 0.75644241 1 0.75644241 1;
+    12 -17.824488 fixed fixed 1 1 0 0.083225204 1 0.083225204 1;
+    16 -17.950424 fixed fixed 1 1 0 -0.09791939 1 -1.9578634 1;
+    16.5 -18.929552 fixed fixed 1 1 0 -1.9578634 1 -4.5085739 1;
+    17 -21.185172 fixed fixed 1 1 0 -4.9185569 1 -4.9185569 1;
+    17.5 -23.856931 fixed fixed 1 1 0 -4.87653 1 -4.87653 1;
+    18 -26.070554 fixed fixed 1 1 0 -4.4244436 1 -1.7890989 1;
+    18.5 -26.9658 fixed fixed 1 1 0 -1.7890989 1 0.095504699 1;
+    30 -27.014788 fixed fixed 1 1 0 0.083044001 1 0.083044001 1;
+    33 -25.846756 fixed fixed 1 1 0 0.71412176 1 0.71412176 1;
+    38 -21.69923 fixed fixed 1 1 0 0.70101215 1 0.70101215 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 2.0982287 fixed fixed 1 1 0 0.034970567 1 0.034970567 1;
+    7 2.3290161 fixed fixed 1 1 0 -0.39166582 1 -0.39166582 1;
+    8 1.5946561 fixed fixed 1 1 0 -1.3706501 1 -1.3706501 1;
+    10.5 -3.2207677 fixed fixed 1 1 0 -1.028052 1 -1.028052 1;
+    12 -3.5809862 fixed fixed 1 1 0 -0.062947004 1 -0.062947004 1;
+    16 -3.5180182 fixed fixed 1 1 0 0.14687611 1 6.7191446 1;
+    16.5 -0.14335404 fixed fixed 1 1 0 6.7191446 1 15.669044 1;
+    17 7.8369167 fixed fixed 1 1 0 15.669044 1 18.804446 1;
+    17.5 17.502772 fixed fixed 1 1 0 18.804446 1 16.473272 1;
+    18 25.916715 fixed fixed 1 1 0 16.473272 1 8.4103342 1;
+    18.5 30.144627 fixed fixed 1 1 0 8.4103342 1 0.062947004 1;
+    30 30.158608 fixed fixed 1 1 0 -0.020982344 1 -0.020982344 1;
+    31 29.92782 fixed fixed 1 1 0 -0.90218473 1 -0.90218473 1;
+    37.5 3.9831453 fixed fixed 1 1 0 -3.9957688 1 -3.9957688 1;
+    38 2.0982287 fixed fixed 1 1 0 -3.7657562 1 -3.7657562 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 32.199139 fixed fixed 1 1 0 -0.11190571 1 -0.11190571 1;
+    3 31.190275 fixed fixed 1 1 0 -0.57350298 1 -0.57350298 1;
+    7 31.440314 fixed fixed 1 1 0 1.2867548 1 1.2867548 1;
+    7.5 32.199139 fixed fixed 1 1 0 1.5104656 1 3.3124393 1;
+    8 33.858483 fixed fixed 1 1 0 3.3124393 1 5.7139364 1;
+    8.5 36.72436 fixed fixed 1 1 0 5.7139364 1 7.0581575 1;
+    9 40.270339 fixed fixed 1 1 0 7.2102487 1 7.2102487 1;
+    9.5 43.965 fixed fixed 1 1 0 6.9820849 1 6.9820849 1;
+    10 47.281967 fixed fixed 1 1 0 6.6083693 1 4.8034952 1;
+    10.5 49.689707 fixed fixed 1 1 0 4.8034952 1 1.9438037 1;
+    11 50.663621 fixed fixed 1 1 0 1.9438037 1 0.13288799 1;
+    16 50.663621 fixed fixed 1 1 0 -0.11889984 1 -3.8563787 1;
+    16.5 48.729717 fixed fixed 1 1 0 -3.8563787 1 -8.9671578 1;
+    17 44.216815 fixed fixed 1 1 0 -8.9671578 1 -10.636534 1;
+    17.5 38.852325 fixed fixed 1 1 0 -10.636534 1 -8.9259544 1;
+    18 34.360336 fixed fixed 1 1 0 -8.9259544 1 -3.7727271 1;
+    18.5 32.470149 fixed fixed 1 1 0 -3.7727271 1 -0.020982344 1;
+    33 32.386267 fixed fixed 1 1 0 -0.034970567 1 -0.034970567 1;
+    38 32.199139 fixed fixed 1 1 0 -0.02797645 1 -0.02797645 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19 0 4 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -9.2987039 fixed fixed 1 1 0 -0.01015091 1 -0.01015091 1;
+    7 -9.3651098 fixed fixed 1 1 0 0.11243809 1 0.11243809 1;
+    9 -8.6167696 fixed fixed 1 1 0 0.61336858 1 0.61336858 1;
+    11 -7.6900103 fixed fixed 1 1 0 0.13742144 1 0.13742144 1;
+    15.5 -7.6690401 fixed fixed 1 1 0 -0.039581776 1 -0.039581776 1;
+    16 -7.6900103 fixed fixed 1 1 0 -0.44064008 1 -0.44064008 1;
+    16.5 -8.1097019 fixed fixed 1 1 0 -0.83928371 1 -1.9346924 1;
+    17 -9.0783444 fixed fixed 1 1 0 -2.1111277 1 -2.1111277 1;
+    17.5 -10.221911 fixed fixed 1 1 0 -2.0930348 1 -2.0930348 1;
+    18 -11.173078 fixed fixed 1 1 0 -1.8985004 1 -0.76691057 1;
+    18.5 -11.554267 fixed fixed 1 1 0 -0.36300294 1 -0.36300294 1;
+    19 -11.536792 fixed fixed 1 1 0 0.035591126 1 0.035591126 1;
+    30.5 -11.554267 fixed fixed 1 1 0 0.060741405 1 0.060741405 1;
+    38 -9.2987039 fixed fixed 1 1 0 0.30044165 1 0.30044165 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19 0 4 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0.8987416 fixed fixed 1 1 0 0.013988226 1 0.013988226 1;
+    7 0.99666008 fixed fixed 1 1 0 -0.1678584 1 -0.1678584 1;
+    8.5 0.30773563 fixed fixed 1 1 0 -0.83225568 1 -0.83225568 1;
+    11 -1.5072228 fixed fixed 1 1 0 -0.13988205 1 -0.13988205 1;
+    13.5 -1.5701908 fixed fixed 1 1 0 -0.0069941141 1 -0.0069941141 1;
+    16 -1.5072228 fixed fixed 1 1 0 0.062947004 1 2.8867359 1;
+    16.5 -0.059473019 fixed fixed 1 1 0 2.8867359 1 6.8160421 1;
+    17 3.3571889 fixed fixed 1 1 0 6.8160421 1 8.2382312 1;
+    17.5 7.5011635 fixed fixed 1 1 0 8.2382312 1 7.1826016 1;
+    18 11.106672 fixed fixed 1 1 0 7.1826016 1 3.6193366 1;
+    18.5 12.918136 fixed fixed 1 1 0 3.6193366 1 0.02797645 1;
+    30 12.925126 fixed fixed 1 1 0 -0.0069941141 1 -0.0069941141 1;
+    31.5 12.529957 fixed fixed 1 1 0 -0.76232465 1 -0.76232465 1;
+    37.5 1.7065548 fixed fixed 1 1 0 -1.7131745 1 -1.7131745 1;
+    38 0.8987416 fixed fixed 1 1 0 -1.6153191 1 -1.6153191 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19 0 4 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 13.799402 fixed fixed 1 1 0 -0.048958788 1 -0.048958788 1;
+    7 13.474191 fixed fixed 1 1 0 0.5525221 1 0.5525221 1;
+    7.5 13.799402 fixed fixed 1 1 0 1.0350444 1 1.0350444 1;
+    8.5 15.73852 fixed fixed 1 1 0 2.7401248 1 2.7401248 1;
+    10 20.263684 fixed fixed 1 1 0 2.4468232 1 2.4468232 1;
+    10.5 21.295352 fixed fixed 1 1 0 2.062595 1 0.83225568 1;
+    11 21.711491 fixed fixed 1 1 0 0.44062267 1 0.44062267 1;
+    12 21.763916 fixed fixed 1 1 0 0.034970567 1 0.034970567 1;
+    16 21.711491 fixed fixed 1 1 0 -0.048958788 1 -1.6502689 1;
+    16.5 20.884426 fixed fixed 1 1 0 -1.6502689 1 -3.8633485 1;
+    17 18.950579 fixed fixed 1 1 0 -4.2256848 1 -4.2256848 1;
+    17.5 16.651242 fixed fixed 1 1 0 -4.2117533 1 -4.2117533 1;
+    18 14.726104 fixed fixed 1 1 0 -3.8424378 1 -1.6153191 1;
+    18.5 13.914796 fixed fixed 1 1 0 -1.6153191 1 -0.0069941141 1;
+    36 13.830857 fixed fixed 1 1 0 -0.013988226 1 -0.013988226 1;
+    38 13.799402 fixed fixed 1 1 0 -0.013988226 1 -0.013988226 1;
+  }
+}
+anim translate.translateX translateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19 0 4 3;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim translate.translateY translateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19 0 4 4;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 1.38092 linear linear 1 1 0;
+  }
+}
+anim translate.translateZ translateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19 0 4 5;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -0.010681 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_20 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -29.68649 fixed fixed 1 1 0 0 1 0 1;
+    11 -29.508186 fixed fixed 1 1 0 0 1 0 1;
+    14 -30.62024 fixed fixed 1 1 0 0 1 0 1;
+    17 -30.011758 fixed fixed 1 1 0 0 1 0 1;
+    18.5 -36.019679 fixed fixed 1 1 0 0 1 0 1;
+    38 -29.68649 fixed fixed 1 1 0 1.0661929 1 1.0661929 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_20 0 0 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -9.893205 fixed fixed 1 1 0 0 1 0 1;
+    11 -10.459688 fixed fixed 1 1 0 0 1 0 1;
+    14 -6.1618173 fixed fixed 1 1 0 0 1 0 1;
+    17 -8.7531335 fixed fixed 1 1 0 0 1 0 1;
+    18.5 -4.8434414 fixed fixed 1 1 0 0 1 0 1;
+    38 -9.893205 fixed fixed 1 1 0 -0.82388745 1 -0.82388745 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_20 0 0 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -11.771074 fixed fixed 1 1 0 0 1 0 1;
+    11 -12.781772 fixed fixed 1 1 0 -0.11628178 1 -0.11628178 1;
+    14 -13.341265 fixed fixed 1 1 0 0 1 0 1;
+    17 -9.7567837 fixed fixed 1 1 0 2.3430373 1 2.3430373 1;
+    18.5 -2.7906482 fixed fixed 1 1 0 0 1 0 1;
+    38 -11.771074 fixed fixed 1 1 0 -0.66491519 1 -0.66491519 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21 0 2 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -2.9969703 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -2.9969703 fixed fixed 1 1 0 1.5020865 1 1.5020865 1;
+    11 12.771229 fixed fixed 1 1 0 1.8553524 1 1.8553524 1;
+    16 12.771229 fixed fixed 1 1 0 -2.0233996 1 -2.0233996 1;
+    18.5 -2.4024693 fixed fixed 1 1 0 -1.0468252 1 -1.0468252 1;
+    30.5 -2.4024693 fixed fixed 1 1 0 -0.40130721 1 -0.40130721 1;
+    34 -8.6237597 fixed fixed 1 1 0 -0.079249846 1 -0.079249846 1;
+    38 -2.9969703 fixed fixed 1 1 0 1.2500589 1 1.2500589 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21 0 2 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 2.1996423 fixed fixed 1 1 0 0 1 0 1;
+    7.5 2.1996423 fixed fixed 1 1 0 -1.1837546 1 -1.1837546 1;
+    11 -10.228901 fixed fixed 1 1 0 -1.4622034 1 -1.4622034 1;
+    16 -10.228901 fixed fixed 1 1 0 3.236731 1 3.236731 1;
+    18.5 14.061645 fixed fixed 1 1 0 1.6751504 1 1.6751504 1;
+    30.5 14.061645 fixed fixed 1 1 0 -0.80571358 1 -0.80571358 1;
+    34 1.5736859 fixed fixed 1 1 0 -1.5815904 1 -1.5815904 1;
+    38 2.1996423 fixed fixed 1 1 0 0.13888752 1 0.13888752 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21 0 2 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -2.9969703 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -2.9969703 fixed fixed 1 1 0 1.3054329 1 1.3054329 1;
+    11 10.708008 fixed fixed 1 1 0 1.6124847 1 1.6124847 1;
+    16 10.708008 fixed fixed 1 1 0 1.1732911 1 1.1732911 1;
+    18.5 19.506577 fixed fixed 1 1 0 0.60692141 1 0.60692141 1;
+    30.5 19.506577 fixed fixed 1 1 0 -0.37078186 1 -0.37078186 1;
+    34 13.760899 fixed fixed 1 1 0 -2.9992104 1 -2.9992104 1;
+    38 -2.9969703 fixed fixed 1 1 0 -3.7210096 1 -3.7210096 1;
+  }
+}
+anim |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22 0 1 0;
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 57.386708 fixed fixed 1 1 0 -6.8160421 1 -6.8160421 1;
+    1 53.966608 fixed fixed 1 1 0 -6.8160421 1 -8.4309796 1;
+    2 45.391779 fixed fixed 1 1 0 -8.3896883 1 -8.3896883 1;
+    3 37.537387 fixed fixed 1 1 0 -7.00975 1 -7.00975 1;
+    3.5 34.243166 fixed fixed 1 1 0 -6.5668189 1 -5.4917256 1;
+    4 31.487526 fixed fixed 1 1 0 -5.4917256 1 -4.2535465 1;
+    4.5 29.354289 fixed fixed 1 1 0 -4.2535465 1 -2.84485 1;
+    5 27.9345 fixed fixed 1 1 0 -2.84485 1 -1.2308223 1;
+    5.5 27.312039 fixed fixed 1 1 0 -1.2308223 1 0.61546428 1;
+    6 27.619774 fixed fixed 1 1 0 0.4056535 1 0.4056535 1;
+    6.5 27.724683 fixed fixed 1 1 0 0.19583457 1 -3.0682143 1;
+    7 26.185947 fixed fixed 1 1 0 -3.0682143 1 -1.6502689 1;
+    7.5 25.360659 fixed fixed 1 1 0 -1.6502689 1 1.3706501 1;
+    8 26.046088 fixed fixed 1 1 0 1.3706501 1 -46.537866 1;
+    8.5 -1.7625328 fixed fixed 1 1 0 -46.537866 1 -24.490025 1;
+    9 -14.59673 fixed fixed 1 1 0 -24.490025 1 -14.753702 1;
+    9.5 -22.101389 fixed fixed 1 1 0 -14.753702 1 -19.049257 1;
+    10 -31.89318 fixed fixed 1 1 0 -19.049257 1 -21.631146 1;
+    10.5 -43.111694 fixed fixed 1 1 0 -21.631146 1 -15.556603 1;
+    11 -51.036044 fixed fixed 1 1 0 -15.556603 1 -7.3277201 1;
+    12 -58.232967 fixed fixed 1 1 0 -6.5391158 1 -6.5391158 1;
+    12.5 -61.28242 fixed fixed 1 1 0 -6.0816888 1 -4.5320801 1;
+    13 -63.555515 fixed fixed 1 1 0 -4.5320801 1 -2.4258699 1;
+    13.5 -64.772478 fixed fixed 1 1 0 -2.4258699 1 0.055952902 1;
+    14 -64.744517 fixed fixed 1 1 0 0.055952902 1 2.7610714 1;
+    14.5 -63.359678 fixed fixed 1 1 0 2.7610714 1 5.5195089 1;
+    15 -60.59 fixed fixed 1 1 0 5.5195089 1 8.2244569 1;
+    15.5 -56.456511 fixed fixed 1 1 0 8.2244569 1 10.731927 1;
+    16 -51.036044 fixed fixed 1 1 0 10.731927 1 28.92673 1;
+    16.5 -35.593055 fixed fixed 1 1 0 28.92673 1 30.591522 1;
+    17 -19.121893 fixed fixed 1 1 0 30.591522 1 19.703756 1;
+    17.5 -8.9664457 fixed fixed 1 1 0 19.703756 1 -12.953313 1;
+    18 -15.533917 fixed fixed 1 1 0 -12.953313 1 -69.616507 1;
+    18.5 -68.920005 fixed fixed 1 1 0 -69.616507 1 -2.0206703 1;
+    19 -69.92715 fixed fixed 1 1 0 -1.6712374 1 -1.6712374 1;
+    21 -71.857502 fixed fixed 1 1 0 -0.76931781 1 -0.76931781 1;
+    25 -74.983903 fixed fixed 1 1 0 -0.46859773 1 -0.46859773 1;
+    30 -70.367754 fixed fixed 1 1 0 2.6703007 1 2.6703007 1;
+    30.5 -68.920005 fixed fixed 1 1 0 2.8937161 1 5.9776451 1;
+    31 -65.919539 fixed fixed 1 1 0 5.9776451 1 11.445926 1;
+    31.5 -60.135416 fixed fixed 1 1 0 11.445926 1 16.76213 1;
+    32 -51.567577 fixed fixed 1 1 0 16.76213 1 21.806869 1;
+    32.5 -40.251145 fixed fixed 1 1 0 21.806869 1 25.940046 1;
+    33 -26.577621 fixed fixed 1 1 0 25.940046 1 27.957444 1;
+    33.5 -11.715153 fixed fixed 1 1 0 27.957444 1 26.310621 1;
+    34 2.1681869 fixed fixed 1 1 0 26.310621 1 21.5746 1;
+    34.5 13.35175 fixed fixed 1 1 0 21.5746 1 15.62937 1;
+    35 21.318041 fixed fixed 1 1 0 15.62937 1 10.104254 1;
+    35.5 26.409802 fixed fixed 1 1 0 10.104254 1 7.3484463 1;
+    36 30.102687 fixed fixed 1 1 0 7.3484463 1 9.2073717 1;
+    36.5 34.732759 fixed fixed 1 1 0 9.2073717 1 15.318191 1;
+    37 42.53822 fixed fixed 1 1 0 15.318191 1 18.746391 1;
+    37.5 52.169125 fixed fixed 1 1 0 18.746391 1 10.350088 1;
+    38 57.386708 fixed fixed 1 1 0 10.350088 1 10.350088 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 84.027297 fixed fixed 1 1 0 -1.4265779 1 -1.4265779 1;
+    1.5 82.355693 fixed fixed 1 1 0 -2.0556082 1 -2.0556082 1;
+    5.5 75.004874 fixed fixed 1 1 0 -0.27276888 1 -0.27276888 1;
+    6 75.039824 fixed fixed 1 1 0 0.062947004 1 1.3426855 1;
+    6.5 75.711273 fixed fixed 1 1 0 1.3426855 1 3.1659156 1;
+    7 77.298939 fixed fixed 1 1 0 3.5496007 1 3.5496007 1;
+    7.5 79.271289 fixed fixed 1 1 0 3.933047 1 -4.128157 1;
+    8 77.201021 fixed fixed 1 1 0 -4.128157 1 -54.826362 1;
+    8.5 41.845801 fixed fixed 1 1 0 -54.826362 1 -59.349959 1;
+    9 1.6855845 fixed fixed 1 1 0 -59.349959 1 -30.529502 1;
+    9.5 -14.736589 fixed fixed 1 1 0 -30.529502 1 -24.135935 1;
+    10 -27.367959 fixed fixed 1 1 0 -24.135935 1 -20.252583 1;
+    10.5 -37.824153 fixed fixed 1 1 0 -20.252583 1 -12.0964 1;
+    11 -43.937039 fixed fixed 1 1 0 -12.0964 1 -5.7278204 1;
+    11.5 -46.811626 fixed fixed 1 1 0 -5.7278204 1 -4.0793858 1;
+    12 -48.853877 fixed fixed 1 1 0 -4.0793858 1 -2.4957141 1;
+    12.5 -50.105847 fixed fixed 1 1 0 -2.4957141 1 -1.0839906 1;
+    13 -50.65136 fixed fixed 1 1 0 -1.0839906 1 0.083929322 1;
+    13.5 -50.602429 fixed fixed 1 1 0 0.5525221 1 0.5525221 1;
+    15 -47.95863 fixed fixed 1 1 0 2.9216396 1 2.9216396 1;
+    15.5 -46.273046 fixed fixed 1 1 0 3.3612741 1 4.6573678 1;
+    16 -43.937039 fixed fixed 1 1 0 4.6573678 1 18.500948 1;
+    16.5 -34.439003 fixed fixed 1 1 0 18.500948 1 37.886606 1;
+    17 -13.176941 fixed fixed 1 1 0 38.196739 1 38.196739 1;
+    17.5 8.5048709 fixed fixed 1 1 0 38.500199 1 64.276205 1;
+    18 54.575089 fixed fixed 1 1 0 64.276205 1 -8.7473264 1;
+    18.5 50.168757 fixed fixed 1 1 0 -8.7473264 1 -2.7889986 1;
+    20 46.552821 fixed fixed 1 1 0 -1.8948868 1 -1.8948868 1;
+    24.5 42.775998 fixed fixed 1 1 0 0.13288799 1 0.13288799 1;
+    30 49.19662 fixed fixed 1 1 0 1.8948868 1 1.8948868 1;
+    31 51.399757 fixed fixed 1 1 0 2.7889986 1 2.7889986 1;
+    32.5 56.232656 fixed fixed 1 1 0 2.7540889 1 2.7540889 1;
+    33.5 58.03014 fixed fixed 1 1 0 0.85323456 1 0.85323456 1;
+    34 58.267974 fixed fixed 1 1 0 0.63644469 1 0.63644469 1;
+    34.5 58.666638 fixed fixed 1 1 0 0.79729039 1 3.7587841 1;
+    35 60.55505 fixed fixed 1 1 0 3.7587841 1 8.0797965 1;
+    35.5 64.611648 fixed fixed 1 1 0 8.0797965 1 10.868126 1;
+    36.5 75.739234 fixed fixed 1 1 0 11.167436 1 8.8778744 1;
+    37 80.208476 fixed fixed 1 1 0 8.8778744 1 5.2902392 1;
+    37.5 82.859266 fixed fixed 1 1 0 5.2902392 1 2.3420497 1;
+    38 84.027297 fixed fixed 1 1 0 2.3420497 1 2.3420497 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -16.240317 fixed fixed 1 1 0 -7.6177464 1 -7.6177464 1;
+    1 -20.066128 fixed fixed 1 1 0 -7.6177464 1 -9.707601 1;
+    1.5 -24.961995 fixed fixed 1 1 0 -9.926532 1 -9.926532 1;
+    2.5 -35.012534 fixed fixed 1 1 0 -9.4062224 1 -9.4062224 1;
+    3 -39.551735 fixed fixed 1 1 0 -9.0083542 1 -7.9626327 1;
+    3.5 -43.552355 fixed fixed 1 1 0 -7.9626327 1 -6.6637616 1;
+    4 -46.895507 fixed fixed 1 1 0 -6.6637616 1 -5.151226 1;
+    4.5 -49.476338 fixed fixed 1 1 0 -5.151226 1 -3.4101053 1;
+    5 -51.18994 fixed fixed 1 1 0 -3.4101053 1 -1.4265779 1;
+    5.5 -51.91032 fixed fixed 1 1 0 -1.4265779 1 0.85323456 1;
+    6.5 -50.924145 fixed fixed 1 1 0 1.1049673 1 -1.0769984 1;
+    7 -51.462668 fixed fixed 1 1 0 -1.0769984 1 1.5943497 1;
+    7.5 -50.66534 fixed fixed 1 1 0 1.5943497 1 26.744807 1;
+    8 -36.516262 fixed fixed 1 1 0 26.744807 1 -10.650164 1;
+    8.5 -41.894731 fixed fixed 1 1 0 -10.650164 1 -1.5524077 1;
+    9 -42.671089 fixed fixed 1 1 0 -1.9577798 1 -1.9577798 1;
+    9.5 -43.867081 fixed fixed 1 1 0 -2.3769751 1 0.23779881 1;
+    10 -43.741202 fixed fixed 1 1 0 0.23779881 1 6.4421358 1;
+    10.5 -40.509892 fixed fixed 1 1 0 6.4421358 1 7.5625258 1;
+    11 -36.712099 fixed fixed 1 1 0 7.5625258 1 4.6225684 1;
+    11.5 -34.390073 fixed fixed 1 1 0 4.9565301 1 4.9565301 1;
+    12.5 -29.137482 fixed fixed 1 1 0 4.7060825 1 4.7060825 1;
+    13 -27.011293 fixed fixed 1 1 0 4.2465817 1 2.6284033 1;
+    13.5 -25.689365 fixed fixed 1 1 0 2.6284033 1 0.53154122 1;
+    14 -25.416637 fixed fixed 1 1 0 0.53154122 1 -1.8459667 1;
+    14.5 -26.346834 fixed fixed 1 1 0 -1.8459667 1 -4.3719423 1;
+    15 -28.535991 fixed fixed 1 1 0 -4.3719423 1 -6.9129115 1;
+    15.5 -32.012069 fixed fixed 1 1 0 -6.9129115 1 -9.32396 1;
+    16 -36.712099 fixed fixed 1 1 0 -9.32396 1 -21.825677 1;
+    16.5 -48.035578 fixed fixed 1 1 0 -21.825677 1 -10.377386 1;
+    17 -53.274189 fixed fixed 1 1 0 -10.377386 1 11.167436 1;
+    17.5 -47.636914 fixed fixed 1 1 0 11.167436 1 -32.552628 1;
+    18 -65.339018 fixed fixed 1 1 0 -32.552628 1 -78.019548 1;
+    18.5 -132.34259 fixed fixed 1 1 0 -78.019548 1 -4.0236426 1;
+    19 -134.36393 fixed fixed 1 1 0 -4.0236426 1 -3.0054005 1;
+    19.5 -135.86766 fixed fixed 1 1 0 -2.6563351 1 -2.6563351 1;
+    22 -139.68642 fixed fixed 1 1 0 -0.78330419 1 -0.78330419 1;
+    27 -138.23168 fixed fixed 1 1 0 1.3147204 1 1.3147204 1;
+    30.5 -132.34259 fixed fixed 1 1 0 1.873921 1 3.1728931 1;
+    31 -130.75493 fixed fixed 1 1 0 3.1728931 1 6.0400751 1;
+    31.5 -127.71951 fixed fixed 1 1 0 6.0400751 1 9.5432614 1;
+    32 -122.91457 fixed fixed 1 1 0 9.5432614 1 13.55795 1;
+    32.5 -116.03937 fixed fixed 1 1 0 13.55795 1 17.383608 1;
+    33 -107.14282 fixed fixed 1 1 0 17.383608 1 19.774101 1;
+    33.5 -96.945433 fixed fixed 1 1 0 19.594939 1 19.594939 1;
+    34 -86.950814 fixed fixed 1 1 0 19.402644 1 16.716222 1;
+    34.5 -78.410993 fixed fixed 1 1 0 16.716222 1 13.678617 1;
+    35 -71.465828 fixed fixed 1 1 0 13.678617 1 12.008445 1;
+    35.5 -65.394939 fixed fixed 1 1 0 12.400512 1 12.400512 1;
+    36 -58.911406 fixed fixed 1 1 0 12.805173 1 16.886672 1;
+    36.5 -50.273666 fixed fixed 1 1 0 16.886672 1 23.331036 1;
+    37 -38.096938 fixed fixed 1 1 0 23.331036 1 25.826157 1;
+    37.5 -24.486383 fixed fixed 1 1 0 25.826157 1 16.164008 1;
+    38 -16.240317 fixed fixed 1 1 0 16.164008 1 16.164008 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -135.21718 fixed fixed 1 1 0 0.74833828 1 0.74833828 1;
+    1 -134.83954 fixed fixed 1 1 0 1.174888 1 1.174888 1;
+    4 -127.41877 fixed fixed 1 1 0 2.2861653 1 2.2861653 1;
+    4.5 -126.41162 fixed fixed 1 1 0 1.5943497 1 1.5943497 1;
+    5 -125.81712 fixed fixed 1 1 0 1.1818793 1 0.083929322 1;
+    5.5 -125.77512 fixed fixed 1 1 0 0.083929322 1 -1.2448056 1;
+    6 -126.39764 fixed fixed 1 1 0 -1.2448056 1 -2.7889986 1;
+    6.5 -127.78947 fixed fixed 1 1 0 -2.7889986 1 -4.4554987 1;
+    7 -130.02756 fixed fixed 1 1 0 -4.4554987 1 -6.1302315 1;
+    7.5 -133.09798 fixed fixed 1 1 0 -6.1302315 1 -17.220364 1;
+    8 -141.91059 fixed fixed 1 1 0 -17.220364 1 10.670608 1;
+    8.5 -136.52513 fixed fixed 1 1 0 10.670608 1 29.455385 1;
+    9 -120.76037 fixed fixed 1 1 0 29.455385 1 9.8718195 1;
+    9.5 -115.78056 fixed fixed 1 1 0 9.8718195 1 7.6177464 1;
+    10 -111.95475 fixed fixed 1 1 0 7.6177464 1 10.261348 1;
+    10.5 -106.77911 fixed fixed 1 1 0 10.261348 1 9.214232 1;
+    11 -102.14205 fixed fixed 1 1 0 9.214232 1 6.0816888 1;
+    11.5 -99.092592 fixed fixed 1 1 0 5.6722816 1 5.6722816 1;
+    12 -96.455841 fixed fixed 1 1 0 5.2554897 1 4.1490568 1;
+    12.5 -94.378582 fixed fixed 1 1 0 4.1490568 1 2.7820163 1;
+    13 -92.986753 fixed fixed 1 1 0 2.7820163 1 1.2168389 1;
+    13.5 -92.378272 fixed fixed 1 1 0 1.2168389 1 -0.48258531 1;
+    14 -92.616049 fixed fixed 1 1 0 -0.48258531 1 -2.2512354 1;
+    14.5 -93.742083 fixed fixed 1 1 0 -2.2512354 1 -3.9957688 1;
+    15 -95.749441 fixed fixed 1 1 0 -3.9957688 1 -5.6445092 1;
+    15.5 -98.57504 fixed fixed 1 1 0 -5.6445092 1 -7.0996441 1;
+    16 -102.14205 fixed fixed 1 1 0 -7.0996441 1 -15.702089 1;
+    16.5 -110.15028 fixed fixed 1 1 0 -15.702089 1 -14.640542 1;
+    17 -117.59202 fixed fixed 1 1 0 -14.640542 1 -3.8215253 1;
+    17.5 -119.50141 fixed fixed 1 1 0 -3.8215253 1 -12.44102 1;
+    18 -125.80314 fixed fixed 1 1 0 -12.44102 1 18.248504 1;
+    18.5 -116.43803 fixed fixed 1 1 0 18.248504 1 3.6123639 1;
+    20 -111.64701 fixed fixed 1 1 0 2.5166669 1 2.5166669 1;
+    24.5 -108.84239 fixed fixed 1 1 0 -0.84624162 1 -0.84624162 1;
+    30 -115.92042 fixed fixed 1 1 0 -1.0909828 1 -1.0909828 1;
+    31 -117.14443 fixed fixed 1 1 0 -1.7481216 1 -1.7481216 1;
+    32.5 -120.60647 fixed fixed 1 1 0 -2.4398392 1 -2.4398392 1;
+    34 -124.71905 fixed fixed 1 1 0 -3.5007802 1 -3.5007802 1;
+    34.5 -126.65639 fixed fixed 1 1 0 -3.8563787 1 -5.1303695 1;
+    35 -129.23023 fixed fixed 1 1 0 -5.6097915 1 -5.6097915 1;
+    35.5 -132.27968 fixed fixed 1 1 0 -5.845814 1 -5.845814 1;
+    36 -135.0913 fixed fixed 1 1 0 -5.6028468 1 -3.779699 1;
+    36.5 -136.9867 fixed fixed 1 1 0 -3.779699 1 -1.1189515 1;
+    37 -137.54625 fixed fixed 1 1 0 -1.1189515 1 1.4964847 1;
+    37.5 -136.79786 fixed fixed 1 1 0 1.4964847 1 3.1589369 1;
+    38 -135.21718 fixed fixed 1 1 0 3.1589369 1 3.1589369 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25 0 6 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -72.969613 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -72.969613 fixed fixed 1 1 0 7.5418147 1 7.5418147 1;
+    9 -8.5398213 fixed fixed 1 1 0 13.490883 1 13.490883 1;
+    11 -25.066904 fixed fixed 1 1 0 -2.3560202 1 -2.3560202 1;
+    16 -25.066904 fixed fixed 1 1 0 2.1673998 1 2.1673998 1;
+    17.5 -10.966756 fixed fixed 1 1 0 -18.875365 1 -18.875365 1;
+    18.5 -73.585084 fixed fixed 1 1 0 -4.8034952 1 -4.8034952 1;
+    30.5 -73.585084 fixed fixed 1 1 0 0.88819909 1 0.88819909 1;
+    34 -59.750732 fixed fixed 1 1 0 0.076935214 1 0.076935214 1;
+    38 -72.969613 fixed fixed 1 1 0 -2.9286195 1 -2.9286195 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25 0 6 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 5.5603262 fixed fixed 1 1 0 0 1 0 1;
+    7.5 5.5603262 fixed fixed 1 1 0 1.2098466 1 1.2098466 1;
+    9 15.883651 fixed fixed 1 1 0 -10.813657 1 -10.813657 1;
+    11 -32.624045 fixed fixed 1 1 0 -6.8990738 1 -6.8990738 1;
+    16 -32.624045 fixed fixed 1 1 0 4.4415736 1 4.4415736 1;
+    17.5 -3.70337 fixed fixed 1 1 0 27.39465 1 27.39465 1;
+    18.5 40.023795 fixed fixed 1 1 0 3.3542986 1 3.3542986 1;
+    30.5 40.023795 fixed fixed 1 1 0 -1.6642483 1 -1.6642483 1;
+    34 14.219036 fixed fixed 1 1 0 -4.5808064 1 -4.5808064 1;
+    38 5.5603262 fixed fixed 1 1 0 -1.9228399 1 -1.9228399 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25 0 6 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -53.477016 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -53.477016 fixed fixed 1 1 0 3.0193597 1 3.0193597 1;
+    9 -27.766623 fixed fixed 1 1 0 13.034058 1 13.034058 1;
+    11 -7.2459108 fixed fixed 1 1 0 2.9286195 1 2.9286195 1;
+    16 -7.2459108 fixed fixed 1 1 0 -2.1813729 1 -2.1813729 1;
+    17.5 -21.457957 fixed fixed 1 1 0 -20.150682 1 -20.150682 1;
+    18.5 -59.233122 fixed fixed 1 1 0 -2.9006973 1 -2.9006973 1;
+    30.5 -59.233122 fixed fixed 1 1 0 2.4119004 1 2.4119004 1;
+    34 -21.786663 fixed fixed 1 1 0 0.76232465 1 0.76232465 1;
+    38 -53.477016 fixed fixed 1 1 0 -7.00975 1 -7.00975 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_26 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 -0.055952902 1 -0.055952902 1;
+    5.5 -0.91272177 fixed fixed 1 1 0 0.090923417 1 0.090923417 1;
+    7 -0.38468386 fixed fixed 1 1 0 0.65742509 1 0.65742509 1;
+    7.5 0 fixed fixed 1 1 0 1.1678955 1 1.1678955 1;
+    8.5 2.0947337 fixed fixed 1 1 0 2.9425802 1 2.9425802 1;
+    10 7.1549824 fixed fixed 1 1 0 3.0333187 1 3.0333187 1;
+    11 9.4001175 fixed fixed 1 1 0 1.4265779 1 1.4265779 1;
+    12 10.505181 fixed fixed 1 1 0 1.0350444 1 1.0350444 1;
+    15.5 10.459688 fixed fixed 1 1 0 -1.7690885 1 -1.7690885 1;
+    16 9.4001175 fixed fixed 1 1 0 -2.1115055 1 -5.2624403 1;
+    16.5 6.7598134 fixed fixed 1 1 0 -5.2624403 1 -9.0014892 1;
+    17 2.2310977 fixed fixed 1 1 0 -9.0014892 1 -10.076922 1;
+    17.5 -2.8466262 fixed fixed 1 1 0 -10.076922 1 -8.5273003 1;
+    18 -7.1340121 fixed fixed 1 1 0 -8.5273003 1 -4.3023014 1;
+    18.5 -9.2916566 fixed fixed 1 1 0 -4.3023014 1 -1.174888 1;
+    21.5 -11.407418 fixed fixed 1 1 0 -0.20982274 1 -0.20982274 1;
+    30 -9.2706863 fixed fixed 1 1 0 0.0069941141 1 0.0069941141 1;
+    31.5 -9.9141752 fixed fixed 1 1 0 -0.93015586 1 -0.93015586 1;
+    34 -10.896855 fixed fixed 1 1 0 1.1818793 1 1.1818793 1;
+    37.5 -1.325366 fixed fixed 1 1 0 2.8308875 1 2.8308875 1;
+    38 0 fixed fixed 1 1 0 2.6493517 1 2.6493517 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_26 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 74.997884 fixed fixed 1 1 0 0.45461022 1 0.45461022 1;
+    1 75.221681 fixed fixed 1 1 0 0.83924866 1 0.83924866 1;
+    5 82.103878 fixed fixed 1 1 0 0.27976285 1 0.27976285 1;
+    5.5 82.01295 fixed fixed 1 1 0 -0.17485245 1 -1.2937457 1;
+    6 81.362528 fixed fixed 1 1 0 -1.2937457 1 -2.6284033 1;
+    6.5 80.047647 fixed fixed 1 1 0 -2.6284033 1 -4.1629899 1;
+    7 77.963399 fixed fixed 1 1 0 -4.1629899 1 -5.9082664 1;
+    7.5 74.997884 fixed fixed 1 1 0 -5.9082664 1 -11.879833 1;
+    8 68.989963 fixed fixed 1 1 0 -11.879833 1 -19.575726 1;
+    8.5 58.904416 fixed fixed 1 1 0 -19.575726 1 -24.044135 1;
+    9 46.329024 fixed fixed 1 1 0 -24.044135 1 -25.621956 1;
+    9.5 32.844347 fixed fixed 1 1 0 -25.621956 1 -24.44736 1;
+    10 20.03811 fixed fixed 1 1 0 -24.44736 1 -20.417958 1;
+    10.5 9.4909886 fixed fixed 1 1 0 -20.417958 1 -13.21559 1;
+    11 2.7906482 fixed fixed 1 1 0 -13.21559 1 -7.6108449 1;
+    11.5 -1.0211254 fixed fixed 1 1 0 -7.6108449 1 -5.9290808 1;
+    12 -3.9936304 fixed fixed 1 1 0 -5.9290808 1 -4.2396158 1;
+    12.5 -6.1198768 fixed fixed 1 1 0 -4.2396158 1 -2.5446024 1;
+    13 -7.3927598 fixed fixed 1 1 0 -2.5446024 1 -0.84624162 1;
+    13.5 -7.8194415 fixed fixed 1 1 0 -0.84624162 1 0.84624162 1;
+    14 -7.3927598 fixed fixed 1 1 0 0.84624162 1 2.5446024 1;
+    14.5 -6.1198768 fixed fixed 1 1 0 2.5446024 1 4.2396158 1;
+    15 -3.9936304 fixed fixed 1 1 0 4.2396158 1 5.9290808 1;
+    15.5 -1.0211254 fixed fixed 1 1 0 5.9290808 1 7.6039422 1;
+    16 2.7906482 fixed fixed 1 1 0 7.6039422 1 17.559688 1;
+    16.5 11.785112 fixed fixed 1 1 0 17.559688 1 28.903654 1;
+    17 27.22111 fixed fixed 1 1 0 28.903654 1 31.931004 1;
+    17.5 44.53154 fixed fixed 1 1 0 31.931004 1 27.541604 1;
+    18 59.142251 fixed fixed 1 1 0 27.541604 1 14.467309 1;
+    18.5 66.493013 fixed fixed 1 1 0 14.467309 1 4.0933208 1;
+    19.5 70.311834 fixed fixed 1 1 0 3.263602 1 3.263602 1;
+    30 67.346319 fixed fixed 1 1 0 -1.7271532 1 -1.7271532 1;
+    30.5 66.493013 fixed fixed 1 1 0 -1.6922067 1 -4.1978215 1;
+    31 64.394784 fixed fixed 1 1 0 -4.1978215 1 -8.1004666 1;
+    31.5 60.324205 fixed fixed 1 1 0 -8.1004666 1 -10.261348 1;
+    32 55.148563 fixed fixed 1 1 0 -10.486541 1 -10.486541 1;
+    32.5 49.742133 fixed fixed 1 1 0 -10.718302 1 -9.4816045 1;
+    33 44.965155 fixed fixed 1 1 0 -9.4816045 1 -6.5252634 1;
+    33.5 41.691904 fixed fixed 1 1 0 -6.5252634 1 -1.8110235 1;
+    34 40.789668 fixed fixed 1 1 0 -1.8110235 1 2.9705007 1;
+    34.5 42.272425 fixed fixed 1 1 0 2.9705007 1 6.1163627 1;
+    35 45.342849 fixed fixed 1 1 0 6.1163627 1 8.4653846 1;
+    35.5 49.602274 fixed fixed 1 1 0 8.4653846 1 10.029082 1;
+    36 54.659028 fixed fixed 1 1 0 10.425148 1 10.425148 1;
+    37 65.590776 fixed fixed 1 1 0 10.4729 1 10.4729 1;
+    37.5 70.675547 fixed fixed 1 1 0 10.097421 1 8.5823245 1;
+    38 74.997884 fixed fixed 1 1 0 8.5823245 1 8.5823245 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_26|JOBJ_27 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 79.998659 fixed fixed 1 1 0 0.31473274 1 0.31473274 1;
+    1.5 80.58617 fixed fixed 1 1 0 1.0490291 1 1.0490291 1;
+    6 84.439942 fixed fixed 1 1 0 -1.3706501 1 -1.3706501 1;
+    6.5 83.523725 fixed fixed 1 1 0 -1.8319893 1 -2.9076785 1;
+    7 82.065433 fixed fixed 1 1 0 -2.9076785 1 -4.128157 1;
+    7.5 79.998659 fixed fixed 1 1 0 -4.128157 1 -8.3346231 1;
+    8 75.809192 fixed fixed 1 1 0 -8.3346231 1 -13.859429 1;
+    8.5 68.773098 fixed fixed 1 1 0 -13.859429 1 -17.154998 1;
+    9 59.995499 fixed fixed 1 1 0 -17.154998 1 -18.332715 1;
+    9.5 50.588449 fixed fixed 1 1 0 -17.89159 1 -17.89159 1;
+    10 41.649964 fixed fixed 1 1 0 -17.455374 1 -14.480645 1;
+    10.5 34.292154 fixed fixed 1 1 0 -14.480645 1 -9.282818 1;
+    11 29.620085 fixed fixed 1 1 0 -9.282818 1 -5.3666772 1;
+    11.5 26.927355 fixed fixed 1 1 0 -5.3666772 1 -4.2535465 1;
+    12 24.797613 fixed fixed 1 1 0 -4.2535465 1 -3.1170667 1;
+    12.5 23.237965 fixed fixed 1 1 0 -3.1170667 1 -1.9438037 1;
+    13 22.262275 fixed fixed 1 1 0 -1.9438037 1 -0.73435173 1;
+    13.5 21.895066 fixed fixed 1 1 0 -0.73435173 1 0.49657274 1;
+    14 22.143386 fixed fixed 1 1 0 0.49657274 1 1.7621 1;
+    14.5 23.024653 fixed fixed 1 1 0 1.7621 1 3.054256 1;
+    15 24.552846 fixed fixed 1 1 0 3.054256 1 4.3789053 1;
+    15.5 26.745498 fixed fixed 1 1 0 4.3789053 1 5.7278204 1;
+    16 29.620085 fixed fixed 1 1 0 5.7278204 1 13.430485 1;
+    16.5 36.428829 fixed fixed 1 1 0 13.430485 1 22.475508 1;
+    17 48.119517 fixed fixed 1 1 0 22.475508 1 24.970035 1;
+    17.5 61.226499 fixed fixed 1 1 0 24.970035 1 21.366992 1;
+    18 72.294669 fixed fixed 1 1 0 21.366992 1 11.024639 1;
+    18.5 77.861985 fixed fixed 1 1 0 11.024639 1 3.1310237 1;
+    20 82.016502 fixed fixed 1 1 0 2.2302766 1 2.2302766 1;
+    30.5 77.861985 fixed fixed 1 1 0 -1.9857313 1 -4.984349 1;
+    31 75.365092 fixed fixed 1 1 0 -4.984349 1 -9.5501118 1;
+    31.5 70.556601 fixed fixed 1 1 0 -9.5501118 1 -12.123449 1;
+    32 64.422802 fixed fixed 1 1 0 -12.44102 1 -12.44102 1;
+    32.5 57.963734 fixed fixed 1 1 0 -12.758006 1 -11.479863 1;
+    33 52.162078 fixed fixed 1 1 0 -11.479863 1 -8.2520036 1;
+    33.5 48.011113 fixed fixed 1 1 0 -8.2520036 1 -3.0123796 1;
+    34 46.500395 fixed fixed 1 1 0 -3.0123796 1 2.279179 1;
+    34.5 47.643904 fixed fixed 1 1 0 2.279179 1 5.6931102 1;
+    35 50.501016 fixed fixed 1 1 0 5.6931102 1 8.2520036 1;
+    35.5 54.65198 fixed fixed 1 1 0 8.2520036 1 9.960721 1;
+    36 59.670289 fixed fixed 1 1 0 10.397857 1 10.397857 1;
+    37 70.630054 fixed fixed 1 1 0 10.49336 1 10.49336 1;
+    37.5 75.725253 fixed fixed 1 1 0 10.104254 1 8.4929048 1;
+    38 79.998659 fixed fixed 1 1 0 8.4929048 1 8.4929048 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_28 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 -0.017817234 1 -0.017817234 1;
+    7 -0.1153937 fixed fixed 1 1 0 0.19734705 1 0.19734705 1;
+    8.5 0.62595639 fixed fixed 1 1 0 0.88512183 1 0.88512183 1;
+    11 2.8186086 fixed fixed 1 1 0 0.42970669 1 0.42970669 1;
+    14 3.5180182 fixed fixed 1 1 0 -0.020611766 1 -0.020611766 1;
+    15.5 3.1368866 fixed fixed 1 1 0 -0.53165512 1 -0.53165512 1;
+    16 2.8186086 fixed fixed 1 1 0 -1.1093195 1 -1.1093195 1;
+    16.5 2.0282706 fixed fixed 1 1 0 -1.5829922 1 -2.7163279 1;
+    17 0.6679542 fixed fixed 1 1 0 -2.8810286 1 -2.8810286 1;
+    17.5 -0.85330604 fixed fixed 1 1 0 -2.8089167 1 -2.8089167 1;
+    18 -2.1402265 fixed fixed 1 1 0 -2.572069 1 -1.2942073 1;
+    18.5 -2.7871532 fixed fixed 1 1 0 -0.82413894 1 -0.82413894 1;
+    19 -2.9620199 fixed fixed 1 1 0 -0.32263124 1 -0.32263124 1;
+    30 -2.7801631 fixed fixed 1 1 0 0.0034112933 1 0.0034112933 1;
+    32.5 -3.2732506 fixed fixed 1 1 0 -0.24098166 1 -0.24098166 1;
+    35 -2.6857397 fixed fixed 1 1 0 0.75388644 1 0.75388644 1;
+    38 0 fixed fixed 1 1 0 0.79665598 1 0.79665598 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_28 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 77.998349 fixed fixed 1 1 0 0.37068412 1 0.37068412 1;
+    1 78.183701 fixed fixed 1 1 0 0.68539859 1 0.68539859 1;
+    5.5 83.744027 fixed fixed 1 1 0 -0.60147716 1 -0.60147716 1;
+    6 83.212494 fixed fixed 1 1 0 -1.0560215 1 -2.1464392 1;
+    6.5 82.135391 fixed fixed 1 1 0 -2.1464392 1 -3.4101053 1;
+    7 80.425341 fixed fixed 1 1 0 -3.4101053 1 -4.8382799 1;
+    7.5 77.998349 fixed fixed 1 1 0 -4.8382799 1 -9.75551 1;
+    8 73.081512 fixed fixed 1 1 0 -9.75551 1 -16.177186 1;
+    8.5 64.824961 fixed fixed 1 1 0 -16.177186 1 -19.965749 1;
+    9 54.529597 fixed fixed 1 1 0 -19.965749 1 -21.310298 1;
+    9.5 43.492882 fixed fixed 1 1 0 -21.310298 1 -20.309856 1;
+    10 33.005234 fixed fixed 1 1 0 -20.309856 1 -16.886672 1;
+    10.5 24.374484 fixed fixed 1 1 0 -16.886672 1 -10.868126 1;
+    11 18.887611 fixed fixed 1 1 0 -10.868126 1 -6.2619588 1;
+    11.5 15.747229 fixed fixed 1 1 0 -6.2619588 1 -4.9217546 1;
+    12 13.278354 fixed fixed 1 1 0 -4.9217546 1 -3.5635485 1;
+    12.5 11.491356 fixed fixed 1 1 0 -3.5635485 1 -2.1813729 1;
+    13 10.400273 fixed fixed 1 1 0 -2.1813729 1 -0.77631095 1;
+    13.5 10.008599 fixed fixed 1 1 0 -0.77631095 1 0.63644469 1;
+    14 10.326819 fixed fixed 1 1 0 0.63644469 1 2.0695828 1;
+    14.5 11.36542 fixed fixed 1 1 0 2.0695828 1 3.5286778 1;
+    15 13.131448 fixed fixed 1 1 0 3.5286778 1 4.9982577 1;
+    15.5 15.638826 fixed fixed 1 1 0 4.9982577 1 6.4767749 1;
+    16 18.887611 fixed fixed 1 1 0 6.4767749 1 15.09266 1;
+    16.5 26.570631 fixed fixed 1 1 0 15.09266 1 25.109286 1;
+    17 39.761552 fixed fixed 1 1 0 25.109286 1 27.834685 1;
+    17.5 54.550567 fixed fixed 1 1 0 27.834685 1 23.88479 1;
+    18 67.035088 fixed fixed 1 1 0 23.88479 1 12.414009 1;
+    18.5 73.315794 fixed fixed 1 1 0 12.414009 1 3.5147292 1;
+    19.5 76.61351 fixed fixed 1 1 0 2.8518306 1 2.8518306 1;
+    30.5 73.315794 fixed fixed 1 1 0 -1.8669331 1 -4.6712867 1;
+    31 70.976293 fixed fixed 1 1 0 -4.6712867 1 -8.9671578 1;
+    31.5 66.461557 fixed fixed 1 1 0 -8.9671578 1 -11.378044 1;
+    32 60.715879 fixed fixed 1 1 0 -11.663 1 -11.663 1;
+    32.5 54.673008 fixed fixed 1 1 0 -11.947533 1 -10.684236 1;
+    33 49.284053 fixed fixed 1 1 0 -10.684236 1 -7.5625258 1;
+    33.5 45.482708 fixed fixed 1 1 0 -7.5625258 1 -2.5306348 1;
+    34 44.216815 fixed fixed 1 1 0 -2.5306348 1 2.5585698 1;
+    34.5 45.496688 fixed fixed 1 1 0 2.5585698 1 5.866633 1;
+    35 48.437737 fixed fixed 1 1 0 5.866633 1 8.3415063 1;
+    35.5 52.6307 fixed fixed 1 1 0 8.3415063 1 9.9880679 1;
+    36 57.666483 fixed fixed 1 1 0 10.411503 1 10.411503 1;
+    37 68.615764 fixed fixed 1 1 0 10.486541 1 10.486541 1;
+    37.5 73.707468 fixed fixed 1 1 0 10.104254 1 8.5341795 1;
+    38 77.998349 fixed fixed 1 1 0 8.5341795 1 8.5341795 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_28|JOBJ_29 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 79.998659 fixed fixed 1 1 0 0.31473274 1 0.31473274 1;
+    1.5 80.58617 fixed fixed 1 1 0 1.0490291 1 1.0490291 1;
+    6 84.439942 fixed fixed 1 1 0 -1.3706501 1 -1.3706501 1;
+    6.5 83.523725 fixed fixed 1 1 0 -1.8319893 1 -2.9076785 1;
+    7 82.065433 fixed fixed 1 1 0 -2.9076785 1 -4.128157 1;
+    7.5 79.998659 fixed fixed 1 1 0 -4.128157 1 -8.3346231 1;
+    8 75.809192 fixed fixed 1 1 0 -8.3346231 1 -13.859429 1;
+    8.5 68.773098 fixed fixed 1 1 0 -13.859429 1 -17.154998 1;
+    9 59.995499 fixed fixed 1 1 0 -17.154998 1 -18.332715 1;
+    9.5 50.588449 fixed fixed 1 1 0 -17.89159 1 -17.89159 1;
+    10 41.649964 fixed fixed 1 1 0 -17.455374 1 -14.480645 1;
+    10.5 34.292154 fixed fixed 1 1 0 -14.480645 1 -9.282818 1;
+    11 29.620085 fixed fixed 1 1 0 -9.282818 1 -5.3666772 1;
+    11.5 26.927355 fixed fixed 1 1 0 -5.3666772 1 -4.2535465 1;
+    12 24.797613 fixed fixed 1 1 0 -4.2535465 1 -3.1170667 1;
+    12.5 23.237965 fixed fixed 1 1 0 -3.1170667 1 -1.9438037 1;
+    13 22.262275 fixed fixed 1 1 0 -1.9438037 1 -0.73435173 1;
+    13.5 21.895066 fixed fixed 1 1 0 -0.73435173 1 0.49657274 1;
+    14 22.143386 fixed fixed 1 1 0 0.49657274 1 1.7621 1;
+    14.5 23.024653 fixed fixed 1 1 0 1.7621 1 3.054256 1;
+    15 24.552846 fixed fixed 1 1 0 3.054256 1 4.3789053 1;
+    15.5 26.745498 fixed fixed 1 1 0 4.3789053 1 5.7278204 1;
+    16 29.620085 fixed fixed 1 1 0 5.7278204 1 13.430485 1;
+    16.5 36.428829 fixed fixed 1 1 0 13.430485 1 22.475508 1;
+    17 48.119517 fixed fixed 1 1 0 22.475508 1 24.970035 1;
+    17.5 61.226499 fixed fixed 1 1 0 24.970035 1 21.366992 1;
+    18 72.294669 fixed fixed 1 1 0 21.366992 1 11.024639 1;
+    18.5 77.861985 fixed fixed 1 1 0 11.024639 1 3.1310237 1;
+    20 82.016502 fixed fixed 1 1 0 2.2302766 1 2.2302766 1;
+    30.5 77.861985 fixed fixed 1 1 0 -1.9857313 1 -4.984349 1;
+    31 75.365092 fixed fixed 1 1 0 -4.984349 1 -9.5501118 1;
+    31.5 70.556601 fixed fixed 1 1 0 -9.5501118 1 -12.123449 1;
+    32 64.422802 fixed fixed 1 1 0 -12.44102 1 -12.44102 1;
+    32.5 57.963734 fixed fixed 1 1 0 -12.758006 1 -11.479863 1;
+    33 52.162078 fixed fixed 1 1 0 -11.479863 1 -8.2520036 1;
+    33.5 48.011113 fixed fixed 1 1 0 -8.2520036 1 -3.0123796 1;
+    34 46.500395 fixed fixed 1 1 0 -3.0123796 1 2.279179 1;
+    34.5 47.643904 fixed fixed 1 1 0 2.279179 1 5.6931102 1;
+    35 50.501016 fixed fixed 1 1 0 5.6931102 1 8.2520036 1;
+    35.5 54.65198 fixed fixed 1 1 0 8.2520036 1 9.960721 1;
+    36 59.670289 fixed fixed 1 1 0 10.397857 1 10.397857 1;
+    37 70.630054 fixed fixed 1 1 0 10.49336 1 10.49336 1;
+    37.5 75.725253 fixed fixed 1 1 0 10.104254 1 8.4929048 1;
+    38 79.998659 fixed fixed 1 1 0 8.4929048 1 8.4929048 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_30 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 0.017817234 1 0.017817234 1;
+    7 0.1153937 fixed fixed 1 1 0 -0.19734705 1 -0.19734705 1;
+    8.5 -0.62595639 fixed fixed 1 1 0 -0.88512183 1 -0.88512183 1;
+    11 -2.8186086 fixed fixed 1 1 0 -0.42970669 1 -0.42970669 1;
+    14 -3.5180182 fixed fixed 1 1 0 0.020611766 1 0.020611766 1;
+    15.5 -3.1368866 fixed fixed 1 1 0 0.53165512 1 0.53165512 1;
+    16 -2.8186086 fixed fixed 1 1 0 1.1093195 1 1.1093195 1;
+    16.5 -2.0282706 fixed fixed 1 1 0 1.5829922 1 2.7163279 1;
+    17 -0.6679542 fixed fixed 1 1 0 2.8810286 1 2.8810286 1;
+    17.5 0.85330604 fixed fixed 1 1 0 2.8089167 1 2.8089167 1;
+    18 2.1402265 fixed fixed 1 1 0 2.572069 1 1.2942073 1;
+    18.5 2.7871532 fixed fixed 1 1 0 0.82413894 1 0.82413894 1;
+    19 2.9620199 fixed fixed 1 1 0 0.32263124 1 0.32263124 1;
+    30 2.7801631 fixed fixed 1 1 0 -0.0034112933 1 -0.0034112933 1;
+    32.5 3.2732506 fixed fixed 1 1 0 0.24098166 1 0.24098166 1;
+    35 2.6857397 fixed fixed 1 1 0 -0.75388644 1 -0.75388644 1;
+    38 0 fixed fixed 1 1 0 -0.79665598 1 -0.79665598 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_30 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 81.998969 fixed fixed 1 1 0 0.25878091 1 0.25878091 1;
+    1.5 82.485067 fixed fixed 1 1 0 0.86722039 1 0.86722039 1;
+    6.5 84.912059 fixed fixed 1 1 0 -1.9577798 1 -1.9577798 1;
+    7 83.709077 fixed fixed 1 1 0 -2.404915 1 -3.4101053 1;
+    7.5 81.998969 fixed fixed 1 1 0 -3.4101053 1 -6.8990738 1;
+    8 78.533434 fixed fixed 1 1 0 -6.8990738 1 -11.513794 1;
+    8.5 72.717798 fixed fixed 1 1 0 -11.513794 1 -14.280524 1;
+    9 65.461402 fixed fixed 1 1 0 -14.280524 1 -15.278419 1;
+    9.5 57.683958 fixed fixed 1 1 0 -14.906662 1 -14.906662 1;
+    10 50.294694 fixed fixed 1 1 0 -14.533967 1 -12.028745 1;
+    10.5 44.21332 fixed fixed 1 1 0 -12.028745 1 -7.6867572 1;
+    11 40.349063 fixed fixed 1 1 0 -7.6867572 1 -4.4624605 1;
+    11.5 38.110918 fixed fixed 1 1 0 -4.0236426 1 -4.0236426 1;
+    12.5 34.981079 fixed fixed 1 1 0 -2.1813729 1 -2.1813729 1;
+    13 34.127773 fixed fixed 1 1 0 -1.6991956 1 -0.69239192 1;
+    13.5 33.781592 fixed fixed 1 1 0 -0.69239192 1 0.34970245 1;
+    14 33.959896 fixed fixed 1 1 0 0.34970245 1 1.4475508 1;
+    14.5 34.683828 fixed fixed 1 1 0 1.4475508 1 2.5795199 1;
+    15 35.974244 fixed fixed 1 1 0 2.5795199 1 3.7518131 1;
+    15.5 37.855665 fixed fixed 1 1 0 3.7518131 1 4.9704397 1;
+    16 40.349063 fixed fixed 1 1 0 4.9704397 1 11.744348 1;
+    16.5 46.287026 fixed fixed 1 1 0 11.744348 1 19.774101 1;
+    17 56.477481 fixed fixed 1 1 0 19.774101 1 22.013575 1;
+    17.5 67.905869 fixed fixed 1 1 0 22.013575 1 18.778651 1;
+    18 77.557744 fixed fixed 1 1 0 18.778651 1 9.6322934 1;
+    18.5 82.408119 fixed fixed 1 1 0 9.6322934 1 2.7471074 1;
+    20.5 87.041743 fixed fixed 1 1 0 1.7481216 1 1.7481216 1;
+    30 83.464252 fixed fixed 1 1 0 -2.0416334 1 -2.0416334 1;
+    30.5 82.408119 fixed fixed 1 1 0 -2.1045179 1 -5.2971881 1;
+    31 79.753892 fixed fixed 1 1 0 -5.2971881 1 -10.124751 1;
+    31.5 74.64815 fixed fixed 1 1 0 -10.124751 1 -12.859058 1;
+    32 68.133162 fixed fixed 1 1 0 -13.21559 1 -13.21559 1;
+    32.5 61.250964 fixed fixed 1 1 0 -13.571364 1 -12.278923 1;
+    33 55.036664 fixed fixed 1 1 0 -12.278923 1 -8.9465575 1;
+    33.5 50.535966 fixed fixed 1 1 0 -8.9465575 1 -3.4938062 1;
+    34 48.787471 fixed fixed 1 1 0 -3.4938062 1 1.9997068 1;
+    34.5 49.791121 fixed fixed 1 1 0 1.9997068 1 5.5264538 1;
+    35 52.560742 fixed fixed 1 1 0 5.5264538 1 8.1693572 1;
+    35.5 56.669823 fixed fixed 1 1 0 8.1693572 1 9.9333707 1;
+    36 61.674094 fixed fixed 1 1 0 10.391033 1 10.391033 1;
+    37 72.64784 fixed fixed 1 1 0 10.507 1 10.507 1;
+    37.5 77.743096 fixed fixed 1 1 0 10.111086 1 8.4585035 1;
+    38 81.998969 fixed fixed 1 1 0 8.4585035 1 8.4585035 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_30|JOBJ_31 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 79.998659 fixed fixed 1 1 0 0.31473274 1 0.31473274 1;
+    1.5 80.58617 fixed fixed 1 1 0 1.0490291 1 1.0490291 1;
+    6 84.439942 fixed fixed 1 1 0 -1.3706501 1 -1.3706501 1;
+    6.5 83.523725 fixed fixed 1 1 0 -1.8319893 1 -2.9076785 1;
+    7 82.065433 fixed fixed 1 1 0 -2.9076785 1 -4.128157 1;
+    7.5 79.998659 fixed fixed 1 1 0 -4.128157 1 -8.3346231 1;
+    8 75.809192 fixed fixed 1 1 0 -8.3346231 1 -13.859429 1;
+    8.5 68.773098 fixed fixed 1 1 0 -13.859429 1 -17.154998 1;
+    9 59.995499 fixed fixed 1 1 0 -17.154998 1 -18.332715 1;
+    9.5 50.588449 fixed fixed 1 1 0 -17.89159 1 -17.89159 1;
+    10 41.649964 fixed fixed 1 1 0 -17.455374 1 -14.480645 1;
+    10.5 34.292154 fixed fixed 1 1 0 -14.480645 1 -9.282818 1;
+    11 29.620085 fixed fixed 1 1 0 -9.282818 1 -5.3666772 1;
+    11.5 26.927355 fixed fixed 1 1 0 -5.3666772 1 -4.2535465 1;
+    12 24.797613 fixed fixed 1 1 0 -4.2535465 1 -3.1170667 1;
+    12.5 23.237965 fixed fixed 1 1 0 -3.1170667 1 -1.9438037 1;
+    13 22.262275 fixed fixed 1 1 0 -1.9438037 1 -0.73435173 1;
+    13.5 21.895066 fixed fixed 1 1 0 -0.73435173 1 0.49657274 1;
+    14 22.143386 fixed fixed 1 1 0 0.49657274 1 1.7621 1;
+    14.5 23.024653 fixed fixed 1 1 0 1.7621 1 3.054256 1;
+    15 24.552846 fixed fixed 1 1 0 3.054256 1 4.3789053 1;
+    15.5 26.745498 fixed fixed 1 1 0 4.3789053 1 5.7278204 1;
+    16 29.620085 fixed fixed 1 1 0 5.7278204 1 13.430485 1;
+    16.5 36.428829 fixed fixed 1 1 0 13.430485 1 22.475508 1;
+    17 48.119517 fixed fixed 1 1 0 22.475508 1 24.970035 1;
+    17.5 61.226499 fixed fixed 1 1 0 24.970035 1 21.366992 1;
+    18 72.294669 fixed fixed 1 1 0 21.366992 1 11.024639 1;
+    18.5 77.861985 fixed fixed 1 1 0 11.024639 1 3.1310237 1;
+    20 82.016502 fixed fixed 1 1 0 2.2302766 1 2.2302766 1;
+    30.5 77.861985 fixed fixed 1 1 0 -1.9857313 1 -4.984349 1;
+    31 75.365092 fixed fixed 1 1 0 -4.984349 1 -9.5501118 1;
+    31.5 70.556601 fixed fixed 1 1 0 -9.5501118 1 -12.123449 1;
+    32 64.422802 fixed fixed 1 1 0 -12.44102 1 -12.44102 1;
+    32.5 57.963734 fixed fixed 1 1 0 -12.758006 1 -11.479863 1;
+    33 52.162078 fixed fixed 1 1 0 -11.479863 1 -8.2520036 1;
+    33.5 48.011113 fixed fixed 1 1 0 -8.2520036 1 -3.0123796 1;
+    34 46.500395 fixed fixed 1 1 0 -3.0123796 1 2.279179 1;
+    34.5 47.643904 fixed fixed 1 1 0 2.279179 1 5.6931102 1;
+    35 50.501016 fixed fixed 1 1 0 5.6931102 1 8.2520036 1;
+    35.5 54.65198 fixed fixed 1 1 0 8.2520036 1 9.960721 1;
+    36 59.670289 fixed fixed 1 1 0 10.397857 1 10.397857 1;
+    37 70.630054 fixed fixed 1 1 0 10.49336 1 10.49336 1;
+    37.5 75.725253 fixed fixed 1 1 0 10.104254 1 8.4929048 1;
+    38 79.998659 fixed fixed 1 1 0 8.4929048 1 8.4929048 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_32 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 0.055952902 1 0.055952902 1;
+    5.5 0.91272177 fixed fixed 1 1 0 -0.090923417 1 -0.090923417 1;
+    7 0.38468386 fixed fixed 1 1 0 -0.65742509 1 -0.65742509 1;
+    7.5 0 fixed fixed 1 1 0 -1.1678955 1 -1.1678955 1;
+    8.5 -2.0947337 fixed fixed 1 1 0 -2.9425802 1 -2.9425802 1;
+    10 -7.1549824 fixed fixed 1 1 0 -3.0333187 1 -3.0333187 1;
+    11 -9.4001175 fixed fixed 1 1 0 -1.4265779 1 -1.4265779 1;
+    12 -10.505181 fixed fixed 1 1 0 -1.0350444 1 -1.0350444 1;
+    15.5 -10.459688 fixed fixed 1 1 0 1.7690885 1 1.7690885 1;
+    16 -9.4001175 fixed fixed 1 1 0 2.1115055 1 5.2624403 1;
+    16.5 -6.7598134 fixed fixed 1 1 0 5.2624403 1 9.0014892 1;
+    17 -2.2310977 fixed fixed 1 1 0 9.0014892 1 10.076922 1;
+    17.5 2.8466262 fixed fixed 1 1 0 10.076922 1 8.5273003 1;
+    18 7.1340121 fixed fixed 1 1 0 8.5273003 1 4.3023014 1;
+    18.5 9.2916566 fixed fixed 1 1 0 4.3023014 1 1.174888 1;
+    21.5 11.407418 fixed fixed 1 1 0 0.20982274 1 0.20982274 1;
+    30 9.2706863 fixed fixed 1 1 0 -0.0069941141 1 -0.0069941141 1;
+    31.5 9.9141752 fixed fixed 1 1 0 0.93015586 1 0.93015586 1;
+    34 10.896855 fixed fixed 1 1 0 -1.1818793 1 -1.1818793 1;
+    37.5 1.325366 fixed fixed 1 1 0 -2.8308875 1 -2.8308875 1;
+    38 0 fixed fixed 1 1 0 -2.6493517 1 -2.6493517 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_32 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 84.999492 fixed fixed 1 1 0 0.17485245 1 0.17485245 1;
+    2 85.684864 fixed fixed 1 1 0 0.77631095 1 0.77631095 1;
+    7 86.170962 fixed fixed 1 1 0 -1.9927197 1 -1.9927197 1;
+    7.5 84.999492 fixed fixed 1 1 0 -2.3420497 1 -4.7408745 1;
+    8 82.621488 fixed fixed 1 1 0 -4.7408745 1 -7.9350576 1;
+    8.5 78.634848 fixed fixed 1 1 0 -7.9350576 1 -9.8718195 1;
+    9 73.662032 fixed fixed 1 1 0 -10.220379 1 -10.220379 1;
+    9.5 68.328999 fixed fixed 1 1 0 -10.309136 1 -10.309136 1;
+    10 63.26176 fixed fixed 1 1 0 -10.049586 1 -8.2933166 1;
+    10.5 59.093263 fixed fixed 1 1 0 -8.2933166 1 -5.2832891 1;
+    11 56.442473 fixed fixed 1 1 0 -5.2832891 1 -3.1100875 1;
+    12 53.595905 fixed fixed 1 1 0 -2.2861653 1 -2.2861653 1;
+    15 53.109807 fixed fixed 1 1 0 2.3420497 1 2.3420497 1;
+    15.5 54.522606 fixed fixed 1 1 0 2.8239056 1 3.8354667 1;
+    16 56.442473 fixed fixed 1 1 0 3.8354667 1 9.1936517 1;
+    16.5 61.072603 fixed fixed 1 1 0 9.1936517 1 15.589675 1;
+    17 69.014428 fixed fixed 1 1 0 15.589675 1 17.403184 1;
+    17.5 77.924896 fixed fixed 1 1 0 17.403184 1 14.786971 1;
+    18 85.447087 fixed fixed 1 1 0 14.786971 1 7.5280069 1;
+    18.5 89.2309 fixed fixed 1 1 0 7.5280069 1 2.1673998 1;
+    22 94.92759 fixed fixed 1 1 0 0.97910445 1 0.97910445 1;
+    30 90.370971 fixed fixed 1 1 0 -2.1743858 1 -2.1743858 1;
+    30.5 89.2309 fixed fixed 1 1 0 -2.279179 1 -5.7694692 1;
+    31 86.335343 fixed fixed 1 1 0 -5.7694692 1 -10.990626 1;
+    31.5 80.788997 fixed fixed 1 1 0 -10.990626 1 -13.966487 1;
+    32 73.696983 fixed fixed 1 1 0 -14.373945 1 -14.373945 1;
+    32.5 66.181782 fixed fixed 1 1 0 -14.780322 1 -13.46404 1;
+    33 59.352068 fixed fixed 1 1 0 -13.46404 1 -9.9743948 1;
+    33.5 54.32677 fixed fixed 1 1 0 -9.9743948 1 -4.2117533 1;
+    34 52.214561 fixed fixed 1 1 0 -4.2117533 1 1.5873591 1;
+    34.5 53.008394 fixed fixed 1 1 0 1.5873591 1 5.27634 1;
+    35 55.652193 fixed fixed 1 1 0 5.27634 1 8.0384506 1;
+    35.5 59.694754 fixed fixed 1 1 0 8.0384506 1 9.8923388 1;
+    36 64.681549 fixed fixed 1 1 0 10.370562 1 10.370562 1;
+    37 75.672828 fixed fixed 1 1 0 10.520639 1 10.520639 1;
+    37.5 80.771522 fixed fixed 1 1 0 10.111086 1 8.4103342 1;
+    38 84.999492 fixed fixed 1 1 0 8.4103342 1 8.4103342 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_32|JOBJ_33 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 79.998659 fixed fixed 1 1 0 0.31473274 1 0.31473274 1;
+    1.5 80.58617 fixed fixed 1 1 0 1.0490291 1 1.0490291 1;
+    6 84.439942 fixed fixed 1 1 0 -1.3706501 1 -1.3706501 1;
+    6.5 83.523725 fixed fixed 1 1 0 -1.8319893 1 -2.9076785 1;
+    7 82.065433 fixed fixed 1 1 0 -2.9076785 1 -4.128157 1;
+    7.5 79.998659 fixed fixed 1 1 0 -4.128157 1 -8.3346231 1;
+    8 75.809192 fixed fixed 1 1 0 -8.3346231 1 -13.859429 1;
+    8.5 68.773098 fixed fixed 1 1 0 -13.859429 1 -17.154998 1;
+    9 59.995499 fixed fixed 1 1 0 -17.154998 1 -18.332715 1;
+    9.5 50.588449 fixed fixed 1 1 0 -17.89159 1 -17.89159 1;
+    10 41.649964 fixed fixed 1 1 0 -17.455374 1 -14.480645 1;
+    10.5 34.292154 fixed fixed 1 1 0 -14.480645 1 -9.282818 1;
+    11 29.620085 fixed fixed 1 1 0 -9.282818 1 -5.3666772 1;
+    11.5 26.927355 fixed fixed 1 1 0 -5.3666772 1 -4.2535465 1;
+    12 24.797613 fixed fixed 1 1 0 -4.2535465 1 -3.1170667 1;
+    12.5 23.237965 fixed fixed 1 1 0 -3.1170667 1 -1.9438037 1;
+    13 22.262275 fixed fixed 1 1 0 -1.9438037 1 -0.73435173 1;
+    13.5 21.895066 fixed fixed 1 1 0 -0.73435173 1 0.49657274 1;
+    14 22.143386 fixed fixed 1 1 0 0.49657274 1 1.7621 1;
+    14.5 23.024653 fixed fixed 1 1 0 1.7621 1 3.054256 1;
+    15 24.552846 fixed fixed 1 1 0 3.054256 1 4.3789053 1;
+    15.5 26.745498 fixed fixed 1 1 0 4.3789053 1 5.7278204 1;
+    16 29.620085 fixed fixed 1 1 0 5.7278204 1 13.430485 1;
+    16.5 36.428829 fixed fixed 1 1 0 13.430485 1 22.475508 1;
+    17 48.119517 fixed fixed 1 1 0 22.475508 1 24.970035 1;
+    17.5 61.226499 fixed fixed 1 1 0 24.970035 1 21.366992 1;
+    18 72.294669 fixed fixed 1 1 0 21.366992 1 11.024639 1;
+    18.5 77.861985 fixed fixed 1 1 0 11.024639 1 3.1310237 1;
+    20 82.016502 fixed fixed 1 1 0 2.2302766 1 2.2302766 1;
+    30.5 77.861985 fixed fixed 1 1 0 -1.9857313 1 -4.984349 1;
+    31 75.365092 fixed fixed 1 1 0 -4.984349 1 -9.5501118 1;
+    31.5 70.556601 fixed fixed 1 1 0 -9.5501118 1 -12.123449 1;
+    32 64.422802 fixed fixed 1 1 0 -12.44102 1 -12.44102 1;
+    32.5 57.963734 fixed fixed 1 1 0 -12.758006 1 -11.479863 1;
+    33 52.162078 fixed fixed 1 1 0 -11.479863 1 -8.2520036 1;
+    33.5 48.011113 fixed fixed 1 1 0 -8.2520036 1 -3.0123796 1;
+    34 46.500395 fixed fixed 1 1 0 -3.0123796 1 2.279179 1;
+    34.5 47.643904 fixed fixed 1 1 0 2.279179 1 5.6931102 1;
+    35 50.501016 fixed fixed 1 1 0 5.6931102 1 8.2520036 1;
+    35.5 54.65198 fixed fixed 1 1 0 8.2520036 1 9.960721 1;
+    36 59.670289 fixed fixed 1 1 0 10.397857 1 10.397857 1;
+    37 70.630054 fixed fixed 1 1 0 10.49336 1 10.49336 1;
+    37.5 75.725253 fixed fixed 1 1 0 10.104254 1 8.4929048 1;
+    38 79.998659 fixed fixed 1 1 0 8.4929048 1 8.4929048 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_34 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 -0.23921445 1 -0.23921445 1;
+    7.5 -1.7939882 fixed fixed 1 1 0 0.20495781 1 0.20495781 1;
+    11 2.1507117 fixed fixed 1 1 0 0.17316854 1 0.17316854 1;
+    16 2.1507117 fixed fixed 1 1 0 -0.28694062 1 -0.28694062 1;
+    18.5 0 fixed fixed 1 1 0 -0.14841817 1 -0.14841817 1;
+    30.5 0 fixed fixed 1 1 0 0 1 0 1;
+    38 0 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_34 0 0 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -28.644395 fixed fixed 1 1 0 -1.5174567 1 -1.5174567 1;
+    7.5 -40.062298 fixed fixed 1 1 0 4.4346103 1 4.4346103 1;
+    11 18.034305 fixed fixed 1 1 0 0.17485245 1 0.17485245 1;
+    16 18.034305 fixed fixed 1 1 0 -0.21681677 1 -0.21681677 1;
+    18.5 -57.29578 fixed fixed 1 1 0 -4.5947275 1 -4.5947275 1;
+    30.5 -48.700037 fixed fixed 1 1 0 1.4685223 1 1.4685223 1;
+    38 -28.644395 fixed fixed 1 1 0 2.5026988 1 2.5026988 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_34 0 0 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 0.4892622 1 0.4892622 1;
+    7.5 3.6684196 fixed fixed 1 1 0 2.3507786 1 2.3507786 1;
+    11 24.692705 fixed fixed 1 1 0 0.17513274 1 0.17513274 1;
+    16 24.692705 fixed fixed 1 1 0 -0.19597139 1 -0.19597139 1;
+    18.5 0 fixed fixed 1 1 0 -1.7026311 1 -1.7026311 1;
+    30.5 0 fixed fixed 1 1 0 0 1 0 1;
+    38 0 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_35 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_35 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 39.99933 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_35 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 14.998889 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_22|JOBJ_23|JOBJ_24|JOBJ_25|JOBJ_35|JOBJ_36 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 39.99933 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_37 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -32.6555 fixed fixed 1 1 0 0 1 0 1;
+    17.5 -32.6555 fixed fixed 1 1 0 0 1 0 1;
+    18.5 -48.700037 fixed fixed 1 1 0 0 1 0 1;
+    30.5 -48.700037 fixed fixed 1 1 0 0 1 0 1;
+    38 -32.6555 fixed fixed 1 1 0 6.0678181 1 6.0678181 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_37 0 0 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_21|JOBJ_37 0 0 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -49.993948 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -49.993948 fixed fixed 1 1 0 0.04006769 1 0.04006769 1;
+    11 -49.574256 fixed fixed 1 1 0 0.049495385 1 0.049495385 1;
+    16 -49.574256 fixed fixed 1 1 0 -1.752875 1 -1.752875 1;
+    18.5 -62.723237 fixed fixed 1 1 0 -0.90681347 1 -0.90681347 1;
+    30.5 -62.723237 fixed fixed 1 1 0 0.65274287 1 0.65274287 1;
+    38 -49.993948 fixed fixed 1 1 0 1.590804 1 1.590804 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 54.998219 fixed fixed 1 1 0 0 1 0 1;
+    7.5 54.998219 fixed fixed 1 1 0 1.4329084 1 1.4329084 1;
+    11 70.046039 fixed fixed 1 1 0 -0.057887126 1 -0.057887126 1;
+    16 70.046039 fixed fixed 1 1 0 -0.14038029 1 -0.14038029 1;
+    18.5 54.082002 fixed fixed 1 1 0 -1.1008538 1 -1.1008538 1;
+    30.5 54.082002 fixed fixed 1 1 0 0.046970453 1 0.046970453 1;
+    38 54.998219 fixed fixed 1 1 0 0.11449031 1 0.11449031 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -50.997598 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -50.997598 fixed fixed 1 1 0 -0.58466529 1 -0.58466529 1;
+    11 -57.138388 fixed fixed 1 1 0 -0.7222238 1 -0.7222238 1;
+    16 -57.138388 fixed fixed 1 1 0 0.80231461 1 0.80231461 1;
+    18.5 -51.119982 fixed fixed 1 1 0 0.41500462 1 0.41500462 1;
+    30.5 -51.119982 fixed fixed 1 1 0 0.0062314546 1 0.0062314546 1;
+    38 -50.997598 fixed fixed 1 1 0 0.015189157 1 0.015189157 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38|JOBJ_39 0 2 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim scale.scaleX scaleX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38|JOBJ_39|JOBJ_40 0 0 0;
+animData {
+  input time;
+  output unitless;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 1 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38|JOBJ_39|JOBJ_40 0 0 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38|JOBJ_39|JOBJ_41 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38|JOBJ_39|JOBJ_41 0 0 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_38|JOBJ_39|JOBJ_41 0 0 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42 0 3 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -3.9971255 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -3.9971255 fixed fixed 1 1 0 -0.14703597 1 -0.14703597 1;
+    11 -5.542851 fixed fixed 1 1 0 -0.18163255 1 -0.18163255 1;
+    16 -5.542851 fixed fixed 1 1 0 -1.3503634 1 -1.3503634 1;
+    18.5 -15.670338 fixed fixed 1 1 0 -0.6985345 1 -0.6985345 1;
+    30.5 -15.670338 fixed fixed 1 1 0 0.9794918 1 0.9794918 1;
+    34.5 0 fixed fixed 1 1 0 1.556115 1 1.556115 1;
+    38 -3.9971255 fixed fixed 1 1 0 -0.99992131 1 -0.99992131 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42 0 3 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -21.999975 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -21.999975 fixed fixed 1 1 0 4.7199998 1 4.7199998 1;
+    11 27.703713 fixed fixed 1 1 0 5.8319344 1 5.8319344 1;
+    16 27.703713 fixed fixed 1 1 0 -5.3944691 1 -5.3944691 1;
+    18.5 -12.88668 fixed fixed 1 1 0 -2.7959797 1 -2.7959797 1;
+    30.5 -12.88668 fixed fixed 1 1 0 0.72735849 1 0.72735849 1;
+    34.5 -1.1435665 fixed fixed 1 1 0 -1.2098466 1 -1.2098466 1;
+    38 -21.999975 fixed fixed 1 1 0 -5.1998853 1 -5.1998853 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42 0 3 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 7.997746 fixed fixed 1 1 0 0 1 0 1;
+    7.5 7.997746 fixed fixed 1 1 0 -0.59451022 1 -0.59451022 1;
+    11 1.7555427 fixed fixed 1 1 0 -0.73438508 1 -0.73438508 1;
+    16 1.7555427 fixed fixed 1 1 0 0.36361014 1 0.36361014 1;
+    18.5 4.4832229 fixed fixed 1 1 0 0.18807553 1 0.18807553 1;
+    30.5 4.4832229 fixed fixed 1 1 0 -0.28028435 1 -0.28028435 1;
+    34.5 0 fixed fixed 1 1 0 0.46871541 1 0.46871541 1;
+    38 7.997746 fixed fixed 1 1 0 1.9993863 1 1.9993863 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_43 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -2.7522028 fixed fixed 1 1 0 -2.5446024 1 -2.5446024 1;
+    6 -0.29026042 fixed fixed 1 1 0 2.5306348 1 2.5306348 1;
+    7.5 14.998889 fixed fixed 1 1 0 -6.9198289 1 -6.9198289 1;
+    11 -35.026514 fixed fixed 1 1 0 -7.0512431 1 -7.0512431 1;
+    16 -45.178467 fixed fixed 1 1 0 7.5625258 1 7.5625258 1;
+    18.5 21.944054 fixed fixed 1 1 0 7.8109355 1 7.8109355 1;
+    24.5 21.548885 fixed fixed 1 1 0 0 1 0 1;
+    30.5 21.944054 fixed fixed 1 1 0 -1.7970457 1 -1.7970457 1;
+    38 -2.7522028 fixed fixed 1 1 0 -0.86722039 1 -0.86722039 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_43 0 0 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -1.5632008 fixed fixed 1 1 0 1.7900562 1 1.7900562 1;
+    6 5.7491731 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -4.9972806 fixed fixed 1 1 0 -4.3649781 1 -4.3649781 1;
+    11 -16.135408 fixed fixed 1 1 0 0 1 0 1;
+    16 -13.470639 fixed fixed 1 1 0 1.0210595 1 1.0210595 1;
+    18.5 -8.4419029 fixed fixed 1 1 0 0.91617028 1 0.91617028 1;
+    24.5 -5.6372745 fixed fixed 1 1 0 0 1 0 1;
+    30.5 -8.4419029 fixed fixed 1 1 0 0 1 0 1;
+    38 -1.5632008 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_43 0 0 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -15.163213 fixed fixed 1 1 0 0.44231213 1 0.44231213 1;
+    6 -12.344605 fixed fixed 1 1 0 0.023655914 1 0.023655914 1;
+    7.5 -14.998889 fixed fixed 1 1 0 1.6901053 1 1.6901053 1;
+    11 -3.8922169 fixed fixed 1 1 0 1.7601464 1 1.7601464 1;
+    16 -0.034950426 fixed fixed 1 1 0 -2.1497829 1 -2.1497829 1;
+    18.5 -20.020635 fixed fixed 1 1 0 -2.567689 1 -2.567689 1;
+    24.5 -21.870601 fixed fixed 1 1 0 0 1 0 1;
+    30.5 -20.020635 fixed fixed 1 1 0 0.49673064 1 0.49673064 1;
+    38 -15.163213 fixed fixed 1 1 0 0.62782682 1 0.62782682 1;
+  }
+}
+anim translate.translateX translateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_43 0 0 3;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -0.828857 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -0.828857 fixed fixed 1 1 0 -3.4170802 1 -3.4170802 1;
+    11 -1.455688 fixed fixed 1 1 0 0 1 0 1;
+    18.5 -0.828857 fixed fixed 1 1 0 1.8389786 1 1.8389786 1;
+    30.5 -0.828857 fixed fixed 1 1 0 0 1 0 1;
+    38 -0.828857 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim translate.translateY translateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_43 0 0 4;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0.652557 fixed fixed 1 1 0 0 1 0 1;
+    7.5 0.652557 fixed fixed 1 1 0 1.2691624 1 1.2691624 1;
+    11 0.885193 fixed fixed 1 1 0 0 1 0 1;
+    18.5 0.652557 fixed fixed 1 1 0 -0.68345475 1 -0.68345475 1;
+    30.5 0.652557 fixed fixed 1 1 0 0 1 0 1;
+    38 0.652557 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim translate.translateZ translateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_43 0 0 5;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -0.066101 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -0.066101 fixed fixed 1 1 0 -3.5635485 1 -3.5635485 1;
+    11 -0.71991 fixed fixed 1 1 0 0 1 0 1;
+    18.5 -0.066101 fixed fixed 1 1 0 1.9158512 1 1.9158512 1;
+    30.5 -0.066101 fixed fixed 1 1 0 0 1 0 1;
+    38 -0.066101 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44 0 1 0;
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 47.867702 fixed fixed 1 1 0 1.0140671 1 1.0140671 1;
+    2.5 49.22458 fixed fixed 1 1 0 0.25178692 1 0.25178692 1;
+    5.5 50.700348 fixed fixed 1 1 0 1.7551102 1 1.7551102 1;
+    7 54.386243 fixed fixed 1 1 0 2.4258699 1 2.4258699 1;
+    7.5 55.470336 fixed fixed 1 1 0 2.1673998 1 -53.377276 1;
+    8 21.534905 fixed fixed 1 1 0 -53.377276 1 -63.649864 1;
+    8.5 -23.724062 fixed fixed 1 1 0 -63.649864 1 -24.252087 1;
+    9 -36.425333 fixed fixed 1 1 0 -24.252087 1 -18.190173 1;
+    9.5 -45.755493 fixed fixed 1 1 0 -18.190173 1 -33.065305 1;
+    10 -63.786303 fixed fixed 1 1 0 -33.065305 1 -25.375048 1;
+    10.5 -77.131063 fixed fixed 1 1 0 -25.375048 1 -15.86724 1;
+    11 -85.223289 fixed fixed 1 1 0 -15.86724 1 0.76232465 1;
+    11.5 -84.838606 fixed fixed 1 1 0 0.76232465 1 -1.4825036 1;
+    12 -85.579956 fixed fixed 1 1 0 -1.4825036 1 -2.9425802 1;
+    12.5 -87.055723 fixed fixed 1 1 0 -3.3054632 1 -3.3054632 1;
+    13.5 -90.699677 fixed fixed 1 1 0 -3.1310237 1 -3.1310237 1;
+    14 -92.028538 fixed fixed 1 1 0 -2.6423693 1 -0.72735849 1;
+    14.5 -92.392252 fixed fixed 1 1 0 -0.72735849 1 1.9158512 1;
+    15 -91.434037 fixed fixed 1 1 0 1.9158512 1 4.8452372 1;
+    15.5 -89.007103 fixed fixed 1 1 0 4.8452372 1 7.5280069 1;
+    16 -85.223289 fixed fixed 1 1 0 7.5280069 1 26.32851 1;
+    16.5 -71.318979 fixed fixed 1 1 0 26.32851 1 -69.367701 1;
+    17 -124.34135 fixed fixed 1 1 0 -69.367701 1 1.9997068 1;
+    17.5 -123.3412 fixed fixed 1 1 0 1.9997068 1 42.246581 1;
+    18 -98.910735 fixed fixed 1 1 0 42.246581 1 38.076894 1;
+    18.5 -77.522737 fixed fixed 1 1 0 38.076894 1 -2.5655528 1;
+    20.5 -81.635313 fixed fixed 1 1 0 -1.3916238 1 -1.3916238 1;
+    29 -78.970544 fixed fixed 1 1 0 1.0140671 1 1.0140671 1;
+    30.5 -77.522737 fixed fixed 1 1 0 0.91617028 1 -2.2652073 1;
+    31 -78.655818 fixed fixed 1 1 0 -2.2652073 1 -7.8523157 1;
+    31.5 -82.600461 fixed fixed 1 1 0 -7.8523157 1 -12.488263 1;
+    32 -88.923164 fixed fixed 1 1 0 -12.488263 1 -15.198841 1;
+    32.5 -96.658668 fixed fixed 1 1 0 -14.800278 1 -14.800278 1;
+    33 -103.97448 fixed fixed 1 1 0 -14.393956 1 -8.6098321 1;
+    33.5 -108.30386 fixed fixed 1 1 0 -8.6098321 1 -3.340345 1;
+    34.5 -111.71697 fixed fixed 1 1 0 -3.4659072 1 -5.0052125 1;
+    35 -114.22086 fixed fixed 1 1 0 -5.0052125 1 -6.6222182 1;
+    35.5 -117.54309 fixed fixed 1 1 0 -7.0304967 1 -7.0304967 1;
+    36.5 -124.9708 fixed fixed 1 1 0 -6.8644805 1 -6.8644805 1;
+    37 -128.17415 fixed fixed 1 1 0 -6.3797781 1 -4.7408745 1;
+    37.5 -130.5521 fixed fixed 1 1 0 -4.7408745 1 -3.1449804 1;
+    38 -132.12579 fixed fixed 1 1 0 -3.1449804 1 -3.1449804 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -80.026677 fixed fixed 1 1 0 0.083929322 1 0.083929322 1;
+    3.5 -80.55821 fixed fixed 1 1 0 -0.25178692 1 -0.25178692 1;
+    7 -79.32022 fixed fixed 1 1 0 1.2867548 1 1.2867548 1;
+    7.5 -78.59984 fixed fixed 1 1 0 1.4405595 1 0.15387017 1;
+    8 -78.522892 fixed fixed 1 1 0 0.15387017 1 17.213822 1;
+    8.5 -69.710343 fixed fixed 1 1 0 17.213822 1 16.150829 1;
+    9 -61.464277 fixed fixed 1 1 0 16.150829 1 3.6890644 1;
+    9.5 -59.617806 fixed fixed 1 1 0 3.6890644 1 21.171572 1;
+    10 -48.65105 fixed fixed 1 1 0 21.171572 1 40.58341 1;
+    10.5 -25.465568 fixed fixed 1 1 0 40.58341 1 26.089673 1;
+    11 -11.701173 fixed fixed 1 1 0 26.089673 1 8.1693572 1;
+    11.5 -7.5885968 fixed fixed 1 1 0 8.1693572 1 6.5114104 1;
+    12 -4.3153462 fixed fixed 1 1 0 6.5114104 1 4.8869753 1;
+    12.5 -1.8604513 fixed fixed 1 1 0 4.8869753 1 3.4101053 1;
+    13 -0.14684908 fixed fixed 1 1 0 3.4101053 1 2.0276585 1;
+    13.5 0.86029613 fixed fixed 1 1 0 2.0276585 1 0.57350298 1;
+    14 1.1470615 fixed fixed 1 1 0 0.57350298 1 -1.1189515 1;
+    14.5 0.58052084 fixed fixed 1 1 0 -1.1189515 1 -3.4938062 1;
+    15 -1.1610417 fixed fixed 1 1 0 -3.4938062 1 -7.2171595 1;
+    15.5 -4.7909585 fixed fixed 1 1 0 -7.2171595 1 -13.61159 1;
+    16 -11.701173 fixed fixed 1 1 0 -13.61159 1 -60.55998 1;
+    16.5 -53.246171 fixed fixed 1 1 0 -60.55998 1 -73.445178 1;
+    17 -112.5143 fixed fixed 1 1 0 -73.445178 1 -38.935083 1;
+    17.5 -134.51777 fixed fixed 1 1 0 -38.935083 1 -12.170788 1;
+    18 -140.6726 fixed fixed 1 1 0 -12.170788 1 -2.8797545 1;
+    18.5 -142.11341 fixed fixed 1 1 0 -2.8797545 1 1.2448056 1;
+    20.5 -140.39282 fixed fixed 1 1 0 0.34970245 1 0.34970245 1;
+    28 -143.46325 fixed fixed 1 1 0 -0.069941115 1 -0.069941115 1;
+    30 -142.66592 fixed fixed 1 1 0 0.93714856 1 0.93714856 1;
+    30.5 -142.11341 fixed fixed 1 1 0 1.1049673 1 2.9356004 1;
+    31 -140.63765 fixed fixed 1 1 0 2.9356004 1 5.6236791 1;
+    31.5 -137.81199 fixed fixed 1 1 0 5.6236791 1 7.1756889 1;
+    32 -134.21004 fixed fixed 1 1 0 7.3691709 1 7.3691709 1;
+    32.5 -130.40525 fixed fixed 1 1 0 7.2862647 1 7.2862647 1;
+    33 -126.88723 fixed fixed 1 1 0 7.00975 1 5.8596931 1;
+    33.5 -123.94968 fixed fixed 1 1 0 5.4292057 1 5.4292057 1;
+    35.5 -114.44471 fixed fixed 1 1 0 5.0121661 1 5.0121661 1;
+    37 -105.94683 fixed fixed 1 1 0 6.0539469 1 6.0539469 1;
+    38 -99.966869 fixed fixed 1 1 0 5.8319344 1 5.8319344 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -74.795056 fixed fixed 1 1 0 -1.1329356 1 -1.1329356 1;
+    3 -77.019164 fixed fixed 1 1 0 -0.54552848 1 -0.54552848 1;
+    5.5 -79.110403 fixed fixed 1 1 0 -1.6922067 1 -1.6922067 1;
+    7 -82.208787 fixed fixed 1 1 0 -1.6922067 1 -1.6922067 1;
+    7.5 -82.866256 fixed fixed 1 1 0 -1.3147204 1 49.754681 1;
+    8 -52.288014 fixed fixed 1 1 0 49.754681 1 57.576902 1;
+    8.5 -14.072187 fixed fixed 1 1 0 57.576902 1 18.112355 1;
+    9 -4.7839684 fixed fixed 1 1 0 18.112355 1 15.265155 1;
+    9.5 2.9864852 fixed fixed 1 1 0 15.265155 1 22.674579 1;
+    10 14.785577 fixed fixed 1 1 0 22.674579 1 -2.2093185 1;
+    10.5 13.680513 fixed fixed 1 1 0 -2.2093185 1 -11.262575 1;
+    11 7.9942509 fixed fixed 1 1 0 -11.262575 1 -6.2619588 1;
+    11.5 4.8469365 fixed fixed 1 1 0 -6.2619588 1 -4.1490568 1;
+    12 2.7626879 fixed fixed 1 1 0 -4.1490568 1 -2.6284033 1;
+    12.5 1.4478071 fixed fixed 1 1 0 -2.6284033 1 -1.5104656 1;
+    13 0.6924195 fixed fixed 1 1 0 -1.0490291 1 -1.0490291 1;
+    13.5 0.39167395 fixed fixed 1 1 0 -0.12589392 1 -0.12589392 1;
+    14 0.55955058 fixed fixed 1 1 0 0.32172667 1 1.3846322 1;
+    14.5 1.2589602 fixed fixed 1 1 0 1.3846322 1 2.684266 1;
+    15 2.6018013 fixed fixed 1 1 0 2.684266 1 4.288372 1;
+    15.5 4.7560081 fixed fixed 1 1 0 4.288372 1 6.4421358 1;
+    16 7.9942509 fixed fixed 1 1 0 6.4421358 1 23.380396 1;
+    16.5 20.192007 fixed fixed 1 1 0 23.380396 1 81.356009 1;
+    17 93.287499 fixed fixed 1 1 0 81.356009 1 16.519265 1;
+    17.5 101.72241 fixed fixed 1 1 0 16.519265 1 -7.9902051 1;
+    18 97.700763 fixed fixed 1 1 0 -7.9902051 1 -9.7623539 1;
+    18.5 92.783926 fixed fixed 1 1 0 -9.7623539 1 1.2308223 1;
+    22 95.539566 fixed fixed 1 1 0 0.2937509 1 0.2937509 1;
+    30 93.098652 fixed fixed 1 1 0 -0.60147716 1 -0.60147716 1;
+    30.5 92.783926 fixed fixed 1 1 0 -0.61546428 1 0.85323456 1;
+    31 93.21754 fixed fixed 1 1 0 0.85323456 1 3.4380068 1;
+    31.5 94.938075 fixed fixed 1 1 0 3.4380068 1 5.6653392 1;
+    32 97.784702 fixed fixed 1 1 0 5.6653392 1 7.2862647 1;
+    33 105.13552 fixed fixed 1 1 0 7.3415373 1 4.4972715 1;
+    33.5 107.39464 fixed fixed 1 1 0 4.4972715 1 1.174888 1;
+    34 107.98215 fixed fixed 1 1 0 0.81127651 1 0.81127651 1;
+    35 108.41576 fixed fixed 1 1 0 0.46160398 1 0.46160398 1;
+    36 108.84938 fixed fixed 1 1 0 0 1 0 1;
+    36.5 108.68855 fixed fixed 1 1 0 -0.3077388 1 -1.3147204 1;
+    37 108.02409 fixed fixed 1 1 0 -1.3147204 1 -2.4887305 1;
+    37.5 106.77911 fixed fixed 1 1 0 -2.8239056 1 -2.8239056 1;
+    38 105.19849 fixed fixed 1 1 0 -3.1589369 1 -3.1589369 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -91.860662 fixed fixed 1 1 0 -0.50356643 1 -0.50356643 1;
+    2.5 -92.322294 fixed fixed 1 1 0 0 1 0 1;
+    6.5 -94.371592 fixed fixed 1 1 0 -1.6991956 1 -1.6991956 1;
+    7.5 -96.497781 fixed fixed 1 1 0 -2.3350637 1 1.6502689 1;
+    8 -95.665503 fixed fixed 1 1 0 1.6502689 1 5.0330283 1;
+    8.5 -93.147582 fixed fixed 1 1 0 5.0330283 1 -0.083929322 1;
+    9 -93.18958 fixed fixed 1 1 0 -0.083929322 1 -9.0701363 1;
+    9.5 -97.756741 fixed fixed 1 1 0 -9.0701363 1 5.6375663 1;
+    10 -94.931085 fixed fixed 1 1 0 5.6375663 1 28.080017 1;
+    10.5 -79.991669 fixed fixed 1 1 0 28.080017 1 25.423283 1;
+    11 -66.618949 fixed fixed 1 1 0 25.423283 1 3.8215253 1;
+    11.5 -64.709567 fixed fixed 1 1 0 3.8215253 1 5.498671 1;
+    12 -61.946879 fixed fixed 1 1 0 5.9776451 1 5.9776451 1;
+    13 -55.421348 fixed fixed 1 1 0 6.5460412 1 5.5264538 1;
+    13.5 -52.65167 fixed fixed 1 1 0 5.5264538 1 3.1798717 1;
+    14 -51.064004 fixed fixed 1 1 0 3.1798717 1 -0.5525221 1;
+    14.5 -51.336789 fixed fixed 1 1 0 -0.5525221 1 -5.2902392 1;
+    15 -53.994569 fixed fixed 1 1 0 -5.2902392 1 -10.25452 1;
+    15.5 -59.163221 fixed fixed 1 1 0 -10.25452 1 -14.667182 1;
+    16 -66.618949 fixed fixed 1 1 0 -14.667182 1 -39.507998 1;
+    16.5 -89.028073 fixed fixed 1 1 0 -39.507998 1 -37.625179 1;
+    17 -110.10834 fixed fixed 1 1 0 -37.625179 1 -1.328703 1;
+    17.5 -110.7728 fixed fixed 1 1 0 -1.7900562 1 -1.7900562 1;
+    18 -111.89883 fixed fixed 1 1 0 -2.2442499 1 -5.8319344 1;
+    18.5 -114.82235 fixed fixed 1 1 0 -5.8319344 1 0.94414124 1;
+    21 -113.42353 fixed fixed 1 1 0 0.090923417 1 0.090923417 1;
+    30 -115.30495 fixed fixed 1 1 0 0.83225568 1 0.83225568 1;
+    30.5 -114.82235 fixed fixed 1 1 0 0.96511928 1 3.2077829 1;
+    31 -113.21371 fixed fixed 1 1 0 3.2077829 1 6.4559916 1;
+    31.5 -109.97547 fixed fixed 1 1 0 6.4559916 1 8.258889 1;
+    32.5 -101.55453 fixed fixed 1 1 0 8.4929048 1 6.9198289 1;
+    33 -98.078457 fixed fixed 1 1 0 6.9198289 1 3.3194164 1;
+    33.5 -96.413843 fixed fixed 1 1 0 3.3194164 1 0.2308048 1;
+    34 -96.294954 fixed fixed 1 1 0 -0.13988205 1 -0.13988205 1;
+    35.5 -96.945433 fixed fixed 1 1 0 0.18184649 1 0.18184649 1;
+    37 -94.854194 fixed fixed 1 1 0 2.5166669 1 2.5166669 1;
+    38 -91.860662 fixed fixed 1 1 0 3.1449804 1 3.1449804 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47 0 7 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 66.95115 fixed fixed 1 1 0 0 1 0 1;
+    7.5 66.95115 fixed fixed 1 1 0 5.0052125 1 5.0052125 1;
+    11 119.67977 fixed fixed 1 1 0 6.1787687 1 6.1787687 1;
+    16 119.67977 fixed fixed 1 1 0 -2.2093185 1 -2.2093185 1;
+    18.5 103.08273 fixed fixed 1 1 0 -1.1399277 1 -1.1399277 1;
+    30.5 103.08273 fixed fixed 1 1 0 -1.8459667 1 -1.8459667 1;
+    38 66.95115 fixed fixed 1 1 0 -4.5042339 1 -4.5042339 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47 0 7 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 4.2069426 fixed fixed 1 1 0 0 1 0 1;
+    7.5 4.2069426 fixed fixed 1 1 0 -1.3323272 1 -1.3323272 1;
+    11 -9.781249 fixed fixed 1 1 0 -1.6457006 1 -1.6457006 1;
+    16 -9.781249 fixed fixed 1 1 0 3.2973955 1 3.2973955 1;
+    18.5 14.963881 fixed fixed 1 1 0 1.706583 1 1.706583 1;
+    30.5 14.963881 fixed fixed 1 1 0 -0.55176252 1 -0.55176252 1;
+    38 4.2069426 fixed fixed 1 1 0 -1.3447667 1 -1.3447667 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47 0 7 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -43.164177 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -43.164177 fixed fixed 1 1 0 6.4490643 1 6.4490643 1;
+    11 24.797613 fixed fixed 1 1 0 7.9557386 1 7.9557386 1;
+    16 24.797613 fixed fixed 1 1 0 -8.3346231 1 -8.3346231 1;
+    18.5 -38.082958 fixed fixed 1 1 0 -4.3301589 1 -4.3301589 1;
+    30.5 -38.082958 fixed fixed 1 1 0 -0.25878091 1 -0.25878091 1;
+    38 -43.164177 fixed fixed 1 1 0 -0.62945123 1 -0.62945123 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_48 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 0.0070183582 1 0.0070183582 1;
+    7.5 0 fixed fixed 1 1 0 -0.13802774 1 -0.13802774 1;
+    11 -1.1110225 fixed fixed 1 1 0 -0.16267763 1 -0.16267763 1;
+    15.5 -1.1768553 fixed fixed 1 1 0 0.11571696 1 0.11571696 1;
+    17 -0.68497104 fixed fixed 1 1 0 0.57107015 1 0.57107015 1;
+    18.5 0 fixed fixed 1 1 0 0.16339062 1 0.16339062 1;
+    22 0.13453049 fixed fixed 1 1 0 0.0069169997 1 0.0069169997 1;
+    30 0.001546986 fixed fixed 1 1 0 -0.0058528177 1 -0.0058528177 1;
+    30.5 0 linear linear 1 1 0;
+    38 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_48 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -74.997884 fixed fixed 1 1 0 -0.3287206 1 -0.3287206 1;
+    1.5 -75.613355 fixed fixed 1 1 0 -1.0979751 1 -1.0979751 1;
+    6 -79.655973 fixed fixed 1 1 0 1.4335693 1 1.4335693 1;
+    6.5 -78.690768 fixed fixed 1 1 0 1.9228399 1 3.0472774 1;
+    7 -77.16607 fixed fixed 1 1 0 3.0472774 1 4.3301589 1;
+    7.5 -74.997884 fixed fixed 1 1 0 4.3301589 1 8.7335805 1;
+    8 -70.605589 fixed fixed 1 1 0 8.7335805 1 14.507303 1;
+    8.5 -63.226809 fixed fixed 1 1 0 14.507303 1 17.943573 1;
+    9 -54.029519 fixed fixed 1 1 0 17.943573 1 19.171455 1;
+    9.5 -44.167827 fixed fixed 1 1 0 18.714122 1 18.714122 1;
+    10 -34.802717 fixed fixed 1 1 0 18.254979 1 15.152392 1;
+    10.5 -27.088184 fixed fixed 1 1 0 15.152392 1 9.7281343 1;
+    11 -22.185327 fixed fixed 1 1 0 9.7281343 1 5.9984555 1;
+    12 -16.457124 fixed fixed 1 1 0 4.991304 1 4.991304 1;
+    12.5 -14.170106 fixed fixed 1 1 0 4.5599246 1 3.4170802 1;
+    13 -12.463494 fixed fixed 1 1 0 3.4170802 1 1.9927197 1;
+    13.5 -11.463338 fixed fixed 1 1 0 1.9927197 1 0.27276888 1;
+    14 -11.323479 fixed fixed 1 1 0 0.27276888 1 -1.7201644 1;
+    14.5 -12.183776 fixed fixed 1 1 0 -1.7201644 1 -3.9957688 1;
+    15 -14.191076 fixed fixed 1 1 0 -3.9957688 1 -6.5460412 1;
+    15.5 -17.478307 fixed fixed 1 1 0 -6.5460412 1 -9.3582401 1;
+    16 -22.185327 fixed fixed 1 1 0 -9.3582401 1 -22.294744 1;
+    16.5 -33.774602 fixed fixed 1 1 0 -22.294744 1 -35.88599 1;
+    17 -53.665863 fixed fixed 1 1 0 -35.88599 1 -39.366555 1;
+    17.5 -75.970078 fixed fixed 1 1 0 -39.366555 1 -34.297453 1;
+    18 -94.805206 fixed fixed 1 1 0 -34.297453 1 -18.449207 1;
+    18.5 -104.27522 fixed fixed 1 1 0 -18.449207 1 -5.2415893 1;
+    19 -106.90504 fixed fixed 1 1 0 -4.8591503 1 -4.8591503 1;
+    30 -105.07954 fixed fixed 1 1 0 1.6922067 1 1.6922067 1;
+    31.5 -102.14904 fixed fixed 1 1 0 2.6912491 1 2.6912491 1;
+    37.5 -76.914255 fixed fixed 1 1 0 3.9887995 1 3.9887995 1;
+    38 -74.997884 fixed fixed 1 1 0 3.8354667 1 3.8354667 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_48|JOBJ_49 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -79.998659 fixed fixed 1 1 0 -0.10491161 1 -0.10491161 1;
+    3 -80.963864 fixed fixed 1 1 0 -0.54552848 1 -0.54552848 1;
+    7 -80.719039 fixed fixed 1 1 0 1.2308223 1 1.2308223 1;
+    7.5 -79.998659 fixed fixed 1 1 0 1.4475508 1 2.9286195 1;
+    8 -78.529882 fixed fixed 1 1 0 2.9286195 1 4.9147985 1;
+    8.5 -76.061007 fixed fixed 1 1 0 4.9147985 1 6.1232977 1;
+    9 -72.990583 fixed fixed 1 1 0 6.3451291 1 6.3451291 1;
+    9.5 -69.696362 fixed fixed 1 1 0 6.4005649 1 6.4005649 1;
+    10 -66.562971 fixed fixed 1 1 0 6.2411626 1 5.1442735 1;
+    10.5 -63.98913 fixed fixed 1 1 0 5.1442735 1 3.2705785 1;
+    11 -62.352533 fixed fixed 1 1 0 3.2705785 1 2.1813729 1;
+    13.5 -57.554585 fixed fixed 1 1 0 0.83924866 1 0.83924866 1;
+    14 -57.33073 fixed fixed 1 1 0 -0.02797645 1 -0.02797645 1;
+    14.5 -57.589535 fixed fixed 1 1 0 -0.51056012 1 -1.6991956 1;
+    15 -58.442841 fixed fixed 1 1 0 -1.6991956 1 -3.09613 1;
+    15.5 -59.988509 fixed fixed 1 1 0 -3.09613 1 -4.7060825 1;
+    16 -62.352533 fixed fixed 1 1 0 -4.7060825 1 -11.710458 1;
+    16.5 -68.269526 fixed fixed 1 1 0 -11.710458 1 -19.716544 1;
+    17 -78.424973 fixed fixed 1 1 0 -19.716544 1 -21.944721 1;
+    17.5 -89.818411 fixed fixed 1 1 0 -21.944721 1 -18.720583 1;
+    18 -99.435336 fixed fixed 1 1 0 -18.720583 1 -9.6049028 1;
+    18.5 -104.27522 fixed fixed 1 1 0 -9.6049028 1 -2.698231 1;
+    20 -107.80029 fixed fixed 1 1 0 -1.8319893 1 -1.8319893 1;
+    30 -104.90473 fixed fixed 1 1 0 1.2657797 1 1.2657797 1;
+    31.5 -102.51275 fixed fixed 1 1 0 2.2302766 1 2.2302766 1;
+    37.5 -81.586325 fixed fixed 1 1 0 3.3124393 1 3.3124393 1;
+    38 -79.998659 fixed fixed 1 1 0 3.1798717 1 3.1798717 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_50 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 0.0021055076 1 0.0021055076 1;
+    9.5 -0.19457647 fixed fixed 1 1 0 -0.1213702 1 -0.1213702 1;
+    16 -0.33328955 fixed fixed 1 1 0 0.066809148 1 0.066809148 1;
+    19 0.010542423 fixed fixed 1 1 0 0.019315026 1 0.019315026 1;
+    30 0.00045836624 fixed fixed 1 1 0 -0.0017558452 1 -0.0017558452 1;
+    30.5 0 linear linear 1 1 0;
+    38 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_50 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -78.494931 fixed fixed 1 1 0 -0.17485245 1 -0.17485245 1;
+    2 -79.173371 fixed fixed 1 1 0 -0.76232465 1 -0.76232465 1;
+    7 -79.655973 fixed fixed 1 1 0 1.9717556 1 1.9717556 1;
+    7.5 -78.494931 fixed fixed 1 1 0 2.3141079 1 4.6782453 1;
+    8 -76.151935 fixed fixed 1 1 0 4.6782453 1 7.838523 1;
+    8.5 -72.214225 fixed fixed 1 1 0 7.838523 1 9.7486669 1;
+    9 -67.304378 fixed fixed 1 1 0 10.097421 1 10.097421 1;
+    9.5 -62.037807 fixed fixed 1 1 0 10.186231 1 10.186231 1;
+    10 -57.036974 fixed fixed 1 1 0 9.926532 1 8.1900215 1;
+    10.5 -52.917465 fixed fixed 1 1 0 8.1900215 1 5.2207383 1;
+    11 -50.301684 fixed fixed 1 1 0 5.2207383 1 3.3263923 1;
+    13 -44.454592 fixed fixed 1 1 0 1.8599439 1 1.8599439 1;
+    13.5 -43.727222 fixed fixed 1 1 0 1.454541 1 0.39865967 1;
+    14 -43.524395 fixed fixed 1 1 0 0.39865967 1 -0.87421338 1;
+    14.5 -43.965 fixed fixed 1 1 0 -0.87421338 1 -2.3909452 1;
+    15 -45.160992 fixed fixed 1 1 0 -2.3909452 1 -4.1351233 1;
+    15.5 -47.23825 fixed fixed 1 1 0 -4.1351233 1 -6.1094286 1;
+    16 -50.301684 fixed fixed 1 1 0 -6.1094286 1 -14.973122 1;
+    16.5 -57.918241 fixed fixed 1 1 0 -14.973122 1 -24.915475 1;
+    17 -70.997263 fixed fixed 1 1 0 -24.915475 1 -27.623778 1;
+    17.5 -85.663894 fixed fixed 1 1 0 -27.623778 1 -23.706727 1;
+    18 -98.050497 fixed fixed 1 1 0 -23.706727 1 -12.312707 1;
+    18.5 -104.27522 fixed fixed 1 1 0 -12.312707 1 -3.4659072 1;
+    19.5 -107.50653 fixed fixed 1 1 0 -2.7540889 1 -2.7540889 1;
+    30 -104.96065 fixed fixed 1 1 0 1.3916238 1 1.3916238 1;
+    31.5 -102.40079 fixed fixed 1 1 0 2.3699906 1 2.3699906 1;
+    37.5 -80.187506 fixed fixed 1 1 0 3.5147292 1 3.5147292 1;
+    38 -78.494931 fixed fixed 1 1 0 3.3752261 1 3.3752261 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_50|JOBJ_51 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -79.998659 fixed fixed 1 1 0 -0.10491161 1 -0.10491161 1;
+    3 -80.963864 fixed fixed 1 1 0 -0.54552848 1 -0.54552848 1;
+    7 -80.719039 fixed fixed 1 1 0 1.2308223 1 1.2308223 1;
+    7.5 -79.998659 fixed fixed 1 1 0 1.4475508 1 2.9286195 1;
+    8 -78.529882 fixed fixed 1 1 0 2.9286195 1 4.9147985 1;
+    8.5 -76.061007 fixed fixed 1 1 0 4.9147985 1 6.1232977 1;
+    9 -72.990583 fixed fixed 1 1 0 6.3451291 1 6.3451291 1;
+    9.5 -69.696362 fixed fixed 1 1 0 6.4005649 1 6.4005649 1;
+    10 -66.562971 fixed fixed 1 1 0 6.2411626 1 5.1442735 1;
+    10.5 -63.98913 fixed fixed 1 1 0 5.1442735 1 3.2705785 1;
+    11 -62.352533 fixed fixed 1 1 0 3.2705785 1 2.1813729 1;
+    13.5 -57.554585 fixed fixed 1 1 0 0.83924866 1 0.83924866 1;
+    14 -57.33073 fixed fixed 1 1 0 -0.02797645 1 -0.02797645 1;
+    14.5 -57.589535 fixed fixed 1 1 0 -0.51056012 1 -1.6991956 1;
+    15 -58.442841 fixed fixed 1 1 0 -1.6991956 1 -3.09613 1;
+    15.5 -59.988509 fixed fixed 1 1 0 -3.09613 1 -4.7060825 1;
+    16 -62.352533 fixed fixed 1 1 0 -4.7060825 1 -11.710458 1;
+    16.5 -68.269526 fixed fixed 1 1 0 -11.710458 1 -19.716544 1;
+    17 -78.424973 fixed fixed 1 1 0 -19.716544 1 -21.944721 1;
+    17.5 -89.818411 fixed fixed 1 1 0 -21.944721 1 -18.720583 1;
+    18 -99.435336 fixed fixed 1 1 0 -18.720583 1 -9.6049028 1;
+    18.5 -104.27522 fixed fixed 1 1 0 -9.6049028 1 -2.698231 1;
+    20 -107.80029 fixed fixed 1 1 0 -1.8319893 1 -1.8319893 1;
+    30 -104.90473 fixed fixed 1 1 0 1.2657797 1 1.2657797 1;
+    31.5 -102.51275 fixed fixed 1 1 0 2.2302766 1 2.2302766 1;
+    37.5 -81.586325 fixed fixed 1 1 0 3.3124393 1 3.3124393 1;
+    38 -79.998659 fixed fixed 1 1 0 3.1798717 1 3.1798717 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_52 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 -0.0021055076 1 -0.0021055076 1;
+    9.5 0.19457647 fixed fixed 1 1 0 0.1213702 1 0.1213702 1;
+    16 0.33328955 fixed fixed 1 1 0 -0.066809148 1 -0.066809148 1;
+    19 -0.010542423 fixed fixed 1 1 0 -0.019315026 1 -0.019315026 1;
+    30 -0.00045836624 fixed fixed 1 1 0 0.0017558452 1 0.0017558452 1;
+    30.5 0 linear linear 1 1 0;
+    38 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_52 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -81.495397 fixed fixed 1 1 0 -0.041964672 1 -0.041964672 1;
+    7 -81.789152 fixed fixed 1 1 0 0.49657274 1 0.49657274 1;
+    8 -80.907886 fixed fixed 1 1 0 1.5803696 1 1.5803696 1;
+    10.5 -75.053862 fixed fixed 1 1 0 1.6922067 1 1.6922067 1;
+    11.5 -73.87884 fixed fixed 1 1 0 1.1678955 1 1.1678955 1;
+    14.5 -71.20708 fixed fixed 1 1 0 -0.58049654 1 -0.58049654 1;
+    15 -71.717643 fixed fixed 1 1 0 -1.0140671 1 -2.062595 1;
+    15.5 -72.745758 fixed fixed 1 1 0 -2.062595 1 -3.298486 1;
+    16 -74.396392 fixed fixed 1 1 0 -3.298486 1 -8.3896883 1;
+    16.5 -78.61382 fixed fixed 1 1 0 -8.3896883 1 -14.253826 1;
+    17 -85.852741 fixed fixed 1 1 0 -14.253826 1 -15.920048 1;
+    17.5 -93.972928 fixed fixed 1 1 0 -15.920048 1 -13.517711 1;
+    18 -100.82716 fixed fixed 1 1 0 -13.517711 1 -6.8644805 1;
+    18.5 -104.27522 fixed fixed 1 1 0 -6.8644805 1 -1.9368162 1;
+    21 -107.98914 fixed fixed 1 1 0 -0.94414124 1 -0.94414124 1;
+    30 -104.85575 fixed fixed 1 1 0 1.1329356 1 1.1329356 1;
+    31.5 -102.61766 fixed fixed 1 1 0 2.0905438 1 2.0905438 1;
+    37.5 -82.992134 fixed fixed 1 1 0 3.1031093 1 3.1031093 1;
+    38 -81.495397 fixed fixed 1 1 0 2.9844606 1 2.9844606 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_52|JOBJ_53 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -79.998659 fixed fixed 1 1 0 -0.10491161 1 -0.10491161 1;
+    3 -80.963864 fixed fixed 1 1 0 -0.54552848 1 -0.54552848 1;
+    7 -80.719039 fixed fixed 1 1 0 1.2308223 1 1.2308223 1;
+    7.5 -79.998659 fixed fixed 1 1 0 1.4475508 1 2.9286195 1;
+    8 -78.529882 fixed fixed 1 1 0 2.9286195 1 4.9147985 1;
+    8.5 -76.061007 fixed fixed 1 1 0 4.9147985 1 6.1232977 1;
+    9 -72.990583 fixed fixed 1 1 0 6.3451291 1 6.3451291 1;
+    9.5 -69.696362 fixed fixed 1 1 0 6.4005649 1 6.4005649 1;
+    10 -66.562971 fixed fixed 1 1 0 6.2411626 1 5.1442735 1;
+    10.5 -63.98913 fixed fixed 1 1 0 5.1442735 1 3.2705785 1;
+    11 -62.352533 fixed fixed 1 1 0 3.2705785 1 2.1813729 1;
+    13.5 -57.554585 fixed fixed 1 1 0 0.83924866 1 0.83924866 1;
+    14 -57.33073 fixed fixed 1 1 0 -0.02797645 1 -0.02797645 1;
+    14.5 -57.589535 fixed fixed 1 1 0 -0.51056012 1 -1.6991956 1;
+    15 -58.442841 fixed fixed 1 1 0 -1.6991956 1 -3.09613 1;
+    15.5 -59.988509 fixed fixed 1 1 0 -3.09613 1 -4.7060825 1;
+    16 -62.352533 fixed fixed 1 1 0 -4.7060825 1 -11.710458 1;
+    16.5 -68.269526 fixed fixed 1 1 0 -11.710458 1 -19.716544 1;
+    17 -78.424973 fixed fixed 1 1 0 -19.716544 1 -21.944721 1;
+    17.5 -89.818411 fixed fixed 1 1 0 -21.944721 1 -18.720583 1;
+    18 -99.435336 fixed fixed 1 1 0 -18.720583 1 -9.6049028 1;
+    18.5 -104.27522 fixed fixed 1 1 0 -9.6049028 1 -2.698231 1;
+    20 -107.80029 fixed fixed 1 1 0 -1.8319893 1 -1.8319893 1;
+    30 -104.90473 fixed fixed 1 1 0 1.2657797 1 1.2657797 1;
+    31.5 -102.51275 fixed fixed 1 1 0 2.2302766 1 2.2302766 1;
+    37.5 -81.586325 fixed fixed 1 1 0 3.3124393 1 3.3124393 1;
+    38 -79.998659 fixed fixed 1 1 0 3.1798717 1 3.1798717 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_54 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 -0.0070183582 1 -0.0070183582 1;
+    7.5 0 fixed fixed 1 1 0 0.13802774 1 0.13802774 1;
+    11 1.1110225 fixed fixed 1 1 0 0.16267763 1 0.16267763 1;
+    15.5 1.1768553 fixed fixed 1 1 0 -0.11571696 1 -0.11571696 1;
+    17 0.68497104 fixed fixed 1 1 0 -0.57107015 1 -0.57107015 1;
+    18.5 0 fixed fixed 1 1 0 -0.16339062 1 -0.16339062 1;
+    22 -0.13453049 fixed fixed 1 1 0 -0.0069169997 1 -0.0069169997 1;
+    30 -0.001546986 fixed fixed 1 1 0 0.0058528177 1 0.0058528177 1;
+    30.5 0 linear linear 1 1 0;
+    38 0 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_54 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -84.999492 fixed fixed 1 1 0 0.10491161 1 0.10491161 1;
+    3 -84.041278 fixed fixed 1 1 0 0.53853486 1 0.53853486 1;
+    7 -84.279055 fixed fixed 1 1 0 -1.22383 1 -1.22383 1;
+    7.5 -84.999492 fixed fixed 1 1 0 -1.4335693 1 -2.9076785 1;
+    8 -86.454232 fixed fixed 1 1 0 -2.9076785 1 -4.8800186 1;
+    8.5 -88.902194 fixed fixed 1 1 0 -4.8800186 1 -6.0816888 1;
+    9 -91.95159 fixed fixed 1 1 0 -6.2966161 1 -6.2966161 1;
+    9.5 -95.217851 fixed fixed 1 1 0 -6.3520596 1 -6.3520596 1;
+    10 -98.330272 fixed fixed 1 1 0 -6.1926351 1 -5.10256 1;
+    10.5 -100.88309 fixed fixed 1 1 0 -5.10256 1 -3.2426698 1;
+    11 -102.51275 fixed fixed 1 1 0 -3.2426698 1 -1.6432785 1;
+    11.5 -103.33804 fixed fixed 1 1 0 -1.2797628 1 -1.2797628 1;
+    16 -102.51275 fixed fixed 1 1 0 -0.24479281 1 -0.24479281 1;
+    18 -104.0724 fixed fixed 1 1 0 -0.60847078 1 -0.60847078 1;
+    19.5 -104.45708 fixed fixed 1 1 0 -0.22381078 1 -0.22381078 1;
+    30 -104.72987 fixed fixed 1 1 0 0.83924866 1 0.83924866 1;
+    32 -101.89722 fixed fixed 1 1 0 2.0975315 1 2.0975315 1;
+    37.5 -86.258395 fixed fixed 1 1 0 2.6284033 1 2.6284033 1;
+    38 -84.999492 fixed fixed 1 1 0 2.5236503 1 2.5236503 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_54|JOBJ_55 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -79.998659 fixed fixed 1 1 0 -0.10491161 1 -0.10491161 1;
+    3 -80.963864 fixed fixed 1 1 0 -0.54552848 1 -0.54552848 1;
+    7 -80.719039 fixed fixed 1 1 0 1.2308223 1 1.2308223 1;
+    7.5 -79.998659 fixed fixed 1 1 0 1.4475508 1 2.9286195 1;
+    8 -78.529882 fixed fixed 1 1 0 2.9286195 1 4.9147985 1;
+    8.5 -76.061007 fixed fixed 1 1 0 4.9147985 1 6.1232977 1;
+    9 -72.990583 fixed fixed 1 1 0 6.3451291 1 6.3451291 1;
+    9.5 -69.696362 fixed fixed 1 1 0 6.4005649 1 6.4005649 1;
+    10 -66.562971 fixed fixed 1 1 0 6.2411626 1 5.1442735 1;
+    10.5 -63.98913 fixed fixed 1 1 0 5.1442735 1 3.2705785 1;
+    11 -62.352533 fixed fixed 1 1 0 3.2705785 1 2.1813729 1;
+    13.5 -57.554585 fixed fixed 1 1 0 0.83924866 1 0.83924866 1;
+    14 -57.33073 fixed fixed 1 1 0 -0.02797645 1 -0.02797645 1;
+    14.5 -57.589535 fixed fixed 1 1 0 -0.51056012 1 -1.6991956 1;
+    15 -58.442841 fixed fixed 1 1 0 -1.6991956 1 -3.09613 1;
+    15.5 -59.988509 fixed fixed 1 1 0 -3.09613 1 -4.7060825 1;
+    16 -62.352533 fixed fixed 1 1 0 -4.7060825 1 -11.710458 1;
+    16.5 -68.269526 fixed fixed 1 1 0 -11.710458 1 -19.716544 1;
+    17 -78.424973 fixed fixed 1 1 0 -19.716544 1 -21.944721 1;
+    17.5 -89.818411 fixed fixed 1 1 0 -21.944721 1 -18.720583 1;
+    18 -99.435336 fixed fixed 1 1 0 -18.720583 1 -9.6049028 1;
+    18.5 -104.27522 fixed fixed 1 1 0 -9.6049028 1 -2.698231 1;
+    20 -107.80029 fixed fixed 1 1 0 -1.8319893 1 -1.8319893 1;
+    30 -104.90473 fixed fixed 1 1 0 1.2657797 1 1.2657797 1;
+    31.5 -102.51275 fixed fixed 1 1 0 2.2302766 1 2.2302766 1;
+    37.5 -81.586325 fixed fixed 1 1 0 3.3124393 1 3.3124393 1;
+    38 -79.998659 fixed fixed 1 1 0 3.1798717 1 3.1798717 1;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_56 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 0.67840523 1 0.67840523 1;
+    7.5 5.1056842 fixed fixed 1 1 0 1.3636596 1 1.3636596 1;
+    11 14.32744 fixed fixed 1 1 0 1.0839906 1 1.0839906 1;
+    16 14.32744 fixed fixed 1 1 0 -1.9088635 1 -1.9088635 1;
+    18.5 0 fixed fixed 1 1 0 -0.986097 1 -0.986097 1;
+    30.5 0 fixed fixed 1 1 0 0 1 0 1;
+    38 0 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_56 0 0 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 20.625621 fixed fixed 1 1 0 1.8389786 1 1.8389786 1;
+    7.5 34.425023 fixed fixed 1 1 0 -6.2065009 1 -6.2065009 1;
+    11 -44.755338 fixed fixed 1 1 0 -9.2485269 1 -9.2485269 1;
+    16 -44.755338 fixed fixed 1 1 0 10.38421 1 10.38421 1;
+    18.5 33.802562 fixed fixed 1 1 0 5.679225 1 5.679225 1;
+    30.5 37.813667 fixed fixed 1 1 0 -0.67141187 1 -0.67141187 1;
+    38 20.625621 fixed fixed 1 1 0 -2.1464392 1 -2.1464392 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_56 0 0 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 0 fixed fixed 1 1 0 1.8893818 1 1.8893818 1;
+    7.5 14.173601 fixed fixed 1 1 0 -0.48985713 1 -0.48985713 1;
+    11 -5.1406919 fixed fixed 1 1 0 -2.2717943 1 -2.2717943 1;
+    16 -5.1406919 fixed fixed 1 1 0 2.7468821 1 2.7468821 1;
+    18.5 15.467511 fixed fixed 1 1 0 0.35472761 1 0.35472761 1;
+    30.5 0 fixed fixed 1 1 0 -0.79328851 1 -0.79328851 1;
+    38 0 fixed fixed 1 1 0 0 1 0 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_57 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 184.99432 linear linear 1 1 0;
+  }
+}
+anim rotate.rotateX rotateX |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_58 0 1 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 9.9998324 fixed fixed 1 1 0 0 1 0 1;
+    7.5 9.9998324 fixed fixed 1 1 0 0.63737165 1 0.63737165 1;
+    11 16.691464 fixed fixed 1 1 0 0.787329 1 0.787329 1;
+    16 16.691464 fixed fixed 1 1 0 -0.24787333 1 -0.24787333 1;
+    38 9.9998324 fixed fixed 1 1 0 -0.2974472 1 -0.2974472 1;
+  }
+}
+anim rotate.rotateY rotateY |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_58 0 1 1;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -39.99933 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -39.99933 fixed fixed 1 1 0 2.1036513 1 2.1036513 1;
+    11 -17.901436 fixed fixed 1 1 0 2.5981697 1 2.5981697 1;
+    16 -17.901436 fixed fixed 1 1 0 -0.8183211 1 -0.8183211 1;
+    38 -39.99933 fixed fixed 1 1 0 -0.98196277 1 -0.98196277 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_58 0 1 2;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 -4.9999735 fixed fixed 1 1 0 0 1 0 1;
+    7.5 -4.9999735 fixed fixed 1 1 0 0.047314663 1 0.047314663 1;
+    11 -4.5032191 fixed fixed 1 1 0 0.058447547 1 0.058447547 1;
+    16 -4.5032191 fixed fixed 1 1 0 -0.01840015 1 -0.01840015 1;
+    38 -4.9999735 fixed fixed 1 1 0 -0.022080177 1 -0.022080177 1;
+  }
+}
+anim rotate.rotateZ rotateZ |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_44|JOBJ_45|JOBJ_46|JOBJ_47|JOBJ_58|JOBJ_59 0 0 0;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    0.5 49.999162 fixed fixed 1 1 0 0 1 0 1;
+    7.5 49.999162 fixed fixed 1 1 0 -0.49109751 1 -0.49109751 1;
+    11 44.842771 fixed fixed 1 1 0 -0.60664423 1 -0.60664423 1;
+    16 44.842771 fixed fixed 1 1 0 0.19098532 1 0.19098532 1;
+    38 49.999162 fixed fixed 1 1 0 0.22918209 1 0.22918209 1;
+  }
+}
+anim |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_4|JOBJ_18|JOBJ_19|JOBJ_42|JOBJ_60 0 0 0;
+anim |JOBJ_0|JOBJ_1|JOBJ_2|JOBJ_3|JOBJ_61 0 0 0;
+anim |JOBJ_0|JOBJ_62 0 0 0;
