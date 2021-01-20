@@ -26,8 +26,11 @@ First get all the animations and models you want to use. You can create these in
 The best way to understand the codebase is to read `SlippiParser`
 
 `SlippiAnimationPlayer` is used for testing animations in a specific folder against a predetermined model. 
+
 `SlippiLookupTable` - turns `slp` file codes into human readable values
+
 `SlippiModels` - Reads data from the `slp` file through Unity's Serialization system
+
 `SlippiParser` - This game object that gets attached to the scene that powers unity playback
  
 ## Manual Mode
