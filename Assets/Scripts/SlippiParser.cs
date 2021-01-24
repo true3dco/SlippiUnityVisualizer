@@ -29,6 +29,13 @@ namespace Slippi
         private int player1Index;
         private int player2Index;
 
+
+        private int player1Stock = 0;
+        private int player2Stock = 0;
+
+        private List<GameObject> player1Stocks = new List<GameObject>();
+        private List<GameObject> player2Stocks = new List<GameObject>();
+
         private int player1ASID = -1;
         private int player2ASID = -1;
 
@@ -38,6 +45,8 @@ namespace Slippi
         private Animation p1Animation;
         private Animation p2Animation;
         public string filePath = "Json/Game_FoxVFox1";
+
+        private GameObject stockHolder;
 
         void Start()
         {
@@ -66,8 +75,6 @@ namespace Slippi
             // Load Characters
             Debug.Log("p1 Index:" + player1Index);
             Debug.Log("p2 Index:" + player2Index);
-
-
 
 
             UnityEngine.Object p1Prefab = Resources.Load("CharacterPrefabs/" + p1Name + "/" + p1Name);
@@ -167,6 +174,19 @@ namespace Slippi
                     p2PositionToLock = child;
                 }
             };
+
+
+            SlippiPost post1 = game.frames[0].players[player1Index].post;
+            stockHolder = new GameObject("Stocks");
+            stockHolder.transform.parent = world.transform;
+
+
+            InstantiateStocks(post1.stocksRemaining, 1, p1Material, player1Stocks);
+            InstantiateStocks(post1.stocksRemaining, 2, p2Material, player2Stocks);
+            stockHolder.transform.localScale = new Vector3(5,5,2);
+            stockHolder.transform.localPosition = new Vector3(0,0,-50);
+            player1Stock = post1.stocksRemaining;
+            player2Stock = post1.stocksRemaining;
         }
 
 
@@ -197,6 +217,8 @@ namespace Slippi
             }
             SlippiPre pre1 = game.frames[counter].players[player1Index].pre;
             SlippiPre pre2 = game.frames[counter].players[player2Index].pre;
+            SlippiPost post1 = game.frames[counter].players[player1Index].post;
+            SlippiPost post2 = game.frames[counter].players[player2Index].post;
 
             player1.position = new Vector3((float)pre1.positionX, (float)pre1.positionY - 25.0f, player1.position.z);
             player2.position = new Vector3((float)pre2.positionX, (float)pre2.positionY - 25.0f, player1.position.z);
@@ -251,6 +273,17 @@ namespace Slippi
 
 
             }
+
+            // Adjust Stock Count
+            if (player1Stock != post1.stocksRemaining)
+            {
+                AdjustStockCount(post1.stocksRemaining, player1Stocks);
+            }
+            if (player2Stock != post2.stocksRemaining)
+            {
+                AdjustStockCount(post2.stocksRemaining, player2Stocks);
+            }
+
             frameText.text = "Frame: " + pre1.frame;
 
 
@@ -266,6 +299,41 @@ namespace Slippi
             //p1PositionToLock.localPosition = new Vector3(0,0,0);
             //p2PositionToLock.localPosition = new Vector3(0,0,0);
 
+        }
+
+
+        void InstantiateStocks(int stockCount, int playerNumber, Material material, List<GameObject> emptyStocks)
+        {
+            var i = 0;
+            while (i < stockCount)
+            {
+                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                sphere.transform.position = new Vector3(i + playerNumber * 5 - 9, -2f, 10);
+                sphere.transform.parent = stockHolder.transform;
+                MeshRenderer meshRenderer = sphere.GetComponent<MeshRenderer>();
+                meshRenderer.material = material;
+                emptyStocks.Add(sphere);
+                i++;
+            }
+
+        }
+
+        void AdjustStockCount(int newStockCount, List<GameObject> stocks)
+        {
+
+            var i = 0;
+            while (i < stocks.Count)
+            {
+                if (i >= newStockCount)
+                {
+                    stocks[i].SetActive(false);
+                }
+                else
+                {
+                    stocks[i].SetActive(true);
+                }
+                i++;
+            }
         }
     }
 }

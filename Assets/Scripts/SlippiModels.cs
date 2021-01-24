@@ -64,4 +64,5 @@ public class SlippiPost
     public double positionY;
     public int facingDirection;
     public int actionStateId;
+    public int stocksRemaining;
 }
