@@ -20,6 +20,8 @@ namespace Slippi
         public Text player1Action;
         public Text player2Action;
 
+        private GameObject player1Shield;
+        private GameObject player2Shield;
 
         public bool manualMode = false;
 
@@ -120,6 +122,29 @@ namespace Slippi
                 meshRenderer.sharedMaterial = p2Material;
             }
 
+            // ================= Initiate Shield Stuff
+            UnityEngine.Object shieldPrefab = Resources.Load("CharacterPrefabs/" + p2Name + "/" + p2Name);
+
+            player1Shield = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            player2Shield = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            Material p1ShieldMaterial = Resources.Load("Materials/Player1ShieldMaterial") as Material;
+            Material p2ShieldMaterial = Resources.Load("Materials/Player2ShieldMaterial") as Material;
+
+            player1Shield.GetComponent<MeshRenderer>().material = p1ShieldMaterial;
+            player2Shield.GetComponent<MeshRenderer>().material = p2ShieldMaterial;
+
+            player1Shield.transform.parent = p1.transform;
+            player2Shield.transform.parent = p2.transform;
+            player1Shield.name = "Shield";
+            player2Shield.name = "Shield";
+            player1Shield.transform.localPosition = new Vector3(0,.07f,0);
+            player2Shield.transform.localPosition = new Vector3(0,.07f,0);
+            player1Shield.transform.localScale = new Vector3(.12f,.12f,.12f);
+            player2Shield.transform.localScale = new Vector3(.12f,.12f,.12f);
+            player1Shield.SetActive(false);
+            player2Shield.SetActive(false);
+
+            // ================ End Shield Stuff
 
             DirectoryInfo p1Dir = new DirectoryInfo("Assets/Resources/CharacterPrefabs/" + p1Name + "/Animation/");
             FileInfo[] p1files = p1Dir.GetFiles("*.fbx");
@@ -240,6 +265,12 @@ namespace Slippi
             if (player1ASID != pre1.actionStateId)
             {
                 player1ASID = pre1.actionStateId;
+                if (player1ASID >= 178 && player1ASID <= 182) {
+                    player1Shield.SetActive(true);
+                } else {
+                    player1Shield.SetActive(false);
+                }
+
                 string p1AnimationClip = SlippiLookupTable.GetAnimationName(player1ASID);
                 //Debug.Log("P1: " + p1AnimationClip + "|| " + pre1.actionStateId);
                 var anim = p1Animation[p1AnimationClip];
@@ -262,6 +293,13 @@ namespace Slippi
             if (player2ASID != pre2.actionStateId)
             {
                 player2ASID = pre2.actionStateId;
+                if (player2ASID >= 178 && player2ASID <= 182) {
+                    player2Shield.SetActive(true);
+                } else {
+                    player2Shield.SetActive(false);
+                }
+
+
                 string p2AnimationClip = SlippiLookupTable.GetAnimationName(player2ASID);
                 // Debug.Log("P2: " + p2AnimationClip + "|| " + pre2.actionStateId);
                 var anim = p2Animation[p2AnimationClip];
@@ -276,8 +314,6 @@ namespace Slippi
                     Debug.LogWarning("Missing Animation: " + p2AnimationClip + " - p2");
 
                 }
-
-
             }
 
             // Adjust Stock Count

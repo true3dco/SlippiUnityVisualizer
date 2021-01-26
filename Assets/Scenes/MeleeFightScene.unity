@@ -537,7 +537,7 @@ MonoBehaviour:
   frameText: {fileID: 1930372188}
   player1Action: {fileID: 1221222976}
   player2Action: {fileID: 1687503326}
-  manualMode: 0
+  manualMode: 1
   counter: 0
   filePath: Json/vancityprimal/Game_20210110T223142
 --- !u!114 &1096493945
