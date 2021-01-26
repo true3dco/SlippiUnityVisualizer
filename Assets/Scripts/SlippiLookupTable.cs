@@ -100,10 +100,10 @@ namespace Slippi {
 			switch (stageID)
 			{
 				case 2:
-					stageName = "Fountain_of_Dreams";
+					stageName = "Fountain_Of_Dreams";
 					break;
 				case 3:
-					stageName = "Dreamland_Final";//"Pokemon_Stadium";
+					stageName = "Stadium";//"Pokemon_Stadium";
 					break;
 				case 8:
 					stageName = "Yoshis_Story";

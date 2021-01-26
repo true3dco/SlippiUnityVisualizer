@@ -23,9 +23,9 @@ namespace Slippi
 
         public bool manualMode = false;
 
-        private Transform p1PositionToLock;
-        private Transform p2PositionToLock;
-
+        private Transform p1RotationToReset;
+        private Transform p2RotationToReset;
+//JOBJ_2
         private int player1Index;
         private int player2Index;
 
@@ -159,7 +159,9 @@ namespace Slippi
                     constraintSource.sourceTransform = child.parent;
                     pc.AddSource(constraintSource);
                     pc.constraintActive = true;
-                    p1PositionToLock = child;
+                }
+                if (child.name == "JOBJ_2") {
+                    p1RotationToReset = child;
                 }
             };
             foreach (Transform child in p2.transform.GetComponentsInChildren<Transform>())
@@ -171,7 +173,9 @@ namespace Slippi
                     constraintSource.sourceTransform = child.parent;
                     pc.AddSource(constraintSource);
                     pc.constraintActive = true;
-                    p2PositionToLock = child;
+                }
+                if (child.name == "JOBJ_2") {
+                    p2RotationToReset = child;
                 }
             };
 
@@ -184,7 +188,7 @@ namespace Slippi
             InstantiateStocks(post1.stocksRemaining, 1, p1Material, player1Stocks);
             InstantiateStocks(post1.stocksRemaining, 2, p2Material, player2Stocks);
             stockHolder.transform.localScale = new Vector3(5,5,2);
-            stockHolder.transform.localPosition = new Vector3(0,0,-50);
+            stockHolder.transform.localPosition = new Vector3(0,0,-80);
             player1Stock = post1.stocksRemaining;
             player2Stock = post1.stocksRemaining;
         }
@@ -241,6 +245,7 @@ namespace Slippi
                 var anim = p1Animation[p1AnimationClip];
                 if (anim != null)
                 {
+                    p1RotationToReset.localRotation = new Quaternion(0, p1RotationToReset.localRotation.y, p1RotationToReset.localRotation.z, p1RotationToReset.localRotation.w);
                     p1Animation.Play(p1AnimationClip);
                     player1Action.text = "P1(Red) Animation: " + p1AnimationClip;
                 }
@@ -262,6 +267,7 @@ namespace Slippi
                 var anim = p2Animation[p2AnimationClip];
                 if (anim != null)
                 {
+                    p2RotationToReset.localRotation = new Quaternion(0, p2RotationToReset.localRotation.y, p2RotationToReset.localRotation.z, p2RotationToReset.localRotation.w);
                     p2Animation.Play(p2AnimationClip);
                     player2Action.text = "P2(Blue) Animation: " + p2AnimationClip;
                 }
