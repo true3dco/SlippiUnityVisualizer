@@ -23,6 +23,7 @@ namespace Slippi
         private GameObject player1Shield;
         private GameObject player2Shield;
 
+        private float worldScale = .1f;
         public bool manualMode = false;
 
         private Transform p1RotationToReset;
@@ -71,7 +72,7 @@ namespace Slippi
             UnityEngine.Object stagePrefab = Resources.Load("StagePrefabs/" + stageName + "/" + stageName);
             GameObject stage = Instantiate(stagePrefab) as GameObject;
             stage.transform.parent = world;
-            world.transform.position = new Vector3(0, -25, 150);
+            world.transform.position = new Vector3(0, -1, 7);
             stage.transform.localPosition = new Vector3(0, 0, 0);
             stage.transform.eulerAngles = new Vector3(0, 180, 0);
             // Load Characters
@@ -213,9 +214,12 @@ namespace Slippi
             InstantiateStocks(post1.stocksRemaining, 1, p1Material, player1Stocks);
             InstantiateStocks(post1.stocksRemaining, 2, p2Material, player2Stocks);
             stockHolder.transform.localScale = new Vector3(5,5,2);
-            stockHolder.transform.localPosition = new Vector3(0,0,-80);
+            stockHolder.transform.localPosition = new Vector3(0,0,-28);
             player1Stock = post1.stocksRemaining;
             player2Stock = post1.stocksRemaining;
+            
+
+            world.localScale = new Vector3(1* worldScale, 1* worldScale, 1* worldScale);
         }
 
 
@@ -249,8 +253,8 @@ namespace Slippi
             SlippiPost post1 = game.frames[counter].players[player1Index].post;
             SlippiPost post2 = game.frames[counter].players[player2Index].post;
 
-            player1.position = new Vector3((float)pre1.positionX, (float)pre1.positionY - 25.0f, player1.position.z);
-            player2.position = new Vector3((float)pre2.positionX, (float)pre2.positionY - 25.0f, player1.position.z);
+            player1.localPosition = new Vector3((float)pre1.positionX, (float)pre1.positionY, 0);
+            player2.localPosition = new Vector3((float)pre2.positionX, (float)pre2.positionY, 0);
 
             player1.eulerAngles = new Vector3(
                 player1.eulerAngles.x,
@@ -350,7 +354,7 @@ namespace Slippi
             while (i < stockCount)
             {
                 GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                sphere.transform.position = new Vector3(i + playerNumber * 5 - 9, -2f, 10);
+                sphere.transform.position = new Vector3(i + playerNumber * 5 - 9, -2f, 0);
                 sphere.transform.parent = stockHolder.transform;
                 MeshRenderer meshRenderer = sphere.GetComponent<MeshRenderer>();
                 meshRenderer.material = material;

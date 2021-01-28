@@ -123,52 +123,6 @@ namespace Slippi {
 
 
 		public static bool IsAnimationSupported(string animationName){
-			switch (animationName){
-				case "JumpSquat":
-				case "SpecialS3Lw":
-				case "DeadDown":
-				case "Rebirth":
-				case "RebirthWait":
-				case "ThrownHi":
-				case "DeadLeft":
-				case "DeadRight":
-				case "DeadUp":
-				case "ThrownF":
-				case "EntryStart":
-				case "EntryEnd":
-				case "Slip":
-				case "SlipTurn":
-				case "LandingFallSpecial":
-				case "CaptureCaptain":
-				case "SpecialAirS1":
-				case "CliffWait":
-				case "SlipDown":
-				case "CatchPull":
-				case "Wait3":
-				case "CatchDashPull":
-				case "ThrownLw":
-				case "AttackS4S":
-				case "GuardReflect":
-				case "SpecialS1":
-				case "GuardSetOff":
-				case "Escape":
-				case "DamageElec":
-				case "Wait4":
-				case "":
-				case "DeadUpFallHitCamera":
-				case "SlipStand":
-				case "CliffWait2":
-				case "AppealR":
-				case "SpecialS2Hi":
-				case "SpecialS2Lw":
-				case "SpecialS3Hi":
-				case "SpecialAirHi":
-				case "DeadUpStar":
-				case "ThrownB":
-				case "FlyReflectWall":
-				return false;
-			}
-
 			return true;
 		}
 
