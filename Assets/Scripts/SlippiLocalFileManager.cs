@@ -94,8 +94,9 @@ using UnityEngine;
             var text = File.OpenText(e.FullPath + "/init.json");
             SlippiGame game = JsonUtility.FromJson<SlippiGame>(text.ReadToEnd());
             infoForCurrentMatch = game.settings;
-            Debug.Log(infoForCurrentMatch.stageId);
+            Debug.Log(infoForCurrentMatch);
 
+            
         }
     }
 

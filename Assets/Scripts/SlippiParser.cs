@@ -43,7 +43,7 @@ namespace Slippi
         private int player2ASID = -1;
 
         public int counter = 1;
-        SlippiGame game;
+        public SlippiGame game = null;
 
         private Animation p1Animation;
         private Animation p2Animation;
