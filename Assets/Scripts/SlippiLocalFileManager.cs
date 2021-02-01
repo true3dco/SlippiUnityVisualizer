@@ -1,4 +1,4 @@
-
+using Slippi;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +7,8 @@ using UnityEngine;
      //public WWW w;
     FileSystemWatcher liveMatchWatcher;
 
-    public SlippiSettings infoForCurrentMatch = new SlippiSettings(); 
     public List<SlippiFramePlayerInfo> framesForCurrentMatch = new List<SlippiFramePlayerInfo>();
+    public SlippiParser parser;
      void Start()
      {
          //LoadTex();
@@ -17,17 +17,7 @@ using UnityEngine;
         var info = new DirectoryInfo(path);
         var fileInfo = info.GetFiles();
         var directoryInfo= info.GetDirectories();
-        Debug.Log("********* FILE INFO");
-        Debug.Log(fileInfo);
-        foreach (var file in fileInfo)
-        {
-            Debug.Log(file.Name);    
-        }
 
-        foreach( var dir in directoryInfo){
-            Debug.Log(dir.Name);
-            Debug.Log(dir.FullName);
-        }
 
         // Watch the top level directory
         FileSystemWatcher watcher = new FileSystemWatcher();
@@ -93,10 +83,8 @@ using UnityEngine;
 
             var text = File.OpenText(e.FullPath + "/init.json");
             SlippiGame game = JsonUtility.FromJson<SlippiGame>(text.ReadToEnd());
-            infoForCurrentMatch = game.settings;
-            Debug.Log(infoForCurrentMatch);
-
-            
+            parser.game = game;
+            parser.StartMatch();
         }
     }
 
@@ -105,9 +93,9 @@ using UnityEngine;
         if (e.ChangeType == WatcherChangeTypes.Created) {
             var text = File.OpenText(e.FullPath);
             SlippiGame game = JsonUtility.FromJson<SlippiGame>(text.ReadToEnd());
-            Debug.Log("Adding " + game.frames.Count);
-            Debug.Log("Total Frames: " + framesForCurrentMatch.Count);
-            framesForCurrentMatch.AddRange(game.frames);
+            // Debug.Log("Adding " + game.frames.Count);
+            // Debug.Log("Total Frames: " + framesForCurrentMatch.Count);
+            parser.game.frames.AddRange(game.frames);
         }
     }
 

@@ -14,7 +14,7 @@ namespace Slippi {
 					charName = "Captain_Falcon";
 					break;
 				case 1:
-					charName = "Donkey_Kong";
+					charName = "Dk";
 					break;
 				case 2:
 					charName = "Fox";

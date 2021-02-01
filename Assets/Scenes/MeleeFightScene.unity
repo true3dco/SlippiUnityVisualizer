@@ -189,36 +189,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &366680605
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 366680609}
-  m_Layer: 0
-  m_Name: Player2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &366680609
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366680605}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -630.5, y: -364.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1951940668}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501783260
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +467,7 @@ GameObject:
   - component: {fileID: 1096493943}
   - component: {fileID: 1096493944}
   - component: {fileID: 1096493945}
+  - component: {fileID: 1096493946}
   m_Layer: 0
   m_Name: SlippiStreamer
   m_TagString: Untagged
@@ -530,8 +501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3fb4c937603c6a4283ff1b9312f2745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 1795779310}
-  player2: {fileID: 366680609}
   world: {fileID: 1951940668}
   counterText: {fileID: 2027409810}
   frameText: {fileID: 1930372188}
@@ -539,6 +508,11 @@ MonoBehaviour:
   player2Action: {fileID: 1687503326}
   manualMode: 0
   counter: 0
+  game:
+    settings:
+      stageId: 0
+      players: []
+    frames: []
   filePath: Json/Game_SFATvHungryBox
 --- !u!114 &1096493945
 MonoBehaviour:
@@ -558,6 +532,20 @@ MonoBehaviour:
   objectsToStream: []
   DebugProgram: 0
   includeAllGameObjects: 1
+--- !u!114 &1096493946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096493942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5785c6529f60be74db9dacab1186fc2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  framesForCurrentMatch: []
+  parser: {fileID: 1096493944}
 --- !u!1 &1221222974
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,36 +806,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687503324}
   m_CullTransparentMesh: 0
---- !u!1 &1795779306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1795779310}
-  m_Layer: 0
-  m_Name: Player1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1795779310
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795779306}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -630.5, y: -364.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1951940668}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1930372186
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,9 +911,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 600, y: 350, z: 200}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1795779310}
-  - {fileID: 366680609}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -11,8 +11,8 @@ namespace Slippi
     public class SlippiParser : MonoBehaviour
     {
         // Start is called before the first frame update
-        public Transform player1;
-        public Transform player2;
+        private Transform player1;
+        private Transform player2;
         public Transform world;
 
         public Text counterText;
@@ -28,7 +28,7 @@ namespace Slippi
 
         private Transform p1RotationToReset;
         private Transform p2RotationToReset;
-//JOBJ_2
+        //JOBJ_2
         private int player1Index;
         private int player2Index;
 
@@ -50,14 +50,27 @@ namespace Slippi
         public string filePath = "Json/Game_FoxVFox1";
 
         private GameObject stockHolder;
+        private bool matchStarted = false;
 
         void Start()
         {
-            TextAsset gameJson = Resources.Load(filePath) as TextAsset;
-            Debug.Log(gameJson);
-            game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
+            // TextAsset gameJson = Resources.Load(filePath) as TextAsset;
+            // Debug.Log(gameJson);
+            // game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
+            // StartMatch(game);
+        }
+
+        public void StartMatch()
+        {
+            // TextAsset gameJson = Resources.Load(filePath) as TextAsset;
+            // Debug.Log(gameJson);
+            // game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
             //Debug.Log(game.settings.stageId);
 
+            if (game == null)
+            {
+                Debug.LogWarning("You need to set a game in order to play it back");
+            }
             player1Index = game.settings.players[0].playerIndex;
             player2Index = game.settings.players[1].playerIndex;
 
@@ -76,15 +89,27 @@ namespace Slippi
             stage.transform.localPosition = new Vector3(0, 0, 0);
             stage.transform.eulerAngles = new Vector3(0, 180, 0);
             // Load Characters
-            Debug.Log("p1 Index:" + player1Index);
-            Debug.Log("p2 Index:" + player2Index);
-
 
             UnityEngine.Object p1Prefab = Resources.Load("CharacterPrefabs/" + p1Name + "/" + p1Name);
-            GameObject p1 = Instantiate(p1Prefab) as GameObject;
+            GameObject p1;
+            if (p1Prefab == null)
+            {
+                p1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+            }
+            else
+            {
+                p1 = Instantiate(p1Prefab) as GameObject;
+
+            }
             Animation _1Animation = p1.AddComponent(typeof(Animation)) as Animation;
             p1Animation = _1Animation;
-
+            GameObject p1G = new GameObject();
+            player1 = p1G.transform;
+            GameObject p2G = new GameObject();
+            player2 = p2G.transform;
+            player1.parent = world;
+            player2.parent = world;
             p1.transform.parent = player1;
             p1.transform.localPosition = new Vector3(0, 0, 0);
             p1.transform.localScale = new Vector3(100, 100, 100);
@@ -103,7 +128,19 @@ namespace Slippi
 
 
             UnityEngine.Object p2Prefab = Resources.Load("CharacterPrefabs/" + p2Name + "/" + p2Name);
-            GameObject p2 = Instantiate(p2Prefab) as GameObject;
+
+            GameObject p2;
+            if (p2Prefab == null)
+            {
+                p2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+            }
+            else
+            {
+                p2 = Instantiate(p2Prefab) as GameObject;
+
+            }
+
             Animation _2Animation = p2.AddComponent(typeof(Animation)) as Animation;
             p2Animation = _2Animation;
 
@@ -138,10 +175,10 @@ namespace Slippi
             player2Shield.transform.parent = p2.transform;
             player1Shield.name = "Shield";
             player2Shield.name = "Shield";
-            player1Shield.transform.localPosition = new Vector3(0,.07f,0);
-            player2Shield.transform.localPosition = new Vector3(0,.07f,0);
-            player1Shield.transform.localScale = new Vector3(.12f,.12f,.12f);
-            player2Shield.transform.localScale = new Vector3(.12f,.12f,.12f);
+            player1Shield.transform.localPosition = new Vector3(0, .07f, 0);
+            player2Shield.transform.localPosition = new Vector3(0, .07f, 0);
+            player1Shield.transform.localScale = new Vector3(.12f, .12f, .12f);
+            player2Shield.transform.localScale = new Vector3(.12f, .12f, .12f);
             player1Shield.SetActive(false);
             player2Shield.SetActive(false);
 
@@ -186,7 +223,8 @@ namespace Slippi
                     pc.AddSource(constraintSource);
                     pc.constraintActive = true;
                 }
-                if (child.name == "JOBJ_2") {
+                if (child.name == "JOBJ_2")
+                {
                     p1RotationToReset = child;
                 }
             };
@@ -200,7 +238,8 @@ namespace Slippi
                     pc.AddSource(constraintSource);
                     pc.constraintActive = true;
                 }
-                if (child.name == "JOBJ_2") {
+                if (child.name == "JOBJ_2")
+                {
                     p2RotationToReset = child;
                 }
             };
@@ -213,19 +252,42 @@ namespace Slippi
 
             InstantiateStocks(post1.stocksRemaining, 1, p1Material, player1Stocks);
             InstantiateStocks(post1.stocksRemaining, 2, p2Material, player2Stocks);
-            stockHolder.transform.localScale = new Vector3(5,5,2);
-            stockHolder.transform.localPosition = new Vector3(0,0,-28);
+            stockHolder.transform.localScale = new Vector3(5, 5, 2);
+            stockHolder.transform.localPosition = new Vector3(0, 0, -28);
             player1Stock = post1.stocksRemaining;
             player2Stock = post1.stocksRemaining;
-            
 
-            world.localScale = new Vector3(1* worldScale, 1* worldScale, 1* worldScale);
+
+            world.localScale = new Vector3(1 * worldScale, 1 * worldScale, 1 * worldScale);
+            matchStarted = true;
         }
 
-
+        void EndMatch()
+        {
+            matchStarted = false;
+            game = null;
+            // Remove all Smash Objects from the scene
+            foreach (Transform child in world.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
 
         void FixedUpdate()
         {
+            Debug.Log("Match Started: " + matchStarted);
+            Debug.Log("Game: " + game);
+            Debug.Log("Game Frame Count:" + game.frames.Count);
+            if (!matchStarted)
+            {
+                if (game != null && game.frames.Count != 0)
+                {
+                    StartMatch();
+
+                }
+                return;
+            }
+
             if (manualMode)
             {
                 if (!Input.GetKey(KeyCode.RightArrow))
@@ -248,10 +310,18 @@ namespace Slippi
             {
                 return;
             }
+
+
+            Debug.Log("Players Count: " + game.frames[counter].players.Count);
+            if (game.frames[counter].players.Count != 2) {
+                counter ++;
+                return;
+            }
             SlippiPre pre1 = game.frames[counter].players[player1Index].pre;
             SlippiPre pre2 = game.frames[counter].players[player2Index].pre;
             SlippiPost post1 = game.frames[counter].players[player1Index].post;
             SlippiPost post2 = game.frames[counter].players[player2Index].post;
+
 
             player1.localPosition = new Vector3((float)pre1.positionX, (float)pre1.positionY, 0);
             player2.localPosition = new Vector3((float)pre2.positionX, (float)pre2.positionY, 0);
@@ -265,13 +335,15 @@ namespace Slippi
                 player2.eulerAngles.x,
                  90 * pre2.facingDirection,
                 player2.eulerAngles.x);
-
             if (player1ASID != pre1.actionStateId)
             {
                 player1ASID = pre1.actionStateId;
-                if (player1ASID >= 178 && player1ASID <= 182) {
+                if (player1ASID >= 178 && player1ASID <= 182)
+                {
                     player1Shield.SetActive(true);
-                } else {
+                }
+                else
+                {
                     player1Shield.SetActive(false);
                 }
 
@@ -293,13 +365,15 @@ namespace Slippi
 
                 //Debug.Log("P1ASID: " + player1ASID);
             }
-
             if (player2ASID != pre2.actionStateId)
             {
                 player2ASID = pre2.actionStateId;
-                if (player2ASID >= 178 && player2ASID <= 182) {
+                if (player2ASID >= 178 && player2ASID <= 182)
+                {
                     player2Shield.SetActive(true);
-                } else {
+                }
+                else
+                {
                     player2Shield.SetActive(false);
                 }
 
@@ -319,7 +393,6 @@ namespace Slippi
 
                 }
             }
-
             // Adjust Stock Count
             if (player1Stock != post1.stocksRemaining)
             {
@@ -331,13 +404,8 @@ namespace Slippi
             }
 
             frameText.text = "Frame: " + pre1.frame;
-
-
-
             counter++;
-
         }
-
 
         void LateUpdate()
         {
