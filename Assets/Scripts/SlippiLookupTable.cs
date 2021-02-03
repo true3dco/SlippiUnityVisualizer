@@ -1184,22 +1184,22 @@ namespace Slippi {
 				animName = "SpecialAirNEnd";
 				break;
 			case 349:
-				animName = "SpecialS1";
+				animName = "SpecialS";
 				break;
 			case 350:
-				animName = "SpecialS2Hi";
+				animName = "SpecialSHi";
 				break;
 			case 351:
-				animName = "SpecialS2Lw";
+				animName = "SpecialSLw";
 				break;
 			case 352:
-				animName = "SpecialS3Hi";
+				animName = "SpecialSHi";
 				break;
 			case 353:
 				animName = "SpecialS3S";
 				break;
 			case 354:
-				animName = "SpecialS3Lw";
+				animName = "SpecialSLw";
 				break;
 			case 355:
 				animName = "ItemHammerMove";
@@ -1211,7 +1211,7 @@ namespace Slippi {
 				animName = "DamageElec";
 				break;
 			case 358:
-				animName = "SpecialAirS1";
+				animName = "SpecialAirS";
 				break;
 			case 359:
 				animName = "FuraSleepLoop";
@@ -1284,6 +1284,9 @@ namespace Slippi {
 				break;
 			case 382:
 				animName = "ThrownKirbySpitSShot"; //Done
+				break;
+			default:
+				Debug.LogWarning("Unfound Animation ID: " + animID);
 				break;
 		};
 		return animName;

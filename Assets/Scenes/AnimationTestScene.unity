@@ -232,6 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fedce5aebb07d34ba8f56e52d508768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manualMode: 1
+  animationToPlay: SpecialSHi
 --- !u!114 &1249795746
 MonoBehaviour:
   m_ObjectHideFlags: 0
