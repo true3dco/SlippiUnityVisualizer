@@ -53,7 +53,7 @@ namespace Slippi {
 					charName = "Pikachu";
 					break;
 				case 14:
-					charName = "Ice_Climbers";
+					charName = "Missing_Character"; //""Ice_Climbers";
 					break;
 				case 15:
 					charName = "Jigglypuff";
@@ -106,7 +106,7 @@ namespace Slippi {
 					stageName = "Stadium";//"Pokemon_Stadium";
 					break;
 				case 8:
-					stageName = "Yoshis_Story";
+					stageName = "Yoshis_Story";//"Yoshis_Story";
 					break;
 				case 28:
 					stageName = "Dreamland_Final";
@@ -115,6 +115,10 @@ namespace Slippi {
 					stageName = "Battlefield";
 					break;
 				case 32:
+					stageName = "Final_Destination";
+					break;
+				default:
+					Debug.LogWarning("MISSING STAGE");
 					stageName = "Final_Destination";
 					break;
 			};

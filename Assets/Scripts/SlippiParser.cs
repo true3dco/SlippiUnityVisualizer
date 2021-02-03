@@ -14,7 +14,7 @@ namespace Slippi
         private Transform player1;
         private Transform player2;
         public Transform world;
-
+        private int sceneID = 0;
         public Text counterText;
         public Text frameText;
         public Text player1Action;
@@ -44,7 +44,10 @@ namespace Slippi
 
         public int counter = 1;
         public SlippiGame game = null;
+        public SlippiGame nextGame = null;
 
+
+        private HyperSDKController hsdkc;
         private Animation p1Animation;
         private Animation p2Animation;
         public string filePath = "Json/Game_FoxVFox1";
@@ -58,6 +61,7 @@ namespace Slippi
             // Debug.Log(gameJson);
             // game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
             // StartMatch(game);
+            Time.fixedDeltaTime = .01666666f;
         }
 
         public void StartMatch()
@@ -66,7 +70,10 @@ namespace Slippi
             // Debug.Log(gameJson);
             // game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
             //Debug.Log(game.settings.stageId);
-
+            foreach (Transform child in world.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
             if (game == null)
             {
                 Debug.LogWarning("You need to set a game in order to play it back");
@@ -249,7 +256,8 @@ namespace Slippi
             stockHolder = new GameObject("Stocks");
             stockHolder.transform.parent = world.transform;
 
-
+            player1Stocks = new List<GameObject>();
+            player2Stocks = new List<GameObject>();
             InstantiateStocks(post1.stocksRemaining, 1, p1Material, player1Stocks);
             InstantiateStocks(post1.stocksRemaining, 2, p2Material, player2Stocks);
             stockHolder.transform.localScale = new Vector3(5, 5, 2);
@@ -260,30 +268,49 @@ namespace Slippi
 
             world.localScale = new Vector3(1 * worldScale, 1 * worldScale, 1 * worldScale);
             matchStarted = true;
+
+            // Tell Hypersdk players to reload
+            hsdkc = GetComponent<HyperSDKController>();
+            sceneID++;
+            hsdkc.sceneID = sceneID;
         }
 
         void EndMatch()
         {
+            Debug.Log("END MATCH");
             matchStarted = false;
             game = null;
+            counter = 0;
+            world.localScale = new Vector3(1, 1, 1);
             // Remove all Smash Objects from the scene
             foreach (Transform child in world.transform)
             {
                 GameObject.Destroy(child.gameObject);
             }
+            ShowWaitingForNextMatch();
+            
+            if (nextGame != null) {
+                game = nextGame;
+                nextGame = null;
+                //matchStarted = true;
+            }
+
         }
 
         void FixedUpdate()
         {
-            Debug.Log("Match Started: " + matchStarted);
-            Debug.Log("Game: " + game);
-            Debug.Log("Game Frame Count:" + game.frames.Count);
+            Debug.Log("matchStarted: " + matchStarted);
+            Debug.Log(game);
+            if (game != null){
+                Debug.Log(game.gameFinished);
+            }
+            //Debug.Log(game.frames.Count);
+
             if (!matchStarted)
             {
                 if (game != null && game.frames.Count != 0)
                 {
                     StartMatch();
-
                 }
                 return;
             }
@@ -308,13 +335,20 @@ namespace Slippi
             counterText.text = "Counter: " + counter;
             if (game.frames.Count <= counter)
             {
+                if (game.gameFinished)
+                {
+                    Debug.Log("Ending match");
+                    EndMatch();
+                    return;
+                }
+                Debug.Log("Out of frames:" + game.gameFinished);
                 return;
             }
 
 
-            Debug.Log("Players Count: " + game.frames[counter].players.Count);
-            if (game.frames[counter].players.Count != 2) {
-                counter ++;
+            if (game.frames[counter].players.Count != 2)
+            {
+                counter++;
                 return;
             }
             SlippiPre pre1 = game.frames[counter].players[player1Index].pre;
@@ -393,6 +427,8 @@ namespace Slippi
 
                 }
             }
+
+
             // Adjust Stock Count
             if (player1Stock != post1.stocksRemaining)
             {
@@ -415,6 +451,22 @@ namespace Slippi
 
         }
 
+        void ShowWaitingForNextMatch()
+        {
+            GameObject loadingIndicator = GameObject.CreatePrimitive(PrimitiveType.Plane);
+            loadingIndicator.transform.parent = world;
+            loadingIndicator.transform.localScale = new Vector3(1, 1, .1f);
+            loadingIndicator.transform.eulerAngles = new Vector3(90, 180, 0);
+            loadingIndicator.transform.localPosition = new Vector3(0,2,0);
+            var mr = loadingIndicator.GetComponent<MeshRenderer>();
+            Material loadingMaterial = Resources.Load("Materials/LoadingMaterial") as Material;
+
+            mr.sharedMaterial = loadingMaterial;
+            sceneID ++;
+            hsdkc = GetComponent<HyperSDKController>();
+            hsdkc.sceneID = sceneID;
+
+        }
 
         void InstantiateStocks(int stockCount, int playerNumber, Material material, List<GameObject> emptyStocks)
         {

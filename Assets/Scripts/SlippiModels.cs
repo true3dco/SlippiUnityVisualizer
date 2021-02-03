@@ -14,6 +14,9 @@ public class SlippiGame
 {
     public SlippiSettings settings;
     public List<SlippiFramePlayerInfo> frames;
+
+    [NonSerialized]
+    public bool gameFinished = false;
 }
 
 [Serializable]
