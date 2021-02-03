@@ -1184,22 +1184,22 @@ namespace Slippi {
 				animName = "SpecialAirNEnd";
 				break;
 			case 349:
-				animName = "SpecialS";
+				animName = "SpecialS1";
 				break;
 			case 350:
-				animName = "SpecialSHi";
+				animName = "SpecialS2Hi";
 				break;
 			case 351:
-				animName = "SpecialSLw";
+				animName = "SpecialS2Lw";
 				break;
 			case 352:
-				animName = "SpecialSHi";
+				animName = "SpecialS3Hi";
 				break;
 			case 353:
 				animName = "SpecialS3S";
 				break;
 			case 354:
-				animName = "SpecialSLw";
+				animName = "SpecialS3Lw";
 				break;
 			case 355:
 				animName = "ItemHammerMove";
@@ -1211,7 +1211,7 @@ namespace Slippi {
 				animName = "DamageElec";
 				break;
 			case 358:
-				animName = "SpecialAirS";
+				animName = "SpecialAirS1";
 				break;
 			case 359:
 				animName = "FuraSleepLoop";
