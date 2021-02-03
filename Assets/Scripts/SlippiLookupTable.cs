@@ -14,7 +14,7 @@ namespace Slippi {
 					charName = "Captain_Falcon";
 					break;
 				case 1:
-					charName = "Donkey_Kong";
+					charName = "Dk";
 					break;
 				case 2:
 					charName = "Fox";
@@ -53,7 +53,7 @@ namespace Slippi {
 					charName = "Pikachu";
 					break;
 				case 14:
-					charName = "Ice_Climbers";
+					charName = "Missing_Character"; //""Ice_Climbers";
 					break;
 				case 15:
 					charName = "Jigglypuff";
@@ -100,13 +100,13 @@ namespace Slippi {
 			switch (stageID)
 			{
 				case 2:
-					stageName = "Fountain_of_Dreams";
+					stageName = "Fountain_Of_Dreams";
 					break;
 				case 3:
-					stageName = "Dreamland_Final";//"Pokemon_Stadium";
+					stageName = "Stadium";//"Pokemon_Stadium";
 					break;
 				case 8:
-					stageName = "Yoshis_Story";
+					stageName = "Yoshis_Story";//"Yoshis_Story";
 					break;
 				case 28:
 					stageName = "Dreamland_Final";
@@ -117,58 +117,16 @@ namespace Slippi {
 				case 32:
 					stageName = "Final_Destination";
 					break;
+				default:
+					Debug.LogWarning("MISSING STAGE");
+					stageName = "Final_Destination";
+					break;
 			};
 			return stageName;
 		}
 
 
 		public static bool IsAnimationSupported(string animationName){
-			switch (animationName){
-				case "JumpSquat":
-				case "SpecialS3Lw":
-				case "DeadDown":
-				case "Rebirth":
-				case "RebirthWait":
-				case "ThrownHi":
-				case "DeadLeft":
-				case "DeadRight":
-				case "DeadUp":
-				case "ThrownF":
-				case "EntryStart":
-				case "EntryEnd":
-				case "Slip":
-				case "SlipTurn":
-				case "LandingFallSpecial":
-				case "CaptureCaptain":
-				case "SpecialAirS1":
-				case "CliffWait":
-				case "SlipDown":
-				case "CatchPull":
-				case "Wait3":
-				case "CatchDashPull":
-				case "ThrownLw":
-				case "AttackS4S":
-				case "GuardReflect":
-				case "SpecialS1":
-				case "GuardSetOff":
-				case "Escape":
-				case "DamageElec":
-				case "Wait4":
-				case "":
-				case "DeadUpFallHitCamera":
-				case "SlipStand":
-				case "CliffWait2":
-				case "AppealR":
-				case "SpecialS2Hi":
-				case "SpecialS2Lw":
-				case "SpecialS3Hi":
-				case "SpecialAirHi":
-				case "DeadUpStar":
-				case "ThrownB":
-				case "FlyReflectWall":
-				return false;
-			}
-
 			return true;
 		}
 
@@ -249,7 +207,7 @@ namespace Slippi {
 				animName = "RunBrake";
 				break;
 			case 24:
-				animName = "JumpSquat";
+				animName = "KneeBend";
 				break;
 			case 25:
 				animName = "JumpF";
@@ -1146,10 +1104,12 @@ namespace Slippi {
 				animName = "Entry";
 				break;
 			case 323:
-				animName = "EntryStart";
+				animName = "Entry";
+				//really: animName = "EntryStart";
 				break;
 			case 324:
-				animName = "EntryEnd";
+				animName = "Entry";
+				// really: animName = "EntryEnd";
 				break;
 			case 325:
 				animName = "DamageIce";
@@ -1224,22 +1184,22 @@ namespace Slippi {
 				animName = "SpecialAirNEnd";
 				break;
 			case 349:
-				animName = "SpecialS1";
+				animName = "SpecialS";
 				break;
 			case 350:
-				animName = "SpecialS2Hi";
+				animName = "SpecialSHi";
 				break;
 			case 351:
-				animName = "SpecialS2Lw";
+				animName = "SpecialSLw";
 				break;
 			case 352:
-				animName = "SpecialS3Hi";
+				animName = "SpecialSHi";
 				break;
 			case 353:
 				animName = "SpecialS3S";
 				break;
 			case 354:
-				animName = "SpecialS3Lw";
+				animName = "SpecialSLw";
 				break;
 			case 355:
 				animName = "ItemHammerMove";
@@ -1251,7 +1211,7 @@ namespace Slippi {
 				animName = "DamageElec";
 				break;
 			case 358:
-				animName = "SpecialAirS1";
+				animName = "SpecialAirS";
 				break;
 			case 359:
 				animName = "FuraSleepLoop";
@@ -1324,6 +1284,9 @@ namespace Slippi {
 				break;
 			case 382:
 				animName = "ThrownKirbySpitSShot"; //Done
+				break;
+			default:
+				Debug.LogWarning("Unfound Animation ID: " + animID);
 				break;
 		};
 		return animName;

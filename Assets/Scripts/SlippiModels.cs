@@ -14,6 +14,9 @@ public class SlippiGame
 {
     public SlippiSettings settings;
     public List<SlippiFramePlayerInfo> frames;
+
+    [NonSerialized]
+    public bool gameFinished = false;
 }
 
 [Serializable]
@@ -64,4 +67,5 @@ public class SlippiPost
     public double positionY;
     public int facingDirection;
     public int actionStateId;
+    public int stocksRemaining;
 }

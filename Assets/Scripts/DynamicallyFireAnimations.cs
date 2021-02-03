@@ -15,10 +15,11 @@ public class DynamicallyFireAnimations : MonoBehaviour
     private float nextActionTime = 0.0f;
     private float period = 1.5f;
     private int animationIndex = 0;
-
+    public bool manualMode = false;
+    public string animationToPlay ="";
     void Start()
     {
-        DirectoryInfo dir = new DirectoryInfo("Assets/Resources/CharacterPrefabs/Fox/Animation/");
+        DirectoryInfo dir = new DirectoryInfo("Assets/Resources/CharacterPrefabs/"+ gameObject.name +"/Animation/");
         FileInfo[] info = dir.GetFiles("*.fbx");
         animation = GetComponent<Animation>();
         string lastAnimation = "asdas";
@@ -26,12 +27,24 @@ public class DynamicallyFireAnimations : MonoBehaviour
         {
             string animationName = Path.GetFileNameWithoutExtension(f.ToString());
             animationNames.Add(animationName);
-            AnimationClip clip = Resources.Load<AnimationClip>("CharacterPrefabs/Fox/Animation/" + animationName);
+            AnimationClip clip = Resources.Load<AnimationClip>("CharacterPrefabs/Luigi/Animation/" + animationName);
             clip.legacy = true;
             animation.AddClip(clip, animationName);
             lastAnimation = animationName;
-
         }
+
+
+            // Apply Red Material to Model
+            Material p1Material = Resources.Load("Materials/Player1Material") as Material;
+            foreach (Transform child in gameObject.transform)
+            {
+                SkinnedMeshRenderer meshRenderer = child.GetComponent<SkinnedMeshRenderer>();
+                if (meshRenderer == null)
+                {
+                    continue;
+                }
+                meshRenderer.sharedMaterial = p1Material;
+            }
         
 
 
@@ -48,7 +61,7 @@ public class DynamicallyFireAnimations : MonoBehaviour
     void Update()
     {
 
-        if (Time.time > nextActionTime)
+        if (!manualMode && Time.time > nextActionTime)
         {
             Debug.Log("Playing: " + animationNames[animationIndex]);
             animation.Play(animationNames[animationIndex]);
@@ -56,6 +69,15 @@ public class DynamicallyFireAnimations : MonoBehaviour
 
             nextActionTime += period;
             // execute block of code here
+            return;
+        }
+        if (manualMode && Time.time > nextActionTime){
+                var anim = animation[animationToPlay];
+                if (anim != null)
+                {
+                   animation.Play(animationToPlay);
+
+                }
         }
     }
 }
