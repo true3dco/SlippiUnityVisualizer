@@ -57,11 +57,15 @@ namespace Slippi
 
         void Start()
         {
-            //  TextAsset gameJson = Resources.Load(filePath) as TextAsset;
-            // // Debug.Log(gameJson);
-            //  game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
-            //  StartMatch();
-            // Time.fixedDeltaTime = .01666666f;
+             TextAsset gameJson = Resources.Load(filePath) as TextAsset;
+            // Debug.Log(gameJson);
+             game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
+             StartMatch();
+
+
+
+             // DONT TOUCH THIS
+            Time.fixedDeltaTime = .01666666f;
         }
 
         public void StartMatch()
@@ -299,11 +303,7 @@ namespace Slippi
 
         void FixedUpdate()
         {
-            Debug.Log("matchStarted: " + matchStarted);
-            Debug.Log(game);
-            if (game != null){
-                Debug.Log(game.gameFinished);
-            }
+  
             //Debug.Log(game.frames.Count);
 
             if (!matchStarted)

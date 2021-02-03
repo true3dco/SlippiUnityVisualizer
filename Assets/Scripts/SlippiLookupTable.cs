@@ -92,6 +92,21 @@ namespace Slippi {
 			return charName;
 		}
 
+		public static string GetCharacterSpecificMapping(string characterName, string animationName)
+        {
+			switch (characterName){
+				case "Luigi":
+					switch (animationName) {
+						case "Wait4":
+							return "SpecialSStart";				
+					}
+					break;
+
+			}
+		
+			return null;
+
+		}
 		public static string GetStageName(int stageID)
         {
 
