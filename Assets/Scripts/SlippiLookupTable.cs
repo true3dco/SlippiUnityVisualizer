@@ -207,7 +207,7 @@ namespace Slippi {
 				animName = "RunBrake";
 				break;
 			case 24:
-				animName = "JumpSquat";
+				animName = "KneeBend";
 				break;
 			case 25:
 				animName = "JumpF";
@@ -1104,10 +1104,12 @@ namespace Slippi {
 				animName = "Entry";
 				break;
 			case 323:
-				animName = "EntryStart";
+				animName = "Entry";
+				//really: animName = "EntryStart";
 				break;
 			case 324:
-				animName = "EntryEnd";
+				animName = "Entry";
+				// really: animName = "EntryEnd";
 				break;
 			case 325:
 				animName = "DamageIce";

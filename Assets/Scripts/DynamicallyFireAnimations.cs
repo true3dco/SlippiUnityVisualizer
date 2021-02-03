@@ -18,7 +18,7 @@ public class DynamicallyFireAnimations : MonoBehaviour
 
     void Start()
     {
-        DirectoryInfo dir = new DirectoryInfo("Assets/Resources/CharacterPrefabs/Fox/Animation/");
+        DirectoryInfo dir = new DirectoryInfo("Assets/Resources/CharacterPrefabs/Luigi/Animation/");
         FileInfo[] info = dir.GetFiles("*.fbx");
         animation = GetComponent<Animation>();
         string lastAnimation = "asdas";
@@ -26,7 +26,7 @@ public class DynamicallyFireAnimations : MonoBehaviour
         {
             string animationName = Path.GetFileNameWithoutExtension(f.ToString());
             animationNames.Add(animationName);
-            AnimationClip clip = Resources.Load<AnimationClip>("CharacterPrefabs/Fox/Animation/" + animationName);
+            AnimationClip clip = Resources.Load<AnimationClip>("CharacterPrefabs/Luigi/Animation/" + animationName);
             clip.legacy = true;
             animation.AddClip(clip, animationName);
             lastAnimation = animationName;
