@@ -1,4 +1,4 @@
-**Disclaimer** I do not have a ton of time to maintain this, if anyone is interested in being an admin on the project hmu in the discord: https://discord.gg/PnF2EW8
+Any Questions? Hit us up in discord: https://discord.gg/PnF2EW8
 
 # Slippi Unity Visualizer
 This project reads a special version of `.slp` files frame by frame.
