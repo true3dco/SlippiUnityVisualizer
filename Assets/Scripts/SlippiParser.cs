@@ -57,10 +57,10 @@ namespace Slippi
 
         void Start()
         {
-             TextAsset gameJson = Resources.Load(filePath) as TextAsset;
+             //TextAsset gameJson = Resources.Load(filePath) as TextAsset;
             // Debug.Log(gameJson);
-             game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
-             StartMatch();
+            //  game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
+            //  StartMatch();
 
 
 
@@ -388,7 +388,11 @@ namespace Slippi
                 {
                     p1RotationToReset.localRotation = new Quaternion(0, p1RotationToReset.localRotation.y, p1RotationToReset.localRotation.z, p1RotationToReset.localRotation.w);
                     p1Animation.Play(p1AnimationClip);
-                    player1Action.text = "P1(Red) Animation: " + p1AnimationClip;
+                    if (p1AnimationClip != "") {
+                        player1Action.text = "P1(Red) Animation: " + p1AnimationClip;
+                        Debug.Log("Animation Clip 1 : " + p1AnimationClip);
+                    }
+                    
                 }
                 else
                 {
@@ -419,7 +423,10 @@ namespace Slippi
                 {
                     p2RotationToReset.localRotation = new Quaternion(0, p2RotationToReset.localRotation.y, p2RotationToReset.localRotation.z, p2RotationToReset.localRotation.w);
                     p2Animation.Play(p2AnimationClip);
-                    player2Action.text = "P2(Blue) Animation: " + p2AnimationClip;
+                    
+                    if (p2AnimationClip != "") {
+                        player2Action.text = "P2(Blue) Animation: " + p2AnimationClip;
+                    }
                 }
                 else
                 {

@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 1096493943}
   - component: {fileID: 1096493944}
   - component: {fileID: 1096493945}
+  - component: {fileID: 1096493946}
   m_Layer: 0
   m_Name: SlippiStreamer
   m_TagString: Untagged
@@ -505,7 +506,7 @@ MonoBehaviour:
   frameText: {fileID: 1930372188}
   player1Action: {fileID: 1221222976}
   player2Action: {fileID: 1687503326}
-  manualMode: 1
+  manualMode: 0
   counter: 0
   game:
     settings:
@@ -517,7 +518,7 @@ MonoBehaviour:
       stageId: 0
       players: []
     frames: []
-  filePath: Json/Game_LuigiVMarth
+  filePath: Json/Game_LuigiVSpecial
 --- !u!114 &1096493945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +538,20 @@ MonoBehaviour:
   DebugProgram: 0
   includeAllGameObjects: 1
   sceneID: 0
+--- !u!114 &1096493946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096493942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5785c6529f60be74db9dacab1186fc2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  framesForCurrentMatch: []
+  parser: {fileID: 1096493944}
 --- !u!1 &1221222974
 GameObject:
   m_ObjectHideFlags: 0
