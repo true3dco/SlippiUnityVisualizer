@@ -127,7 +127,7 @@ namespace Slippi {
 					stageName = "Dreamland_Final";
 					break;
 				case 31:
-					stageName = "Battlefield";
+					stageName = "DietBattlefield";
 					break;
 				case 32:
 					stageName = "Final_Destination";
