@@ -389,7 +389,10 @@ namespace Slippi
                 var anim = p1Animation[p1AnimationClip];
                 if (anim != null)
                 {
-                    p1RotationToReset.localRotation = new Quaternion(0, p1RotationToReset.localRotation.y, p1RotationToReset.localRotation.z, p1RotationToReset.localRotation.w);
+                    if (p1RotationToReset != null)
+                    {
+                        p1RotationToReset.localRotation = new Quaternion(0, p1RotationToReset.localRotation.y, p1RotationToReset.localRotation.z, p1RotationToReset.localRotation.w);
+                    }
                     p1Animation.Play(p1AnimationClip);
                     if (p1AnimationClip != "") {
                         player1Action.text = "P1(Red) Animation: " + p1AnimationClip;
@@ -424,7 +427,10 @@ namespace Slippi
                 var anim = p2Animation[p2AnimationClip];
                 if (anim != null)
                 {
-                    p2RotationToReset.localRotation = new Quaternion(0, p2RotationToReset.localRotation.y, p2RotationToReset.localRotation.z, p2RotationToReset.localRotation.w);
+                    if (p2RotationToReset)
+                    {
+                        p2RotationToReset.localRotation = new Quaternion(0, p2RotationToReset.localRotation.y, p2RotationToReset.localRotation.z, p2RotationToReset.localRotation.w);
+                    }
                     p2Animation.Play(p2AnimationClip);
                     
                     if (p2AnimationClip != "") {
