@@ -17,7 +17,7 @@ namespace Slippi {
 					charName = "Dk";
 					break;
 				case 2:
-					charName = "Fox";
+					charName = "DietFox";
 					break;
 				case 3:
 					charName = "G&W";
@@ -56,7 +56,7 @@ namespace Slippi {
 					charName = "Missing_Character"; //""Ice_Climbers";
 					break;
 				case 15:
-					charName = "Jigglypuff";
+					charName = "DietJigglypuff";
 					break;
 				case 16:
 					charName = "Samus";

@@ -121,10 +121,12 @@ namespace Slippi
             player2.parent = world;
             p1.transform.parent = player1;
             p1.transform.localPosition = new Vector3(0, 0, 0);
-            p1.transform.localScale = new Vector3(100, 100, 100);
+            //p1.transform.localScale = new Vector3(100, 100, 100);
 
+            
             // Apply Red Material to P1
             Material p1Material = Resources.Load("Materials/Player1Material") as Material;
+            /*
             foreach (Transform child in p1.transform)
             {
                 SkinnedMeshRenderer meshRenderer = child.GetComponent<SkinnedMeshRenderer>();
@@ -134,6 +136,7 @@ namespace Slippi
                 }
                 meshRenderer.sharedMaterial = p1Material;
             }
+            */
 
 
             UnityEngine.Object p2Prefab = Resources.Load("CharacterPrefabs/" + p2Name + "/" + p2Name);
@@ -155,10 +158,11 @@ namespace Slippi
 
             p2.transform.parent = player2;
             p2.transform.localPosition = new Vector3(0, 0, 0);
-            p2.transform.localScale = new Vector3(100, 100, 100);
+            //p2.transform.localScale = new Vector3(100, 100, 100);
 
             // Apply Blue Material to P2
             Material p2Material = Resources.Load("Materials/Player2Material") as Material;
+            /*
             foreach (Transform child in p2.transform)
             {
                 SkinnedMeshRenderer meshRenderer = child.GetComponent<SkinnedMeshRenderer>();
@@ -168,6 +172,7 @@ namespace Slippi
                 }
                 meshRenderer.sharedMaterial = p2Material;
             }
+            */
 
             // ================= Initiate Shield Stuff
             UnityEngine.Object shieldPrefab = Resources.Load("CharacterPrefabs/" + p2Name + "/" + p2Name);
@@ -184,10 +189,10 @@ namespace Slippi
             player2Shield.transform.parent = p2.transform;
             player1Shield.name = "Shield";
             player2Shield.name = "Shield";
-            player1Shield.transform.localPosition = new Vector3(0, .07f, 0);
-            player2Shield.transform.localPosition = new Vector3(0, .07f, 0);
-            player1Shield.transform.localScale = new Vector3(.12f, .12f, .12f);
-            player2Shield.transform.localScale = new Vector3(.12f, .12f, .12f);
+            player1Shield.transform.localPosition = new Vector3(0, 5.07f, 0);
+            player2Shield.transform.localPosition = new Vector3(0, 5.07f, 0);
+            player1Shield.transform.localScale = new Vector3(12.12f, 12.12f, 12.12f);
+            player2Shield.transform.localScale = new Vector3(12.12f, 12.12f, 12.12f);
             player1Shield.SetActive(false);
             player2Shield.SetActive(false);
 
