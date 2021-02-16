@@ -115,26 +115,26 @@ namespace Slippi {
 			switch (stageID)
 			{
 				case 2:
-					stageName = "Fountain_Of_Dreams";
+					stageName = "DietFountainOfDreams";
 					break;
 				case 3:
-					stageName = "Stadium";//"Pokemon_Stadium";
+					stageName = "DietPokemonStadium";//"Pokemon_Stadium";
 					break;
 				case 8:
-					stageName = "Yoshis_Story";//"Yoshis_Story";
+					stageName = "DietYoshisStory";//"Yoshis_Story";
 					break;
 				case 28:
-					stageName = "Dreamland_Final";
+					stageName = "DietDreamland";
 					break;
 				case 31:
 					stageName = "DietBattlefield";
 					break;
 				case 32:
-					stageName = "Final_Destination";
+					stageName = "DietFinalDestination";
 					break;
 				default:
 					Debug.LogWarning("MISSING STAGE");
-					stageName = "Final_Destination";
+					stageName = "DietFinalDestination";
 					break;
 			};
 			return stageName;
