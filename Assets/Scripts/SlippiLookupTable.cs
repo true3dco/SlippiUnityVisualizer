@@ -11,7 +11,7 @@ namespace Slippi {
 			switch (characterID)
 			{
 				case 0:
-					charName = "Captain_Falcon";
+					charName = "DietCaptainFalcon";
 					break;
 				case 1:
 					charName = "Dk";
@@ -38,7 +38,7 @@ namespace Slippi {
 					charName = "Mario";
 					break;
 				case 9:
-					charName = "Marth";
+					charName = "DietMarth";
 					break;
 				case 10:
 					charName = "Mewtwo";
