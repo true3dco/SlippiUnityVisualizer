@@ -27,7 +27,7 @@ public class DynamicallyFireAnimations : MonoBehaviour
         {
             string animationName = Path.GetFileNameWithoutExtension(f.ToString());
             animationNames.Add(animationName);
-            AnimationClip clip = Resources.Load<AnimationClip>("CharacterPrefabs/Luigi/Animation/" + animationName);
+            AnimationClip clip = Resources.Load<AnimationClip>("CharacterPrefabs/"+ gameObject.name +"/Animation/" + animationName);
             clip.legacy = true;
             animation.AddClip(clip, animationName);
             lastAnimation = animationName;
