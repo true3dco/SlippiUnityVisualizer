@@ -57,10 +57,10 @@ namespace Slippi
 
         void Start()
         {
-            TextAsset gameJson = Resources.Load(filePath) as TextAsset;
+            /*TextAsset gameJson = Resources.Load(filePath) as TextAsset;
             Debug.Log(gameJson);
             game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
-            StartMatch();
+            StartMatch();*/
 
             // DONT TOUCH THIS
             Time.fixedDeltaTime = .01666666f;
