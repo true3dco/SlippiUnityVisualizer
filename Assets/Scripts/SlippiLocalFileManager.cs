@@ -2,19 +2,31 @@ using Slippi;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class SlippiLocalFileManager : MonoBehaviour
 {
-
-    //public WWW w;
-    FileSystemWatcher liveMatchWatcher;
-
-    public List<SlippiFramePlayerInfo> framesForCurrentMatch = new List<SlippiFramePlayerInfo>();
     public SlippiParser parser;
+    public InputField SlippiFileInputField;
+    public Button StartButton;
+
+    [HideInInspector]
+    public List<SlippiFramePlayerInfo> framesForCurrentMatch = new List<SlippiFramePlayerInfo>();
+
+    private FileSystemWatcher liveMatchWatcher;
+
     void Start()
     {
-        //LoadTex();
-        //var path = "D:/SlippiStreamOutput/20210130T145427/";
-        var path = "D:/SlippiStreamOutput/";
+        if (StartButton == null || SlippiFileInputField == null)
+        {
+            Debug.LogWarning("UI Controls for local file manager not found. Bailing.");
+            return;
+        }
+
+        StartButton.onClick.AddListener(OnStartButtonClick);
+    }
+
+    private void StartMatch(string path)
+    {
         var info = new DirectoryInfo(path);
         var fileInfo = info.GetFiles();
         var directoryInfo = info.GetDirectories();
@@ -22,7 +34,7 @@ public class SlippiLocalFileManager : MonoBehaviour
 
         // Watch the top level directory
         FileSystemWatcher watcher = new FileSystemWatcher();
-        watcher.Path = "D:/SlippiStreamOutput/";
+        watcher.Path = path;
 
         // Watch for changes in LastAccess and LastWrite times, and
         // the renaming of files or directories.
@@ -30,9 +42,6 @@ public class SlippiLocalFileManager : MonoBehaviour
                                 | NotifyFilters.LastWrite
                                 | NotifyFilters.FileName
                                 | NotifyFilters.DirectoryName;
-
-        // Only watch text files.
-        //watcher.Filter = "*.txt";
 
         // Add event handlers.
         watcher.Changed += OnChangedDirectory;
@@ -42,8 +51,19 @@ public class SlippiLocalFileManager : MonoBehaviour
 
         // Begin watching.
         watcher.EnableRaisingEvents = true;
+    }
 
+    private void OnStartButtonClick()
+    {
+        var slippiOutputPath = SlippiFileInputField.text;
+        if (slippiOutputPath.Length == 0)
+        {
+            return;
+        }
 
+        SlippiFileInputField.gameObject.SetActive(false);
+        StartButton.gameObject.SetActive(false);
+        StartMatch(slippiOutputPath);
     }
 
     void LoadFile(string fileToLoad)
