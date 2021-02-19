@@ -256,7 +256,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Start!
@@ -667,7 +667,6 @@ GameObject:
   - component: {fileID: 1096493944}
   - component: {fileID: 1096493945}
   - component: {fileID: 1096493946}
-  - component: {fileID: 1096493947}
   m_Layer: 0
   m_Name: SlippiStreamer
   m_TagString: Untagged
@@ -698,27 +697,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1096493942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3fb4c937603c6a4283ff1b9312f2745, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bd2fd6e0d9c2ce4191ee015944207ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: {fileID: 1951940668}
-  counterText: {fileID: 2027409810}
-  frameText: {fileID: 1930372188}
-  player1Action: {fileID: 1221222976}
-  player2Action: {fileID: 1687503326}
-  manualMode: 0
-  counter: 0
-  game:
-    settings:
-      stageId: 0
-      players: []
-    frames: []
-  nextGame:
-    settings:
-      stageId: 0
-      players: []
-    frames: []
-  filePath: Json/Game_SFATvHungryBox
+  SlippiFileSelect: {fileID: 1709154377}
+  StartButton: {fileID: 764930993}
 --- !u!114 &1096493945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,23 +730,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1096493942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5785c6529f60be74db9dacab1186fc2b, type: 3}
+  m_Script: {fileID: 11500000, guid: a3fb4c937603c6a4283ff1b9312f2745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parser: {fileID: 1096493944}
-  framesForCurrentMatch: []
---- !u!114 &1096493947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096493942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc3655b95ef0dd14aa064afee8b8453a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  world: {fileID: 1951940668}
+  counterText: {fileID: 2027409810}
+  frameText: {fileID: 1930372188}
+  player1Action: {fileID: 1221222976}
+  player2Action: {fileID: 1687503326}
+  manualMode: 0
+  counter: 1
+  game:
+    settings:
+      stageId: 0
+      players: []
+    frames: []
+  nextGame:
+    settings:
+      stageId: 0
+      players: []
+    frames: []
+  filePath: Json/Game_FoxVFox1
 --- !u!1 &1221222974
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +842,6 @@ GameObject:
   - component: {fileID: 1399329928}
   - component: {fileID: 1399329927}
   - component: {fileID: 1399329926}
-  - component: {fileID: 1399329930}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -948,20 +934,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1399329930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399329925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd2fd6e0d9c2ce4191ee015944207ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SlippiFileSelect: {fileID: 1709154377}
-  StartButton: {fileID: 764930993}
 --- !u!1 &1687503324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1131,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 30}
+  m_SizeDelta: {x: 800, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1930372186
 GameObject:
@@ -1416,7 +1388,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Click to Select Slippi Executable

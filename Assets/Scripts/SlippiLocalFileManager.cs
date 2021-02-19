@@ -2,17 +2,16 @@ using Slippi;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class SlippiLocalFileManager : MonoBehaviour
+public class SlippiLocalFileManager
 {
-    public SlippiParser parser;
-    [HideInInspector]
     public List<SlippiFramePlayerInfo> framesForCurrentMatch = new List<SlippiFramePlayerInfo>();
 
+    private readonly SlippiParser parser;
     private FileSystemWatcher liveMatchWatcher;
 
-    void Start()
+    public SlippiLocalFileManager(SlippiParser parser)
     {
+        this.parser = parser;
     }
 
     public void StartMatch(string path)
@@ -21,17 +20,15 @@ public class SlippiLocalFileManager : MonoBehaviour
         var fileInfo = info.GetFiles();
         var directoryInfo = info.GetDirectories();
 
-
-        // Watch the top level directory
-        FileSystemWatcher watcher = new FileSystemWatcher();
-        watcher.Path = path;
-
-        // Watch for changes in LastAccess and LastWrite times, and
-        // the renaming of files or directories.
-        watcher.NotifyFilter = NotifyFilters.LastAccess
+        FileSystemWatcher watcher = new FileSystemWatcher
+        {
+            // Watch for changes in LastAccess and LastWrite times, and
+            // the renaming of files or directories.
+            NotifyFilter = NotifyFilters.LastAccess
                                 | NotifyFilters.LastWrite
                                 | NotifyFilters.FileName
-                                | NotifyFilters.DirectoryName;
+                                | NotifyFilters.DirectoryName
+        };
 
         // Add event handlers.
         watcher.Changed += OnChangedDirectory;
@@ -42,17 +39,6 @@ public class SlippiLocalFileManager : MonoBehaviour
         // Begin watching.
         watcher.EnableRaisingEvents = true;
     }
-
-
-    void Update()
-    {
-        //  if(w.isDone)
-        //  {
-        //     //  Debug.Log("done");
-        //     //  tex = w.texture;
-        //  }
-    }
-
 
 
     // Define the event handlers.

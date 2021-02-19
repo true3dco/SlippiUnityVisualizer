@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Animations;
 
@@ -41,8 +39,11 @@ namespace Slippi
         private int player1ASID = -1;
         private int player2ASID = -1;
 
+        [HideInInspector]
         public int counter = 1;
+        [HideInInspector]
         public SlippiGame game = null;
+        [HideInInspector]
         public SlippiGame nextGame = null;
 
 
