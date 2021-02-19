@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class SlippiLocalFileManager : MonoBehaviour
 {
     public SlippiParser parser;
-    public InputField SlippiFileInputField;
-    public Button StartButton;
-
     [HideInInspector]
     public List<SlippiFramePlayerInfo> framesForCurrentMatch = new List<SlippiFramePlayerInfo>();
 
@@ -16,16 +13,9 @@ public class SlippiLocalFileManager : MonoBehaviour
 
     void Start()
     {
-        if (StartButton == null || SlippiFileInputField == null)
-        {
-            Debug.LogWarning("UI Controls for local file manager not found. Bailing.");
-            return;
-        }
-
-        StartButton.onClick.AddListener(OnStartButtonClick);
     }
 
-    private void StartMatch(string path)
+    public void StartMatch(string path)
     {
         var info = new DirectoryInfo(path);
         var fileInfo = info.GetFiles();
@@ -53,23 +43,6 @@ public class SlippiLocalFileManager : MonoBehaviour
         watcher.EnableRaisingEvents = true;
     }
 
-    private void OnStartButtonClick()
-    {
-        var slippiOutputPath = SlippiFileInputField.text;
-        if (slippiOutputPath.Length == 0)
-        {
-            return;
-        }
-
-        SlippiFileInputField.gameObject.SetActive(false);
-        StartButton.gameObject.SetActive(false);
-        StartMatch(slippiOutputPath);
-    }
-
-    void LoadFile(string fileToLoad)
-    {
-        //w = new WWW ("file://D:/");
-    }
 
     void Update()
     {
