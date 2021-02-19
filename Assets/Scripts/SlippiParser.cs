@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Animations;
@@ -192,34 +191,12 @@ namespace Slippi
             player2Shield.SetActive(false);
 
             // ================ End Shield Stuff
-
-            DirectoryInfo p1Dir = new DirectoryInfo("Assets/Resources/CharacterPrefabs/" + p1Name + "/Animation/");
-            FileInfo[] p1files = p1Dir.GetFiles("*.fbx");
-
-
-            foreach (FileInfo f in p1files)
-            {
-                string animationName = Path.GetFileNameWithoutExtension(f.ToString());
-                AnimationClip clip = Resources.Load<AnimationClip>("CharacterPrefabs/" + p1Name + "/Animation/" + animationName);
-                clip.legacy = true;
-                p1Animation.AddClip(clip, animationName);
-            }
-
-
+  
             // Prepare Animations
-            DirectoryInfo p2Dir = new DirectoryInfo("Assets/Resources/CharacterPrefabs/" + p2Name + "/Animation/");
-            FileInfo[] p2files = p2Dir.GetFiles("*.fbx");
-
-
-            foreach (FileInfo f in p2files)
-            {
-                string animationName = Path.GetFileNameWithoutExtension(f.ToString());
-                AnimationClip clip = Resources.Load<AnimationClip>("CharacterPrefabs/" + p2Name + "/Animation/" + animationName);
-                clip.legacy = true;
-                p2Animation.AddClip(clip, animationName);
-            }
-
-
+            LoadAnimationClips(p1Name, p1Animation);
+            Debug.Log("Player1 Animation Clip Count" + p1Animation.GetClipCount());
+            LoadAnimationClips(p2Name, p2Animation);
+  
             // Lock Animations for offending objects that change entire model location
             foreach (Transform child in p1.transform.GetComponentsInChildren<Transform>())
             {
@@ -385,6 +362,7 @@ namespace Slippi
                 if (anim != null)
                 {
                     p1RotationToReset.localRotation = new Quaternion(0, p1RotationToReset.localRotation.y, p1RotationToReset.localRotation.z, p1RotationToReset.localRotation.w);
+                    Debug.Log("Is Animation Playing" + p1Animation.isPlaying);
                     p1Animation.Play(p1AnimationClip);
                     if (p1AnimationClip != "") {
                         player1Action.text = "P1(Red) Animation: " + p1AnimationClip;
@@ -424,6 +402,8 @@ namespace Slippi
                     
                     if (p2AnimationClip != "") {
                         player2Action.text = "P2(Blue) Animation: " + p2AnimationClip;
+                        Debug.Log("Animation Clip 2 : " + p2AnimationClip);
+
                     }
                 }
                 else
@@ -446,14 +426,6 @@ namespace Slippi
 
             frameText.text = "Frame: " + pre1.frame;
             counter++;
-        }
-
-        void LateUpdate()
-        {
-            // Prevent position changes from animations
-            //p1PositionToLock.localPosition = new Vector3(0,0,0);
-            //p2PositionToLock.localPosition = new Vector3(0,0,0);
-
         }
 
         void ShowWaitingForNextMatch()
@@ -504,6 +476,22 @@ namespace Slippi
                     stocks[i].SetActive(true);
                 }
                 i++;
+            }
+        }
+
+        void LoadAnimationClips(string playerName, Animation playerAnimationComponent) {
+
+            string animationDir = "CharacterPrefabs/" + playerName + "/Animation";
+            Object[] clipObjs = Resources.LoadAll(animationDir, typeof(Object));
+            foreach (Object clipObj in clipObjs)
+            {
+                if (clipObj is AnimationClip) {
+                    continue;
+                }
+                AnimationClip clip = Resources.Load<AnimationClip>(animationDir + "/" + clipObj.name) as AnimationClip;
+                string animationName = clipObj.name;
+                clip.legacy = true;
+                playerAnimationComponent.AddClip(clip, animationName);
             }
         }
     }
