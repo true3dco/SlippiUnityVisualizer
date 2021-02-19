@@ -1,13 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using System;
-
-public class SlippiModels 
-{
-
-}
-
 
 [Serializable]
 public class SlippiGame

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using SFB;
 using IniParser;
-using IniParser.Model;
 using Slippi;
 
 [RequireComponent(typeof(SlippiParser))]
@@ -38,7 +37,6 @@ public class SlippiVisualizerViewController : MonoBehaviour
         set
         {
             _slippiDolphinExePath = value;
-            Debug.Log($"Dolphin Executable path set: {_slippiDolphinExePath}");
             if (_slippiDolphinExePath.Length == 0)
             {
                 SlippiFileSelect.GetComponentInChildren<Text>().text = "Click to select Slippi Dolphin Executable";
@@ -46,8 +44,11 @@ public class SlippiVisualizerViewController : MonoBehaviour
             }
             else
             {
+                Debug.Log($"Dolphin Executable path set: {_slippiDolphinExePath}");
                 SlippiFileSelect.GetComponentInChildren<Text>().text = $"Slippi Executable (click to change): {_slippiDolphinExePath}";
                 StartButton.interactable = true;
+                // Clear out any error messages
+                StartButton.GetComponentInChildren<Text>().text = "Start!";
             }
         }
     } 
