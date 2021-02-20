@@ -5,7 +5,8 @@ using UnityEngine.Animations;
 
 namespace Slippi
 {
-    public class SlippiParser : MonoBehaviour
+    [RequireComponent(typeof(HyperSDKController))]
+    public class SlippiPlayer : MonoBehaviour
     {
         // Start is called before the first frame update
         private Transform player1;
@@ -68,10 +69,6 @@ namespace Slippi
 
         public void StartMatch()
         {
-            // TextAsset gameJson = Resources.Load(filePath) as TextAsset;
-            // Debug.Log(gameJson);
-            // game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
-            //Debug.Log(game.settings.stageId);
             foreach (Transform child in world.transform)
             {
                 GameObject.Destroy(child.gameObject);

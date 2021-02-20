@@ -6,7 +6,7 @@ using SFB;
 using IniParser;
 using Slippi;
 
-[RequireComponent(typeof(SlippiParser))]
+[RequireComponent(typeof(Slippi.SlippiPlayer))]
 public class SlippiVisualizerViewController : MonoBehaviour
 {
     private class GetSlippiOutputPathException : ApplicationException
@@ -26,7 +26,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
     public Button SlippiFileSelect;
     public Button StartButton;
-    private SlippiParser slippiParser;
+    private Slippi.SlippiPlayer slippiParser;
     private SlippiLocalFileManager fileManager;
     private string _slippiDolphinExePath = "";
     private string SlippiDolphinExePath {
@@ -55,7 +55,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
     void Awake()
     {
-        slippiParser = GetComponent<SlippiParser>();
+        slippiParser = GetComponent<Slippi.SlippiPlayer>();
         fileManager = new SlippiLocalFileManager(slippiParser);
     }
 

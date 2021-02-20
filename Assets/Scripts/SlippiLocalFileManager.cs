@@ -6,10 +6,10 @@ public class SlippiLocalFileManager
 {
     public List<SlippiFramePlayerInfo> framesForCurrentMatch = new List<SlippiFramePlayerInfo>();
 
-    private readonly SlippiParser parser;
+    private readonly Slippi.SlippiPlayer parser;
     private FileSystemWatcher liveMatchWatcher;
 
-    public SlippiLocalFileManager(SlippiParser parser)
+    public SlippiLocalFileManager(Slippi.SlippiPlayer parser)
     {
         this.parser = parser;
     }
@@ -63,8 +63,26 @@ public class SlippiLocalFileManager
             liveMatchWatcher.Created += OnFileCreated;
             liveMatchWatcher.EnableRaisingEvents = true;
 
-            var text = File.OpenText(e.FullPath + "/init.json");
-            SlippiGame game = JsonUtility.FromJson<SlippiGame>(text.ReadToEnd());
+            // TODO: Replace with just the Slippi Game types?
+            // TODO: Implement actual slp reading.
+            SlippiCS.SlippiGame slpGame = new SlippiCS.SlippiGame(e.FullPath);
+            var slpSettings = slpGame.GetSettings();
+            SlippiGame game = new SlippiGame
+            {
+                settings = new SlippiSettings
+                {
+                    players = new List<SlippiPlayer>()
+                },
+                frames = new List<SlippiFramePlayerInfo>()
+            };
+            game.settings.stageId = slpSettings.StageId.GetValueOrDefault(0);
+            foreach (var slpPlayer in slpSettings.Players)
+            {
+                var player = new SlippiPlayer();
+                player.characterId = slpPlayer.CharacterId.GetValueOrDefault(0);
+                player.playerIndex = slpPlayer.PlayerIndex;
+                game.settings.players.Add(player);
+            }
 
             
             if (parser.game != null && parser.game.gameFinished)
