@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SlippiCS
 {
+    public enum Command
+    {
+        MESSAGE_SIZES = 0x35,
+        GAME_START = 0x36,
+        PRE_FRAME_UPDATE = 0x37,
+        POST_FRAME_UPDATE = 0x38,
+        GAME_END = 0x39,
+        ITEM_UPDATE = 0x3b,
+        FRAME_BOOKEND = 0x3c,
+    }
+
     public interface DeserializableFromUbjson
     {
         void DeserializeFromUbJson(object payload);
     }
 
+    public interface IEventPayloadType { }
+
+    // FIXME: Remove DeserializeFromUbJson except for Metadata type?
     public class PlayerType : DeserializableFromUbjson
     {
         public int PlayerIndex;
@@ -49,7 +60,7 @@ namespace SlippiCS
         ONLINE = 0x08,
     }
 
-    public class GameStartType : DeserializableFromUbjson
+    public class GameStartType : IEventPayloadType, DeserializableFromUbjson
     {
         public string SlpVersion;
         public bool? IsTeams;
@@ -111,6 +122,115 @@ namespace SlippiCS
                 var rawGameMode = data["gameMode"] as int?;
                 // gameMode should be set if it has a key(?)
                 GameMode = (GameMode)rawGameMode.Value;
+            }
+        }
+    }
+
+    public class PreFrameUpdateType : IEventPayloadType
+    {
+        // NOTE: Some of these are probs floats and will have to change.
+        public int? Frame;
+        public int? PlayerIndex;
+        public bool? IsFollower;
+        public int? Seed;
+        public int? ActionStateId;
+        public int? PositionX;
+        public int? PositionY;
+        public int? FacingDirection;
+        public int? JoystickX;
+        public int? JoystickY;
+        public int? CStickX;
+        public int? CStickY;
+        public int? Trigger;
+        public int? Buttons;
+        public int? PhysicalButtons;
+        public int? PhysicalLTrigger;
+        public int? PhysicalRTrigger;
+        public int? Percent;
+    }
+
+    public class PostFrameUpdateType : IEventPayloadType
+    {
+        // NOTE: Same as above
+        public int? Frame;
+        public int? PlayerIndex;
+        public int? IsFollower;
+        public int? InternalCharacterId;
+        public int? ActionStateId;
+        public int? PositionX;
+        public int? PositionY;
+        public int? FacingDirection;
+        public int? Percent;
+        public int? ShieldSize;
+        public int? LastAttackLanded;
+        public int? CurrentComboCount;
+        public int? LastHitBy;
+        public int? StocksRemaining;
+        public int? ActionStateCounter;
+        public int? MiscActionState;
+        public bool? IsAirborne;
+        public int? LastGroundId;
+        public int? JumpsRemaining;
+        public int? LCancelStatus;
+        public int? HurtboxCollisionState;
+        public SelfInducedSpeedsType selfInducedSpeeds; 
+    }
+
+    public class SelfInducedSpeedsType
+    {
+        public int? AirX;
+        public int? Y;
+        public int? AttackX;
+        public int? AttackY;
+        public int? GroundX;
+    }
+
+    public class ItemUpdateType : IEventPayloadType
+    {
+        public int? Frame;
+        public int? TypeId;
+        public int? State;
+        public int? FacingDirection;
+        public int? VelocityX;
+        public int? VelocityY;
+        public int? PositionX;
+        public int? PositionY;
+        public int? DamageTaken;
+        public int? ExpirationTimer;
+        public int? SpawnId;
+        public int? MissileType;
+        public int? TurnipFace;
+        public int? ChargeShotLaunched;
+        public int? ChargePower;
+        public int? Owner;
+    }
+
+    public class FrameBookendType : IEventPayloadType
+    {
+        public int? Frame;
+        public int? LatestFinalizedFrame;
+    }
+
+    public class GameEndType : IEventPayloadType, DeserializableFromUbjson
+    {
+        public int? GameEndMethod;
+        public int? LrasInitiatorIndex;
+
+        public void DeserializeFromUbJson(object payload)
+        {
+            if (!(payload is Dictionary<string, object>))
+            {
+                throw new ArgumentException($"Bad payload {payload}");
+            }
+
+            var data = payload as Dictionary<string, object>;
+            if (data.ContainsKey("gameEndMethod"))
+            {
+                GameEndMethod = data["gameEndMethod"] as int?;
+            }
+            if (data.ContainsKey("lrasInitiatorIndex"))
+            {
+                LrasInitiatorIndex = data["lrasInitiatorIndex"] as int?;
             }
         }
     }

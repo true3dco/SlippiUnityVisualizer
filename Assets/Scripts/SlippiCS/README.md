@@ -1,0 +1,1 @@
+﻿Port of [slippi-js](https://github.com/project-slippi/slippi-js/tree/a4041e7b3fb00be1b6143e7d45eefa697a4be35d) to C#

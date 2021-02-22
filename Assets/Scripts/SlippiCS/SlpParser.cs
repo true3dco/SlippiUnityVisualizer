@@ -10,7 +10,15 @@ namespace SlippiCS
     {
         private bool settingsComplete = false;
         private GameStartType settings = null;
+        private GameEndType gameEnd = null;
 
         public GameStartType GetSettings() => settingsComplete ? settings : null;
+
+        public void HandleCommand(object command, object payload)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GameEndType GetGameEnd() => gameEnd;
     }
 }
