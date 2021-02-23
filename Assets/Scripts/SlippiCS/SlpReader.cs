@@ -3,7 +3,6 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SlippiCS
 {
@@ -227,109 +226,156 @@ namespace SlippiCS
 
         public static IEventPayloadType ParseMessage(Command command, byte[] payload)
         {
-            using (var reader = new BinaryReader(new MemoryStream(payload)))
+            using (var reader = new SlpPayloadReader(payload))
             {
-                try
+                switch (command)
                 {
-                    switch (command)
-                    {
-                        case Command.GAME_START:
-                            Func<int, PlayerType> getPlayerObject = (playerIndex) =>
+                    case Command.GAME_START:
+                        Func<int, PlayerType> getPlayerObject = (playerIndex) =>
+                        {
+                            // Controller fix stuff
+                            var cfOffset = playerIndex * 0x8;
+                            var dashback = reader.ReadUint32(0x141 + cfOffset);
+                            var shieldDrop = reader.ReadUint32(0x145 + cfOffset);
+                            var cfOption = "None";
+                            if (dashback != shieldDrop)
                             {
-                                // Controller fix stuff
-                                var cfOffset = playerIndex * 0x8;
-                                reader.BaseStream.Position = 0x141 + cfOffset;
-                                var dashback = reader.ReadUInt32();
-                                reader.BaseStream.Position = 0x145 + cfOffset;
-                                var shieldDrop = reader.ReadUInt32();
-                                var cfOption = "None";
-                                if (dashback != shieldDrop)
-                                {
-                                    cfOption = "Mixed";
-                                }
-                                else if (dashback == 1)
-                                {
-                                    cfOption = "UCF";
-                                }
-                                else if (dashback == 2)
-                                {
-                                    cfOption = "Dween";
-                                }
-
-                                // Nametag stuff
-                                var nametagOffset = playerIndex * 0x10;
-                                var nametagStart = 0x161 + nametagOffset;
-                                var nametagBuf = payload.Skip(nametagOffset).Take(16).ToArray();
-                                var nameTagString = Encoding.GetEncoding("shift_jis")
-                                    .GetString(nametagBuf)
-                                    .Split('\0')
-                                    .FirstOrDefault(null);
-                                var nametag = nameTagString != null ? FullWidth.ToHalfWidth(nameTagString) : "";
-
-                                var offset = playerIndex * 0x24;
-                                reader.BaseStream.Position = 0x65 + offset;
-                                var characterId = reader.ReadByte();
-                                reader.BaseStream.Position = 0x68 + offset;
-                                var characterColor = reader.ReadByte();
-                                reader.BaseStream.Position = 0x67 + offset;
-                                var startStocks = reader.ReadByte();
-                                reader.BaseStream.Position = 0x66 + offset;
-                                var type = reader.ReadByte();
-                                reader.BaseStream.Position = 0x6e + offset;
-                                var teamId = reader.ReadByte();
-                                return new PlayerType
-                                {
-                                    PlayerIndex = playerIndex,
-                                    Port = playerIndex + 1,
-                                    CharacterId = characterId,
-                                    CharacterColor = characterColor,
-                                    StartStocks = startStocks,
-                                    Type = type,
-                                    TeamId = teamId,
-                                    ControllerFix = cfOption,
-                                    NameTag = nametag
-                                };
-                            };
-
-                            reader.BaseStream.Position = 0x1;
-                            var slpVersion = $"{reader.ReadByte()}.{reader.ReadByte()}.{reader.ReadByte()}";
-                            reader.BaseStream.Position = 0xd;
-                            var isTeams = reader.ReadBoolean();
-                            reader.BaseStream.Position = 0x1a1;
-                            var isPAL = reader.ReadBoolean();
-                            reader.BaseStream.Position = 0x13;
-                            var stageId = reader.ReadUInt16();
-                            reader.BaseStream.Position = 0x1a3;
-                            var scene = reader.ReadByte();
-                            reader.BaseStream.Position = 0x1a4;
-                            var gameMode = reader.ReadByte();
-                            return new GameStartType
+                                cfOption = "Mixed";
+                            }
+                            else if (dashback == 1)
                             {
-                                SlpVersion = slpVersion,
-                                IsTeams = isTeams,
-                                IsPAL = isPAL,
-                                StageId = stageId,
-                                Players = new List<int>{ 0, 1, 2, 3 }.Select(getPlayerObject).ToList(),
-                                Scene = scene,
-                                GameMode = (GameMode)gameMode
+                                cfOption = "UCF";
+                            }
+                            else if (dashback == 2)
+                            {
+                                cfOption = "Dween";
+                            }
+
+                            // Nametag stuff
+                            var nametagOffset = playerIndex * 0x10;
+                            var nametagStart = 0x161 + nametagOffset;
+                            var nametagBuf = payload.Skip(nametagOffset).Take(16).ToArray();
+                            var nameTagString = Encoding.GetEncoding("shift_jis")
+                                .GetString(nametagBuf)
+                                .Split('\0')
+                                .FirstOrDefault(null);
+                            var nametag = nameTagString != null ? FullWidth.ToHalfWidth(nameTagString) : "";
+
+                            var offset = playerIndex * 0x24;
+                            return new PlayerType
+                            {
+                                PlayerIndex = playerIndex,
+                                Port = playerIndex + 1,
+                                CharacterId = reader.ReadUint8(0x65 + offset),
+                                CharacterColor = reader.ReadUint8(0x68 + offset),
+                                StartStocks = reader.ReadUint8(0x67 + offset),
+                                Type = reader.ReadUint8(0x66 + offset),
+                                TeamId = reader.ReadUint8(0x6e + offset),
+                                ControllerFix = cfOption,
+                                NameTag = nametag
                             };
-                        case Command.PRE_FRAME_UPDATE:
-                            break;
-                        case Command.POST_FRAME_UPDATE:
-                            break;
-                        case Command.ITEM_UPDATE:
-                            break;
-                        case Command.FRAME_BOOKEND:
-                            break;
-                        case Command.GAME_END:
-                            break;
-                        default:
-                            return null;
-                    }
-                }
-                catch (EndOfStreamException)
-                {
-                    return null;
+                        };
+
+                        return new GameStartType
+                        {
+                            SlpVersion = $"{reader.ReadUint8(0x1)}.{reader.ReadUint8(0x2)}.{reader.ReadUint8(0x3)}",
+                            IsTeams = reader.ReadBool(0xd),
+                            IsPAL = reader.ReadBool(0x1a1),
+                            StageId = reader.ReadUint16(0x13),
+                            Players = new List<int> { 0, 1, 2, 3 }.Select(getPlayerObject).ToList(),
+                            Scene = reader.ReadUint8(0x1a3),
+                            GameMode = (GameMode)reader.ReadUint8(0x1a4),
+                        };
+                    case Command.PRE_FRAME_UPDATE:
+                        return new PreFrameUpdateType
+                        {
+                            Frame = reader.ReadInt32(0x1),
+                            PlayerIndex = reader.ReadUint8(0x5),
+                            IsFollower = reader.ReadBool(0x6),
+                            Seed = reader.ReadUint32(0x7),
+                            ActionStateId = reader.ReadUint16(0xb),
+                            PositionX = reader.ReadFloat(0xd),
+                            PositionY = reader.ReadFloat(0x11),
+                            FacingDirection = reader.ReadFloat(0x15),
+                            JoystickX = reader.ReadFloat(0x19),
+                            JoystickY = reader.ReadFloat(0x1d),
+                            CStickX = reader.ReadFloat(0x21),
+                            CStickY = reader.ReadFloat(0x25),
+                            Trigger = reader.ReadFloat(0x29),
+                            Buttons = reader.ReadUint32(0x2d),
+                            PhysicalButtons = reader.ReadUint16(0x31),
+                            PhysicalLTrigger = reader.ReadFloat(0x33),
+                            PhysicalRTrigger = reader.ReadFloat(0x37),
+                            Percent = reader.ReadFloat(0x3c)
+                        };
+                    case Command.POST_FRAME_UPDATE:
+                        var selfInducedSpeeds = new SelfInducedSpeedsType
+                        {
+                            AirX = reader.ReadFloat(0x35),
+                            Y = reader.ReadFloat(0x39),
+                            AttackX = reader.ReadFloat(0x3d),
+                            AttackY = reader.ReadFloat(0x41),
+                            GroundX = reader.ReadFloat(0x45)
+                        };
+                        return new PostFrameUpdateType
+                        {
+                            Frame = reader.ReadInt32(0x1),
+                            PlayerIndex = reader.ReadUint8(0x5),
+                            IsFollower = reader.ReadBool(0x6),
+                            InternalCharacterId = reader.ReadUint8(0x7),
+                            ActionStateId = reader.ReadUint16(0x8),
+                            PositionX = reader.ReadFloat(0xa),
+                            PositionY = reader.ReadFloat(0xe),
+                            FacingDirection = reader.ReadFloat(0x12),
+                            Percent = reader.ReadFloat(0x16),
+                            ShieldSize = reader.ReadFloat(0x1a),
+                            LastAttackLanded = reader.ReadUint8(0x1e),
+                            CurrentComboCount = reader.ReadUint8(0x1f),
+                            LastHitBy = reader.ReadUint8(0x20),
+                            StocksRemaining = reader.ReadUint8(0x21),
+                            ActionStateCounter = reader.ReadFloat(0x22),
+                            MiscActionState = reader.ReadFloat(0x2b),
+                            IsAirborne = reader.ReadBool(0x2f),
+                            LastGroundId = reader.ReadUint16(0x30),
+                            JumpsRemaining = reader.ReadUint8(0x32),
+                            LCancelStatus = reader.ReadUint8(0x33),
+                            HurtboxCollisionState = reader.ReadUint8(0x34),
+                            SelfInducedSpeeds = selfInducedSpeeds
+                        };
+                    case Command.ITEM_UPDATE:
+                        return new ItemUpdateType
+                        {
+                            Frame = reader.ReadInt32(0x1),
+                            TypeId = reader.ReadUint16(0x5),
+                            State = reader.ReadUint8(0x7),
+                            FacingDirection = reader.ReadFloat(0x8),
+                            VelocityX = reader.ReadFloat(0xc),
+                            VelocityY = reader.ReadFloat(0x10),
+                            PositionX = reader.ReadFloat(0x14),
+                            PositionY = reader.ReadFloat(0x18),
+                            DamageTaken = reader.ReadUint16(0x1c),
+                            ExpirationTimer = reader.ReadFloat(0x1e),
+                            SpawnId = reader.ReadUint32(0x22),
+                            MissileType = reader.ReadUint8(0x26),
+                            TurnipFace = reader.ReadUint8(0x27),
+                            ChargeShotLaunched = reader.ReadUint8(0x28),
+                            ChargePower = reader.ReadUint8(0x29),
+                            Owner = reader.ReadInt8(0x2a)
+                        };
+                    case Command.FRAME_BOOKEND:
+                        return new FrameBookendType
+                        {
+                            Frame = reader.ReadInt32(0x1),
+                            LatestFinalizedFrame = reader.ReadInt32(0x5),
+                        };
+                    case Command.GAME_END:
+                        return new GameEndType
+                        {
+                            GameEndMethod = reader.ReadUint8(0x1),
+                            LrasInitiatorIndex = reader.ReadUint8(0x2),
+                        };
+                    default:
+                        return null;
                 }
             }
         }
@@ -347,6 +393,90 @@ namespace SlippiCS
                 default:
                     throw new ArgumentException($"Unsupported input source {input.Source}");
             }
+        }
+        private class SlpPayloadReader : IDisposable
+        {
+            private readonly BinaryReader reader;
+            public SlpPayloadReader(byte[] payload)
+            {
+                reader = new BinaryReader(new MemoryStream(payload));
+            }
+
+            public void Dispose()
+            {
+                reader.Dispose();
+            }
+
+            public float? ReadFloat(int offset)
+            {
+                if (!CanRead(offset, 4))
+                {
+                    return null;
+                }
+                reader.BaseStream.Position = offset;
+                return reader.ReadSingle();
+            }
+
+            public int? ReadInt32(int offset)
+            {
+                if (!CanRead(offset, 4))
+                {
+                    return null;
+                }
+                reader.BaseStream.Position = offset;
+                return reader.ReadInt32();
+            }
+
+            public int? ReadInt8(int offset)
+            {
+                if (!CanRead(offset, 1))
+                {
+                    return null;
+                }
+                reader.BaseStream.Position = offset;
+                return reader.ReadSByte();
+            }
+
+            public uint? ReadUint32(int offset)
+            {
+                if (!CanRead(offset, 4))
+                {
+                    return null;
+                }
+                reader.BaseStream.Position = offset;
+                return reader.ReadUInt32();
+            }
+
+            public int? ReadUint16(int offset)
+            {
+                if (!CanRead(offset, 2))
+                {
+                    return null;
+                }
+                reader.BaseStream.Position = offset;
+                return reader.ReadUInt16();
+            }
+
+            public int? ReadUint8(int offset) {
+                if (!CanRead(offset, 1))
+                {
+                    return null;
+                }
+                reader.BaseStream.Position = offset;
+                return reader.ReadByte();
+            }
+
+            public bool? ReadBool(int offset)
+            {
+                if (!CanRead(offset, 1))
+                {
+                    return null;
+                }
+                reader.BaseStream.Position = offset;
+                return reader.ReadBoolean();
+            }
+
+            private bool CanRead(int offset, int length) => offset + length <= reader.BaseStream.Length;
         }
     }
 }

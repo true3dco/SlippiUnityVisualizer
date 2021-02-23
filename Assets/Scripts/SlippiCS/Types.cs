@@ -132,21 +132,21 @@ namespace SlippiCS
         public int? Frame;
         public int? PlayerIndex;
         public bool? IsFollower;
-        public int? Seed;
+        public uint? Seed;
         public int? ActionStateId;
-        public int? PositionX;
-        public int? PositionY;
-        public int? FacingDirection;
-        public int? JoystickX;
-        public int? JoystickY;
-        public int? CStickX;
-        public int? CStickY;
-        public int? Trigger;
-        public int? Buttons;
+        public float? PositionX;
+        public float? PositionY;
+        public float? FacingDirection;
+        public float? JoystickX;
+        public float? JoystickY;
+        public float? CStickX;
+        public float? CStickY;
+        public float? Trigger;
+        public uint? Buttons;
         public int? PhysicalButtons;
-        public int? PhysicalLTrigger;
-        public int? PhysicalRTrigger;
-        public int? Percent;
+        public float? PhysicalLTrigger;
+        public float? PhysicalRTrigger;
+        public float? Percent;
     }
 
     public class PostFrameUpdateType : IEventPayloadType
@@ -154,35 +154,35 @@ namespace SlippiCS
         // NOTE: Same as above
         public int? Frame;
         public int? PlayerIndex;
-        public int? IsFollower;
+        public bool? IsFollower;
         public int? InternalCharacterId;
         public int? ActionStateId;
-        public int? PositionX;
-        public int? PositionY;
-        public int? FacingDirection;
-        public int? Percent;
-        public int? ShieldSize;
+        public float? PositionX;
+        public float? PositionY;
+        public float? FacingDirection;
+        public float? Percent;
+        public float? ShieldSize;
         public int? LastAttackLanded;
         public int? CurrentComboCount;
         public int? LastHitBy;
         public int? StocksRemaining;
-        public int? ActionStateCounter;
-        public int? MiscActionState;
+        public float? ActionStateCounter;
+        public float? MiscActionState;
         public bool? IsAirborne;
         public int? LastGroundId;
         public int? JumpsRemaining;
         public int? LCancelStatus;
         public int? HurtboxCollisionState;
-        public SelfInducedSpeedsType selfInducedSpeeds; 
+        public SelfInducedSpeedsType SelfInducedSpeeds; 
     }
 
     public class SelfInducedSpeedsType
     {
-        public int? AirX;
-        public int? Y;
-        public int? AttackX;
-        public int? AttackY;
-        public int? GroundX;
+        public float? AirX;
+        public float? Y;
+        public float? AttackX;
+        public float? AttackY;
+        public float? GroundX;
     }
 
     public class ItemUpdateType : IEventPayloadType
@@ -190,14 +190,14 @@ namespace SlippiCS
         public int? Frame;
         public int? TypeId;
         public int? State;
-        public int? FacingDirection;
-        public int? VelocityX;
-        public int? VelocityY;
-        public int? PositionX;
-        public int? PositionY;
+        public float? FacingDirection;
+        public float? VelocityX;
+        public float? VelocityY;
+        public float? PositionX;
+        public float? PositionY;
         public int? DamageTaken;
-        public int? ExpirationTimer;
-        public int? SpawnId;
+        public float? ExpirationTimer;
+        public uint? SpawnId;
         public int? MissileType;
         public int? TurnipFace;
         public int? ChargeShotLaunched;
@@ -233,5 +233,26 @@ namespace SlippiCS
                 LrasInitiatorIndex = data["lrasInitiatorIndex"] as int?;
             }
         }
+    }
+
+    public class PrePostUpdates
+    {
+        public PreFrameUpdateType Pre;
+        public PostFrameUpdateType Post;
+    }
+
+    public class FrameEntryType
+    {
+        public int Frame;
+        public Dictionary<int, PrePostUpdates> Players;
+        public Dictionary<int, PrePostUpdates> Followers;
+        public ItemUpdateType[] Items;
+        public bool IsTransferComplete;
+    }
+
+    public enum Frames
+    {
+        FIRST = -123,
+        FIRST_PLAYABLE = -39,
     }
 }
