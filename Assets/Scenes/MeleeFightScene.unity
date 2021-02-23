@@ -738,9 +738,9 @@ MonoBehaviour:
   frameText: {fileID: 1930372188}
   player1Action: {fileID: 1221222976}
   player2Action: {fileID: 1687503326}
-  ManuallyAdvanceFrames: 0
-  TestMode: 1
-  TestModeFile: C:\Users\Travis\true3d\SlippiFactory\Slippi\Game_FoxVCap.slp
+  ManuallyAdvanceFrames: 1
+  TestMode: 0
+  TestModeFile: C:\Users\Travis\true3d\SlippiFactory\Slippi\Game_SFATvHungryBox.slp
   counter: 1
 --- !u!1 &1221222974
 GameObject:

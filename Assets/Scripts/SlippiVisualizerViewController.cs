@@ -27,7 +27,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
     public Button SlippiFileSelect;
     public Button StartButton;
     private Slippi.SlippiPlayer slippiPlayer;
-    private SlippiLocalFileManager fileManager;
+    private SlippiFileWatcher slippiFileWatcher;
     private string _slippiDolphinExePath = "";
     private string SlippiDolphinExePath {
         get
@@ -56,7 +56,12 @@ public class SlippiVisualizerViewController : MonoBehaviour
     void Awake()
     {
         slippiPlayer = GetComponent<Slippi.SlippiPlayer>();
-        fileManager = new SlippiLocalFileManager(slippiPlayer);
+        slippiFileWatcher = new SlippiFileWatcher();
+    }
+
+    private void OnDestroy()
+    {
+        slippiFileWatcher.Dispose();
     }
 
     // Start is called before the first frame update
@@ -78,8 +83,39 @@ public class SlippiVisualizerViewController : MonoBehaviour
         SlippiDolphinExePath = "";
 
         SlippiFileSelect.onClick.AddListener(OnSlippiExeFileSelect);
-
         StartButton.onClick.AddListener(OnStartButtonClick);
+
+        slippiFileWatcher.GameStart += (object sender, GameStartEventArgs e) =>
+        {
+            var game = e.Game;
+            if (slippiPlayer.game?.gameFinished ?? false)
+            {
+                slippiPlayer.nextGame = game;
+            }
+            else
+            {
+                slippiPlayer.game = game;
+                slippiPlayer.StartMatch();
+            }
+        };
+
+        slippiFileWatcher.Frames += (object sender, FramesEventArgs e) =>
+        {
+            var frames = e.Frames;
+            if (slippiPlayer.game.gameFinished)
+            {
+                slippiPlayer.nextGame.frames.AddRange(frames);
+            }
+            else
+            {
+                slippiPlayer.game.frames.AddRange(frames);
+            }
+        };
+
+        slippiFileWatcher.GameEnd += (object sender, EventArgs e) =>
+        {
+            slippiPlayer.game.gameFinished = true;
+        };
     }
 
     private void OnGUI()
@@ -113,7 +149,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
         SlippiFileSelect.gameObject.SetActive(false);
         StartButton.gameObject.SetActive(false);
-        //fileManager.StartMatch(slippiOutputPath);
+        slippiFileWatcher.BeginWatchingAtPath(slippiOutputPath);
     }
 
     private string GetSlippiOutputPath()

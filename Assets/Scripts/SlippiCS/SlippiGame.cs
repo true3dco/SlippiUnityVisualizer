@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SlippiCS
 {
@@ -28,6 +29,12 @@ namespace SlippiCS
         {
             Process();
             return parser.GetFrames();
+        }
+
+        public GameEndType GetGameEnd()
+        {
+            Process();
+            return parser.GetGameEnd();
         }
 
         private void Process(bool settingsOnly = false)

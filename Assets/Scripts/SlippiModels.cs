@@ -16,7 +16,7 @@ public class SlippiGame
             frames = FramesFromSlippiCS(slippiCsGame.GetFrames())
         };
 
-    private static List<SlippiFramePlayerInfo> FramesFromSlippiCS(Dictionary<int, SlippiCS.FrameEntryType> slpFrames)
+    public static List<SlippiFramePlayerInfo> FramesFromSlippiCS(Dictionary<int, SlippiCS.FrameEntryType> slpFrames)
     {
         if (slpFrames == null)
         {
