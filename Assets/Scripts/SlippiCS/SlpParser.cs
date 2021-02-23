@@ -42,6 +42,8 @@ namespace SlippiCS
 
         public GameStartType GetSettings() => settingsComplete ? settings : null;
 
+        public Dictionary<int, FrameEntryType> GetFrames() => frames;
+
 
         public void HandleCommand(Command command, IEventPayloadType payload)
         {
@@ -138,40 +140,62 @@ namespace SlippiCS
             {
                 throw new ArgumentException("Event payload type must be PreFrameUpdateType or PostFrameUpdateType");
             }
-            var frame = payload is PreFrameUpdateType ? (payload as PostFrameUpdateType).Frame : (payload as PostFrameUpdateType).Frame;
+            var frame = payload is PreFrameUpdateType ? (payload as PreFrameUpdateType).Frame : (payload as PostFrameUpdateType).Frame;
             var isFollower = payload is PreFrameUpdateType ? (payload as PreFrameUpdateType).IsFollower : (payload as PostFrameUpdateType).IsFollower;
             var playerIndex = payload is PreFrameUpdateType ? (payload as PreFrameUpdateType).PlayerIndex.Value : (payload as PostFrameUpdateType).PlayerIndex.Value;
             var isPre = command == Command.PRE_FRAME_UPDATE;
             var currentFrameNumber = frame.Value;
             latestFrameIndex = currentFrameNumber;
 
-            var frameEntry = GetFrame(currentFrameNumber);
-            if (frameEntry != null)
+            if (!frames.TryGetValue(currentFrameNumber, out FrameEntryType frameEntry))
             {
-                if (isFollower.GetValueOrDefault(false))
+                frameEntry = new FrameEntryType();
+                frames[currentFrameNumber] = frameEntry;
+            }
+
+            if (isFollower.GetValueOrDefault(false))
+            {
+                if (frameEntry.Followers == null)
                 {
-                    if (isPre)
-                    {
-                        frameEntry.Followers[playerIndex].Pre = payload as PreFrameUpdateType;
-                    }
-                    else
-                    {
-                        frameEntry.Followers[playerIndex].Post = payload as PostFrameUpdateType; 
-                    }
+                    frameEntry.Followers = new Dictionary<int, PrePostUpdates>();
+                }
+                if (!frameEntry.Followers.TryGetValue(playerIndex, out var updates))
+                {
+                    updates = new PrePostUpdates();
+                    frameEntry.Followers[playerIndex] = updates;
+                }
+
+                if (isPre)
+                {
+                    updates.Pre = payload as PreFrameUpdateType;
                 }
                 else
                 {
-                    if (isPre)
-                    {
-                        frameEntry.Players[playerIndex].Pre = payload as PreFrameUpdateType;
-                    }
-                    else
-                    {
-                        frameEntry.Players[playerIndex].Post = payload as PostFrameUpdateType;
-                    }
+                    updates.Post = payload as PostFrameUpdateType;
                 }
-                frameEntry.Frame = currentFrameNumber;
             }
+            else
+            {
+                if (frameEntry.Players == null)
+                {
+                    frameEntry.Players = new Dictionary<int, PrePostUpdates>();
+                }
+                if (!frameEntry.Players.TryGetValue(playerIndex, out var updates))
+                {
+                    updates = new PrePostUpdates();
+                    frameEntry.Players[playerIndex] = updates;
+                }
+
+                if (isPre)
+                {
+                    updates.Pre = payload as PreFrameUpdateType;
+                }
+                else
+                {
+                    updates.Post = payload as PostFrameUpdateType;
+                }
+            }
+            frameEntry.Frame = currentFrameNumber;
 
             // If file is from before frame bookending, add frame to stats computer here. Does a little
             // more processing than necessary, but works.
@@ -190,20 +214,30 @@ namespace SlippiCS
 
         private void HandleItemUpdate(ItemUpdateType payload)
         {
-            var frameEntry = GetFrame(payload.Frame.Value);
-            var items = new List<ItemUpdateType>(frameEntry?.Items ?? new ItemUpdateType[] { })
+            var currentFrameNumber = payload.Frame.Value;
+            if (!frames.TryGetValue(currentFrameNumber, out var frameEntry))
             {
-                payload
-            };
-            frameEntry.Items = items.ToArray();
+                frameEntry = new FrameEntryType();
+                frames[currentFrameNumber] = frameEntry;
+            }
+            if (frameEntry.Items == null)
+            {
+                frameEntry.Items = new List<ItemUpdateType>();
+            }
+            frameEntry.Items.Add(payload);
         }
 
         private void HandleFrameBookend(FrameBookendType payload)
         {
             var latestFinalizedFrame = payload.LatestFinalizedFrame.Value;
             var currentFrameNumber = payload.Frame.Value;
-            var frameEntry = GetFrame(currentFrameNumber);
+            if (!frames.TryGetValue(currentFrameNumber, out var frameEntry))
+            {
+                frameEntry = new FrameEntryType();
+                frames[currentFrameNumber] = frameEntry;
+            }
             frameEntry.IsTransferComplete = true;
+
             // Fire of a normal frame event
             OnFrame(new FrameEventArgs { Frame = frameEntry });
 

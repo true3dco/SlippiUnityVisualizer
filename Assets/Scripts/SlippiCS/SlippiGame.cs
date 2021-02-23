@@ -1,6 +1,8 @@
-﻿namespace SlippiCS
+﻿using System.Collections.Generic;
+
+namespace SlippiCS
 {
-    class SlippiGame
+    public class SlippiGame
     {
         private readonly SlpReadInput input;
         private readonly SlpParser parser;
@@ -20,6 +22,12 @@
         {
             Process(true);
             return parser.GetSettings();
+        }
+
+        public Dictionary<int, FrameEntryType> GetFrames()
+        {
+            Process();
+            return parser.GetFrames();
         }
 
         private void Process(bool settingsOnly = false)

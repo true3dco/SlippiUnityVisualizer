@@ -667,7 +667,6 @@ GameObject:
   - component: {fileID: 1096493944}
   - component: {fileID: 1096493945}
   - component: {fileID: 1096493946}
-  - component: {fileID: 1096493947}
   m_Layer: 0
   m_Name: SlippiStreamer
   m_TagString: Untagged
@@ -739,31 +738,10 @@ MonoBehaviour:
   frameText: {fileID: 1930372188}
   player1Action: {fileID: 1221222976}
   player2Action: {fileID: 1687503326}
-  manualMode: 0
+  ManuallyAdvanceFrames: 0
+  TestMode: 1
+  TestModeFile: C:\Users\Travis\true3d\SlippiFactory\Slippi\Game_FoxVCap.slp
   counter: 1
-  game:
-    settings:
-      stageId: 0
-      players: []
-    frames: []
-  nextGame:
-    settings:
-      stageId: 0
-      players: []
-    frames: []
-  filePath: Json/Game_FoxVFox1
---- !u!114 &1096493947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096493942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc3655b95ef0dd14aa064afee8b8453a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1221222974
 GameObject:
   m_ObjectHideFlags: 0

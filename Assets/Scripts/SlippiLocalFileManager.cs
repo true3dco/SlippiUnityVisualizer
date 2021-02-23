@@ -6,12 +6,12 @@ public class SlippiLocalFileManager
 {
     public List<SlippiFramePlayerInfo> framesForCurrentMatch = new List<SlippiFramePlayerInfo>();
 
-    private readonly Slippi.SlippiPlayer parser;
+    private readonly Slippi.SlippiPlayer slpPlayer;
     private FileSystemWatcher liveMatchWatcher;
 
-    public SlippiLocalFileManager(Slippi.SlippiPlayer parser)
+    public SlippiLocalFileManager(Slippi.SlippiPlayer player)
     {
-        this.parser = parser;
+        this.slpPlayer = player;
     }
 
     public void StartMatch(string path)
@@ -76,23 +76,23 @@ public class SlippiLocalFileManager
                 frames = new List<SlippiFramePlayerInfo>()
             };
             game.settings.stageId = slpSettings.StageId.GetValueOrDefault(0);
-            foreach (var slpPlayer in slpSettings.Players)
+            foreach (var playerRaw in slpSettings.Players)
             {
                 var player = new SlippiPlayer();
-                player.characterId = slpPlayer.CharacterId.GetValueOrDefault(0);
-                player.playerIndex = slpPlayer.PlayerIndex;
+                player.characterId = playerRaw.CharacterId.GetValueOrDefault(0);
+                player.playerIndex = playerRaw.PlayerIndex;
                 game.settings.players.Add(player);
             }
 
             
-            if (parser.game != null && parser.game.gameFinished)
+            if (slpPlayer.game != null && slpPlayer.game.gameFinished)
             {
-                parser.nextGame = game;
+                slpPlayer.nextGame = game;
             }
             else
             {
-                parser.game = game;
-                parser.StartMatch();
+                slpPlayer.game = game;
+                slpPlayer.StartMatch();
             }
         }
     }
@@ -107,15 +107,15 @@ public class SlippiLocalFileManager
             // Debug.Log("Adding " + game.frames.Count);
             // Debug.Log("Total Frames: " + framesForCurrentMatch.Count);
             
-            if (parser.game.gameFinished){
-                parser.nextGame.frames.AddRange(game.frames);
+            if (slpPlayer.game.gameFinished){
+                slpPlayer.nextGame.frames.AddRange(game.frames);
             } else {
-                parser.game.frames.AddRange(game.frames);
+                slpPlayer.game.frames.AddRange(game.frames);
             }
 
             if (e.FullPath.Contains("_FINAL"))
             {
-                parser.game.gameFinished = true;
+                slpPlayer.game.gameFinished = true;
             }
         }
     }

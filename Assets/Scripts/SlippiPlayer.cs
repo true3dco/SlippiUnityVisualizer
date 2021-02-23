@@ -17,12 +17,14 @@ namespace Slippi
         public Text frameText;
         public Text player1Action;
         public Text player2Action;
+        public bool ManuallyAdvanceFrames = false;
+        public bool TestMode = false;
+        public string TestModeFile = "Hello";
 
         private GameObject player1Shield;
         private GameObject player2Shield;
 
         private float worldScale = .1f;
-        public bool manualMode = false;
 
         private Transform p1RotationToReset;
         private Transform p2RotationToReset;
@@ -51,17 +53,18 @@ namespace Slippi
         private HyperSDKController hsdkc;
         private Animation p1Animation;
         private Animation p2Animation;
-        public string filePath = "Json/Game_FoxVFox1";
 
         private GameObject stockHolder;
         private bool matchStarted = false;
 
         void Start()
         {
-            /*TextAsset gameJson = Resources.Load(filePath) as TextAsset;
-            Debug.Log(gameJson);
-            game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
-            StartMatch();*/
+            if (TestMode)
+            {
+                var slpGame = new SlippiCS.SlippiGame(TestModeFile);
+                game = SlippiGame.FromSlippiCSGame(slpGame);
+                StartMatch();
+            }
 
             // DONT TOUCH THIS
             Time.fixedDeltaTime = .01666666f;
@@ -288,7 +291,7 @@ namespace Slippi
                 return;
             }
 
-            if (manualMode)
+            if (ManuallyAdvanceFrames)
             {
                 if (!Input.GetKey(KeyCode.RightArrow))
                 {

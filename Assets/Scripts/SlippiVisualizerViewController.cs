@@ -26,7 +26,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
     public Button SlippiFileSelect;
     public Button StartButton;
-    private Slippi.SlippiPlayer slippiParser;
+    private Slippi.SlippiPlayer slippiPlayer;
     private SlippiLocalFileManager fileManager;
     private string _slippiDolphinExePath = "";
     private string SlippiDolphinExePath {
@@ -55,8 +55,8 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
     void Awake()
     {
-        slippiParser = GetComponent<Slippi.SlippiPlayer>();
-        fileManager = new SlippiLocalFileManager(slippiParser);
+        slippiPlayer = GetComponent<Slippi.SlippiPlayer>();
+        fileManager = new SlippiLocalFileManager(slippiPlayer);
     }
 
     // Start is called before the first frame update
@@ -67,6 +67,11 @@ public class SlippiVisualizerViewController : MonoBehaviour
             Debug.LogWarning("UI Controls for local file manager not found. Bailing.");
             return;
         }
+        if (slippiPlayer.TestMode)
+        {
+            SlippiFileSelect.gameObject.SetActive(false);
+            StartButton.gameObject.SetActive(false);
+        }
 
         // TODO: Try and read SlippiExePath from settings?
         // Also: Check that GetLocalFilePath is still present.
@@ -75,6 +80,14 @@ public class SlippiVisualizerViewController : MonoBehaviour
         SlippiFileSelect.onClick.AddListener(OnSlippiExeFileSelect);
 
         StartButton.onClick.AddListener(OnStartButtonClick);
+    }
+
+    private void OnGUI()
+    {
+        if (slippiPlayer.TestMode)
+        {
+            GUILayout.Label("Test Mode Active. UI Hidden.");
+        }
     }
 
     private void OnStartButtonClick()

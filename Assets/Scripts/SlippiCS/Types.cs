@@ -246,7 +246,7 @@ namespace SlippiCS
         public int Frame;
         public Dictionary<int, PrePostUpdates> Players;
         public Dictionary<int, PrePostUpdates> Followers;
-        public ItemUpdateType[] Items;
+        public List<ItemUpdateType> Items;
         public bool IsTransferComplete;
     }
 
