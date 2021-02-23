@@ -166,7 +166,7 @@ namespace SlippiCS
                 return 0;
             }
 
-            if (buffer[0] == '{')
+            if (buffer[0] != '{')
             {
                 return 0; // (Note from original impl) return error?
             }
@@ -257,8 +257,8 @@ namespace SlippiCS
                             var nametagBuf = payload.Skip(nametagOffset).Take(16).ToArray();
                             var nameTagString = Encoding.GetEncoding("shift_jis")
                                 .GetString(nametagBuf)
-                                .Split('\0')
-                                .FirstOrDefault(null);
+                                .Split(new char[] { '\0' })
+                                .FirstOrDefault();
                             var nametag = nameTagString != null ? FullWidth.ToHalfWidth(nameTagString) : "";
 
                             var offset = playerIndex * 0x24;
@@ -414,7 +414,12 @@ namespace SlippiCS
                     return null;
                 }
                 reader.BaseStream.Position = offset;
-                return reader.ReadSingle();
+                var raw = reader.ReadBytes(4);
+                if (BitConverter.IsLittleEndian)
+                {
+                    Array.Reverse(raw);
+                }
+                return BitConverter.ToSingle(raw, 0);
             }
 
             public int? ReadInt32(int offset)
@@ -424,7 +429,12 @@ namespace SlippiCS
                     return null;
                 }
                 reader.BaseStream.Position = offset;
-                return reader.ReadInt32();
+                var raw = reader.ReadBytes(4);
+                if (BitConverter.IsLittleEndian)
+                {
+                    Array.Reverse(raw);
+                }
+                return BitConverter.ToInt32(raw, 0);
             }
 
             public int? ReadInt8(int offset)
@@ -444,7 +454,12 @@ namespace SlippiCS
                     return null;
                 }
                 reader.BaseStream.Position = offset;
-                return reader.ReadUInt32();
+                var raw = reader.ReadBytes(4);
+                if (BitConverter.IsLittleEndian)
+                {
+                    Array.Reverse(raw);
+                }
+                return BitConverter.ToUInt32(raw, 0);
             }
 
             public int? ReadUint16(int offset)
@@ -454,7 +469,12 @@ namespace SlippiCS
                     return null;
                 }
                 reader.BaseStream.Position = offset;
-                return reader.ReadUInt16();
+                var raw = reader.ReadBytes(2);
+                if (BitConverter.IsLittleEndian)
+                {
+                    Array.Reverse(raw);
+                }
+                return BitConverter.ToUInt16(raw, 0);
             }
 
             public int? ReadUint8(int offset) {
