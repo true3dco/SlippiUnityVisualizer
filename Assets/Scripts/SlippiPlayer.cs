@@ -1,14 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Animations;
 
 namespace Slippi
 {
-    public class SlippiParser : MonoBehaviour
+    [RequireComponent(typeof(HyperSDKController))]
+    public class SlippiPlayer : MonoBehaviour
     {
+        private static ISet<string> STAGES_NEEDING_POINT8_REDUCTION = new HashSet<string> { "Fountain_Of_Dreams", "DietBattlefield" };
+
         // Start is called before the first frame update
         private Transform player1;
         private Transform player2;
@@ -18,12 +19,14 @@ namespace Slippi
         public Text frameText;
         public Text player1Action;
         public Text player2Action;
+        public bool ManuallyAdvanceFrames = false;
+        public bool TestMode = false;
+        public string TestModeFile = "Hello";
 
         private GameObject player1Shield;
         private GameObject player2Shield;
 
         private float worldScale = .1f;
-        public bool manualMode = false;
 
         private Transform p1RotationToReset;
         private Transform p2RotationToReset;
@@ -41,25 +44,31 @@ namespace Slippi
         private int player1ASID = -1;
         private int player2ASID = -1;
 
+        [HideInInspector]
         public int counter = 1;
+        [HideInInspector]
         public SlippiGame game = null;
+        [HideInInspector]
         public SlippiGame nextGame = null;
 
 
         private HyperSDKController hsdkc;
         private Animation p1Animation;
         private Animation p2Animation;
-        public string filePath = "Json/Game_FoxVFox1";
 
         private GameObject stockHolder;
         private bool matchStarted = false;
 
         void Start()
         {
-            /*TextAsset gameJson = Resources.Load(filePath) as TextAsset;
-            Debug.Log(gameJson);
-            game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
-            StartMatch();*/
+#if UNITY_EDITOR
+            if (TestMode)
+            {
+                var slpGame = new SlippiCS.SlippiGame(TestModeFile);
+                game = SlippiGame.FromSlippiCSGame(slpGame);
+                StartMatch();
+            }
+#endif
 
             // DONT TOUCH THIS
             Time.fixedDeltaTime = .01666666f;
@@ -67,10 +76,6 @@ namespace Slippi
 
         public void StartMatch()
         {
-            // TextAsset gameJson = Resources.Load(filePath) as TextAsset;
-            // Debug.Log(gameJson);
-            // game = JsonUtility.FromJson<SlippiGame>(gameJson.text);
-            //Debug.Log(game.settings.stageId);
             foreach (Transform child in world.transform)
             {
                 GameObject.Destroy(child.gameObject);
@@ -96,6 +101,13 @@ namespace Slippi
             world.transform.position = new Vector3(0, -1, 7);
             stage.transform.localPosition = new Vector3(0, 0, 0);
             stage.transform.eulerAngles = new Vector3(0, 180, 0);
+            // Fountain of Dreams needs to be reduced to look good
+            if (STAGES_NEEDING_POINT8_REDUCTION.Contains(stageName))
+            {
+                Debug.LogWarning($"Scaling {stageName} down to .8 - If this is no longer needed, remove this code");
+                stage.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            }
+
             // Load Characters
 
             UnityEngine.Object p1Prefab = Resources.Load("CharacterPrefabs/" + p1Name + "/" + p1Name);
@@ -103,12 +115,12 @@ namespace Slippi
             if (p1Prefab == null)
             {
                 p1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
+                p1.transform.localScale = new Vector3(10, 10, 10);
             }
             else
             {
                 p1 = Instantiate(p1Prefab) as GameObject;
-
+                p1.transform.localScale = new Vector3(100, 100, 100);
             }
             Animation _1Animation = p1.AddComponent(typeof(Animation)) as Animation;
             p1Animation = _1Animation;
@@ -120,7 +132,6 @@ namespace Slippi
             player2.parent = world;
             p1.transform.parent = player1;
             p1.transform.localPosition = new Vector3(0, 0, 0);
-            p1.transform.localScale = new Vector3(100, 100, 100);
 
             // Apply Red Material to P1
             Material p1Material = Resources.Load("Materials/Player1Material") as Material;
@@ -141,12 +152,12 @@ namespace Slippi
             if (p2Prefab == null)
             {
                 p2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
+                p2.transform.localScale = new Vector3(10, 10, 10);
             }
             else
             {
                 p2 = Instantiate(p2Prefab) as GameObject;
-
+                p2.transform.localScale = new Vector3(100, 100, 100);
             }
 
             Animation _2Animation = p2.AddComponent(typeof(Animation)) as Animation;
@@ -154,7 +165,6 @@ namespace Slippi
 
             p2.transform.parent = player2;
             p2.transform.localPosition = new Vector3(0, 0, 0);
-            p2.transform.localScale = new Vector3(100, 100, 100);
 
             // Apply Blue Material to P2
             Material p2Material = Resources.Load("Materials/Player2Material") as Material;
@@ -290,7 +300,7 @@ namespace Slippi
                 return;
             }
 
-            if (manualMode)
+            if (ManuallyAdvanceFrames)
             {
                 if (!Input.GetKey(KeyCode.RightArrow))
                 {

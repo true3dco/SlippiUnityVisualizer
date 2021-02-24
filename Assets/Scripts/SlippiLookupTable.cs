@@ -121,7 +121,7 @@ namespace Slippi {
 					stageName = "Stadium";//"Pokemon_Stadium";
 					break;
 				case 8:
-					stageName = "Yoshis_Story";//"Yoshis_Story";
+					stageName = "DietYoshisStory";//"Yoshis_Story";
 					break;
 				case 28:
 					stageName = "Dreamland_Final";
