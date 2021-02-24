@@ -1,5 +1,7 @@
 using System;
+using System.Threading;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.IO;
 using UnityEngine;
 
@@ -7,7 +9,8 @@ public class SlippiFileWatcher : IDisposable
 {
     private static int MIN_FRAMES_PER_BATCH = 60;
 
-    private readonly Dictionary<string, ManagedGame> gameByPath = new Dictionary<string, ManagedGame>();
+    private readonly IDictionary<string, ManagedGame> gameByPath = new ConcurrentDictionary<string, ManagedGame>();
+    // NOTE: CollectedFrames must *only* be accessed in scenarios where thread-safety is guaranteed.
     private readonly List<SlippiFramePlayerInfo> collectedFrames = new List<SlippiFramePlayerInfo>();
     private FileSystemWatcher fileSystemWatcher;
 
@@ -31,10 +34,7 @@ public class SlippiFileWatcher : IDisposable
 
     public void Dispose()
     {
-        if (fileSystemWatcher != null)
-        {
-            fileSystemWatcher.Dispose();
-        }
+        fileSystemWatcher?.Dispose();
     }
 
     public void BeginWatchingAtPath(string slippiOutputPath)
@@ -66,6 +66,7 @@ public class SlippiFileWatcher : IDisposable
         // TODO: This should probably go into the game object itself?
         if (!gameByPath.TryGetValue(e.FullPath, out var managedGame))
         {
+            Debug.Log($"[SlippiFileWatcher] Create Game for file: {e.FullPath}");
             managedGame = new ManagedGame
             {
                 SlpGame = new SlippiCS.SlippiGame(e.FullPath),

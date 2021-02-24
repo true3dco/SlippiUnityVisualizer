@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 
 namespace SlippiCS
 {
-    public class SlippiGame
+    public class SlippiGame : IDisposable
     {
         private readonly SlpReadInput input;
         private int? readPosition;
+        private readonly Mutex processMtx = new Mutex();
         // NOTE: T3D Addition changing this to public
         public readonly SlpParser Parser;
+        public int ProcessWaitTimeoutMs = 500;
 
         public SlippiGame(string filePath)
         {
@@ -18,6 +21,11 @@ namespace SlippiCS
                 FilePath = filePath
             };
             Parser = new SlpParser();
+        }
+
+        public void Dispose()
+        {
+            processMtx.Dispose();
         }
 
         public GameStartType GetSettings()
@@ -39,6 +47,20 @@ namespace SlippiCS
         }
 
         public void Process(bool settingsOnly = false)
+        {
+            if (processMtx.WaitOne(ProcessWaitTimeoutMs))
+            {
+                try
+                {
+                    ProcessInternal(settingsOnly);
+                } finally
+                {
+                    processMtx.ReleaseMutex();
+                }
+            }
+        }
+
+        private void ProcessInternal(bool settingsOnly)
         {
             if (Parser.GetGameEnd() != null)
             {

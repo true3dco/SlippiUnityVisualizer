@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using SFB;
 using IniParser;
-using Slippi;
 
 [RequireComponent(typeof(Slippi.SlippiPlayer))]
 public class SlippiVisualizerViewController : MonoBehaviour
@@ -30,6 +30,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
     public Button StartButton;
     private Slippi.SlippiPlayer slippiPlayer;
     private SlippiFileWatcher slippiFileWatcher;
+    private ConcurrentQueue<Action> runInUpdate = new ConcurrentQueue<Action>();
     private string _slippiDolphinExePath = "";
     private string SlippiDolphinExePath {
         get
@@ -91,35 +92,52 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
         slippiFileWatcher.GameStart += (object sender, GameStartEventArgs e) =>
         {
-            var game = e.Game;
-            if (slippiPlayer.game?.gameFinished ?? false)
+            runInUpdate.Enqueue(() =>
             {
-                slippiPlayer.nextGame = game;
-            }
-            else
-            {
-                slippiPlayer.game = game;
-                slippiPlayer.StartMatch();
-            }
+                var game = e.Game;
+                if (slippiPlayer.game?.gameFinished ?? false)
+                {
+                    slippiPlayer.nextGame = game;
+                }
+                else
+                {
+                    slippiPlayer.game = game;
+                    slippiPlayer.StartMatch();
+                }
+            });
         };
 
         slippiFileWatcher.Frames += (object sender, FramesEventArgs e) =>
         {
-            var frames = e.Frames;
-            if (slippiPlayer.game.gameFinished)
+            runInUpdate.Enqueue(() =>
             {
-                slippiPlayer.nextGame.frames.AddRange(frames);
-            }
-            else
-            {
-                slippiPlayer.game.frames.AddRange(frames);
-            }
+                var frames = e.Frames;
+                if (slippiPlayer.game.gameFinished)
+                {
+                    slippiPlayer.nextGame.frames.AddRange(frames);
+                }
+                else
+                {
+                    slippiPlayer.game.frames.AddRange(frames);
+                }
+            });
         };
 
         slippiFileWatcher.GameEnd += (object sender, EventArgs e) =>
         {
-            slippiPlayer.game.gameFinished = true;
+            runInUpdate.Enqueue(() =>
+            {
+                slippiPlayer.game.gameFinished = true;
+            });
         };
+    }
+
+    void Update()
+    {
+        while (runInUpdate.TryDequeue(out var action))
+        {
+            action.Invoke();
+        }
     }
 
     private string TryLoadSlippiExePathFromSettings()
