@@ -88,7 +88,7 @@ public class SlippiFileWatcher : IDisposable
                 OnGameStart(SlippiGame.FromSlippiCSGame(managedGame.SlpGame));
             };
 
-            parser.FinalizedFrame += (object _, SlippiCS.FinalizedFrameEventArgs ee) =>
+            parser.Frame += (object _, SlippiCS.FrameEventArgs ee) =>
             {
                 collectedFrames.Add(SlippiGame.FrameFromSlippiCS(ee.Frame));
                 if (collectedFrames.Count >= MIN_FRAMES_PER_BATCH)

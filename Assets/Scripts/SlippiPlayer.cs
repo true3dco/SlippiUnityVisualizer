@@ -326,7 +326,7 @@ namespace Slippi
                     EndMatch();
                     return;
                 }
-                Debug.Log("Out of frames:" + game.gameFinished);
+                Debug.Log("Out of frames. Game Finished = " + game.gameFinished);
                 return;
             }
 
