@@ -41,7 +41,9 @@ namespace SlippiCS
             {
                 throw new ArgumentException("input source must be of type FILE");
             }
-            fileStream = File.OpenRead(input.FilePath);
+            // NOTE: FileShare.ReadWrite is important here because we must be able to open the .slp file
+            // as it's being written to, in the case of a live-stream.
+            fileStream = new FileStream(input.FilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
         }
 
         public void Dispose()

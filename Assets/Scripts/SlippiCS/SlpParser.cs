@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SlippiCS
 {
-    class SlpParser
+    public class SlpParser
     {
         public static readonly int MAX_ROLLBACK_FRAMES = 7;
 
@@ -93,7 +93,7 @@ namespace SlippiCS
             var players = payload.Players;
             settings.Players = players.Where(player => player.Type != 3).ToList();
 
-            // Check to see if the file was created after the shek fix so we know
+            // Check to see if the file was created after the sheik fix so we know
             // we don't have to process the first frame of the game for the full settings
             if (payload.SlpVersion != null && Version.Parse(payload.SlpVersion) >= Version.Parse("1.6.0"))
             {

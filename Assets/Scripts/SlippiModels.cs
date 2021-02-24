@@ -28,7 +28,7 @@ public class SlippiGame
         return slpFramesInOrder.Select(kvp => FrameFromSlippiCS(kvp.Value)).ToList();
     }
 
-    private static SlippiFramePlayerInfo FrameFromSlippiCS(SlippiCS.FrameEntryType slpFrame)
+    public static SlippiFramePlayerInfo FrameFromSlippiCS(SlippiCS.FrameEntryType slpFrame)
     {
         var players = new List<SlippiFrame>();
         foreach (var kvp in slpFrame.Players)

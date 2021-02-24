@@ -9,6 +9,8 @@ using Slippi;
 [RequireComponent(typeof(Slippi.SlippiPlayer))]
 public class SlippiVisualizerViewController : MonoBehaviour
 {
+    private static string PREF_SLIPPI_DOLPHIN_EXE_PATH = "SlippiDolphinExePath";
+
     private class GetSlippiOutputPathException : ApplicationException
     {
         public GetSlippiOutputPathException()
@@ -41,6 +43,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
             {
                 SlippiFileSelect.GetComponentInChildren<Text>().text = "Click to select Slippi Dolphin Executable";
                 StartButton.interactable = false;
+                PlayerPrefs.DeleteKey(PREF_SLIPPI_DOLPHIN_EXE_PATH);
             }
             else
             {
@@ -49,6 +52,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
                 StartButton.interactable = true;
                 // Clear out any error messages
                 StartButton.GetComponentInChildren<Text>().text = "Start!";
+                PlayerPrefs.SetString(PREF_SLIPPI_DOLPHIN_EXE_PATH, _slippiDolphinExePath);
             }
         }
     } 
@@ -72,15 +76,15 @@ public class SlippiVisualizerViewController : MonoBehaviour
             Debug.LogWarning("UI Controls for local file manager not found. Bailing.");
             return;
         }
+#if UNITY_EDITOR
         if (slippiPlayer.TestMode)
         {
             SlippiFileSelect.gameObject.SetActive(false);
             StartButton.gameObject.SetActive(false);
         }
+#endif
 
-        // TODO: Try and read SlippiExePath from settings?
-        // Also: Check that GetLocalFilePath is still present.
-        SlippiDolphinExePath = "";
+        SlippiDolphinExePath = TryLoadSlippiExePathFromSettings();
 
         SlippiFileSelect.onClick.AddListener(OnSlippiExeFileSelect);
         StartButton.onClick.AddListener(OnStartButtonClick);
@@ -116,6 +120,22 @@ public class SlippiVisualizerViewController : MonoBehaviour
         {
             slippiPlayer.game.gameFinished = true;
         };
+    }
+
+    private string TryLoadSlippiExePathFromSettings()
+    {
+        var savedExePath = PlayerPrefs.GetString(PREF_SLIPPI_DOLPHIN_EXE_PATH, "");
+        if (savedExePath.Length == 0)
+        {
+            return savedExePath;
+        }
+
+        var dolphinStillExistsAtLocation = File.Exists(savedExePath);
+        if (!dolphinStillExistsAtLocation)
+        {
+            return "";
+        }
+        return savedExePath;
     }
 
     private void OnGUI()

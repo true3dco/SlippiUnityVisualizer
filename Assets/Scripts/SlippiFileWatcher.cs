@@ -47,13 +47,13 @@ public class SlippiFileWatcher : IDisposable
         fileSystemWatcher = new FileSystemWatcher
         {
             Path = slippiOutputPath,
-            NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.LastAccess,
-            // FIXME: Maybe this is the problem??
+            NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.LastAccess | NotifyFilters.CreationTime | NotifyFilters.Size,
             Filter = "*.slp",
             IncludeSubdirectories = true
         };
         fileSystemWatcher.Created += HandleUpdate;
         fileSystemWatcher.Changed += HandleUpdate;
+        fileSystemWatcher.Renamed += HandleUpdate;
         fileSystemWatcher.EnableRaisingEvents = true;
         Debug.Log($"[SlippiFileWatcher] Watching: {slippiOutputPath}");
     }
@@ -61,11 +61,9 @@ public class SlippiFileWatcher : IDisposable
     // NOTE: A lot of this is taken from slippi-js's live file reading stuff / SlippiFactory.
     private void HandleUpdate(object sender, FileSystemEventArgs e)
     {
-        SlpGameState gameState;
-        SlippiCS.GameStartType settings;
-        Dictionary<int, SlippiCS.FrameEntryType> frames;
-        SlippiCS.GameEndType gameEnd;
+        Debug.Log($"[SlippiFileWatcher] Update: {e.FullPath}");
 
+        // TODO: This should probably go into the game object itself?
         if (!gameByPath.TryGetValue(e.FullPath, out var managedGame))
         {
             managedGame = new ManagedGame
@@ -76,52 +74,60 @@ public class SlippiFileWatcher : IDisposable
                     Settings = null
                 }
             };
+
+            var parser = managedGame.SlpGame.Parser;
+            parser.Settings += (object _, SlippiCS.SettingsEventArgs se) =>
+            {
+                if (managedGame.State.Settings != null)
+                {
+                    return;
+                }
+                managedGame.State.Settings = se.Settings;
+                Debug.Log("[SlippiFileWatcher] *Game Start* - New game has started");
+                collectedFrames.Clear();
+                OnGameStart(SlippiGame.FromSlippiCSGame(managedGame.SlpGame));
+            };
+
+            parser.FinalizedFrame += (object _, SlippiCS.FinalizedFrameEventArgs ee) =>
+            {
+                collectedFrames.Add(SlippiGame.FrameFromSlippiCS(ee.Frame));
+                if (collectedFrames.Count >= MIN_FRAMES_PER_BATCH)
+                {
+                    Debug.Log($"[SlippiFileWatcher] Sending {collectedFrames.Count} frames");
+                    OnFrames(new List<SlippiFramePlayerInfo>(collectedFrames));
+                    collectedFrames.Clear();
+                }
+            };
+
+            parser.End += (object _, SlippiCS.EndEventArgs ee) =>
+            {
+                var gameEnd = ee.GameEnd;
+                string endMessage;
+                switch (gameEnd.GameEndMethod ?? 0)
+                {
+                    case 1:
+                        endMessage = "TIME!";
+                        break;
+                    case 2:
+                        endMessage = "GAME!";
+                        break;
+                    case 7:
+                        endMessage = "No Contest";
+                        break;
+                    default:
+                        endMessage = "Unknown";
+                        break;
+                }
+                var lrasText = gameEnd.GameEndMethod == 7 ? $" | Quitter Index: {gameEnd.LrasInitiatorIndex ?? -1}" : "";
+                Debug.Log($"[SlippiFileWatcher] *Game Complete* - Type: {endMessage}{lrasText}");
+                OnGameEnd();
+            };
+
             gameByPath[e.FullPath] = managedGame;
         }
 
         var slpGame = managedGame.SlpGame;
-        gameState = managedGame.State;
-        settings = slpGame.GetSettings();
-        frames = slpGame.GetFrames() ?? new Dictionary<int, SlippiCS.FrameEntryType>();
-        gameEnd = slpGame.GetGameEnd();
-
-        if (gameState.Settings == null && settings != null)
-        {
-            Debug.Log("[SlippiFileWatcher] *Game Start* - New game has started");
-            gameState.Settings = settings;
-            collectedFrames.Clear();
-            OnGameStart(SlippiGame.FromSlippiCSGame(slpGame));
-        }
-
-        collectedFrames.AddRange(SlippiGame.FramesFromSlippiCS(frames));
-        if (collectedFrames.Count >= MIN_FRAMES_PER_BATCH)
-        {
-            Debug.Log($"[SlippiFileWatcher] Sending {collectedFrames.Count} frames");
-            OnFrames(new List<SlippiFramePlayerInfo>(collectedFrames));
-            collectedFrames.Clear();
-        }
-
-        if (gameEnd != null)
-        {
-            string endMessage;
-            switch (gameEnd.GameEndMethod ?? 0)
-            {
-                case 1:
-                    endMessage = "TIME!";
-                    break;
-                case 2:
-                    endMessage = "GAME!";
-                    break;
-                case 7:
-                    endMessage = "No Contest";
-                    break;
-                default:
-                    endMessage = "Unknown";
-                    break;
-            }
-            var lrasText = gameEnd.GameEndMethod == 7 ? $" | Quitter Index: {gameEnd.LrasInitiatorIndex ?? -1}" : "";
-            Debug.Log($"[SlippiFileWatcher] *Game Complete* - Type: {endMessage}{lrasText}");
-        }
+        slpGame.Process();
     }
 
     private class ManagedGame

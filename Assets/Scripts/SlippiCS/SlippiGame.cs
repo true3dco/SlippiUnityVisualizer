@@ -6,8 +6,9 @@ namespace SlippiCS
     public class SlippiGame
     {
         private readonly SlpReadInput input;
-        private readonly SlpParser parser;
         private int? readPosition;
+        // NOTE: T3D Addition changing this to public
+        public readonly SlpParser Parser;
 
         public SlippiGame(string filePath)
         {
@@ -16,30 +17,30 @@ namespace SlippiCS
                 Source = SlpInputSource.FILE,
                 FilePath = filePath
             };
-            parser = new SlpParser();
+            Parser = new SlpParser();
         }
 
         public GameStartType GetSettings()
         {
             Process(true);
-            return parser.GetSettings();
+            return Parser.GetSettings();
         }
 
         public Dictionary<int, FrameEntryType> GetFrames()
         {
             Process();
-            return parser.GetFrames();
+            return Parser.GetFrames();
         }
 
         public GameEndType GetGameEnd()
         {
             Process();
-            return parser.GetGameEnd();
+            return Parser.GetGameEnd();
         }
 
-        private void Process(bool settingsOnly = false)
+        public void Process(bool settingsOnly = false)
         {
-            if (parser.GetGameEnd() != null)
+            if (Parser.GetGameEnd() != null)
             {
                 return;
             }
@@ -53,8 +54,8 @@ namespace SlippiCS
                         // See: https://github.com/project-slippi/slippi-js/blob/a4041e7b3fb00be1b6143e7d45eefa697a4be35d/src/SlippiGame.ts#L81
                         return false;
                     }
-                    parser.HandleCommand(command, payload);
-                    return settingsOnly && parser.GetSettings() != null;
+                    Parser.HandleCommand(command, payload);
+                    return settingsOnly && Parser.GetSettings() != null;
                 }, readPosition);
             }
         }
