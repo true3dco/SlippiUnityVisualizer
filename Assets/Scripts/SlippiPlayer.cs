@@ -58,6 +58,7 @@ namespace Slippi
 
         private GameObject stockHolder;
         private bool matchStarted = false;
+        private bool stocksInstantiated = false;
 
         void Start()
         {
@@ -65,7 +66,7 @@ namespace Slippi
             if (TestMode)
             {
                 var slpGame = new SlippiCS.SlippiGame(TestModeFile);
-                game = SlippiGame.FromSlippiCSGame(slpGame);
+                game = SlippiGame.FromSlippiCSGame(slpGame, consumeFrames: true);
                 StartMatch();
             }
 #endif
@@ -241,20 +242,6 @@ namespace Slippi
             };
 
 
-            SlippiPost post1 = game.frames[0].players[player1Index].post;
-            stockHolder = new GameObject("Stocks");
-            stockHolder.transform.parent = world.transform;
-
-            player1Stocks = new List<GameObject>();
-            player2Stocks = new List<GameObject>();
-            InstantiateStocks(post1.stocksRemaining, 1, p1Material, player1Stocks);
-            InstantiateStocks(post1.stocksRemaining, 2, p2Material, player2Stocks);
-            stockHolder.transform.localScale = new Vector3(5, 5, 2);
-            stockHolder.transform.localPosition = new Vector3(0, 0, -28);
-            player1Stock = post1.stocksRemaining;
-            player2Stock = post1.stocksRemaining;
-
-
             world.localScale = new Vector3(1 * worldScale, 1 * worldScale, 1 * worldScale);
             matchStarted = true;
 
@@ -268,6 +255,7 @@ namespace Slippi
         {
             Debug.Log("END MATCH");
             matchStarted = false;
+            stocksInstantiated = false;
             game = null;
             counter = 0;
             world.localScale = new Vector3(1, 1, 1);
@@ -286,7 +274,7 @@ namespace Slippi
 
         }
 
-        void FixedUpdate()
+        public void Tick()
         {
   
             //Debug.Log(game.frames.Count);
@@ -425,6 +413,22 @@ namespace Slippi
 
 
             // Adjust Stock Count
+            if (!stocksInstantiated)
+            {
+                stocksInstantiated = true;
+                stockHolder = new GameObject("Stocks");
+                stockHolder.transform.parent = world.transform;
+
+                player1Stocks = new List<GameObject>();
+                player2Stocks = new List<GameObject>();
+                InstantiateStocks(post1.stocksRemaining, 1, Resources.Load("Materials/Player1Material") as Material, player1Stocks);
+                InstantiateStocks(post1.stocksRemaining, 2, Resources.Load("Materials/Player2Material") as Material, player2Stocks);
+                stockHolder.transform.localScale = new Vector3(5, 5, 2);
+                stockHolder.transform.localPosition = new Vector3(0, 0, -28);
+                player1Stock = post1.stocksRemaining;
+                player2Stock = post1.stocksRemaining;
+            }
+
             if (player1Stock != post1.stocksRemaining)
             {
                 AdjustStockCount(post1.stocksRemaining, player1Stocks);

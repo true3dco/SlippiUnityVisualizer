@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using System.Collections.Generic;
-using System.Collections.Concurrent;
 using System.IO;
 using System.Timers;
 using UnityEngine;
@@ -12,9 +11,9 @@ public class SlippiFileWatcher : IDisposable
     private static readonly int MIN_FRAMES_PER_BATCH = 60;
     private static readonly int POLL_UPDATE_INTERVAL_MS = 750;
 
-    // NOTE: CollectedFrames must *only* be accessed in scenarios where thread-safety is guaranteed.
+    private readonly Mutex fsWatchMtx = new Mutex();
     private readonly List<SlippiFramePlayerInfo> collectedFrames = new List<SlippiFramePlayerInfo>();
-    private FileSystemWatcher gameCreationWatcher = new FileSystemWatcher
+    private readonly FileSystemWatcher gameCreationWatcher = new FileSystemWatcher
     {
         NotifyFilter = NotifyFilters.CreationTime,
         Filter = "*.slp",
@@ -44,6 +43,7 @@ public class SlippiFileWatcher : IDisposable
     public void Dispose()
     {
         gameCreationWatcher.Dispose();
+        fsWatchMtx.Dispose();
         gameUpdatePoller?.Stop();
         gameUpdatePoller?.Dispose();
     }
@@ -58,13 +58,32 @@ public class SlippiFileWatcher : IDisposable
         Debug.Log($"[SlippiFileWatcher] Watching: {slippiOutputPath}");
         gameCreationWatcher.Path = slippiOutputPath; 
         gameCreationWatcher.Created += HandleNewGameCreated;
+        gameCreationWatcher.Changed += HandleChangeForPotentiallyInProgressGame;
         gameCreationWatcher.EnableRaisingEvents = true;
     }
 
     // NOTE: A lot of this is taken from slippi-js's live file reading stuff / SlippiFactory.
     private void HandleNewGameCreated(object sender, FileSystemEventArgs e)
     {
-        var slpFilePath = e.FullPath;
+        fsWatchMtx.WaitOne();
+        InitGame(e.FullPath);
+        fsWatchMtx.ReleaseMutex();
+    }
+
+    private void HandleChangeForPotentiallyInProgressGame(object sender, FileSystemEventArgs e)
+    {
+        fsWatchMtx.WaitOne();
+        // This would mean there's a change after a file has been created.
+        var alreadyInProgressGameNeedsWatching = currentManagedGame == null;
+        if (alreadyInProgressGameNeedsWatching)
+        {
+            InitGame(e.FullPath); 
+        }
+        fsWatchMtx.ReleaseMutex();
+    }
+
+    private void InitGame(string slpFilePath)
+    {
         Debug.Log($"[SlippiFileWatcher] New Game Created: {slpFilePath}");
 
         currentManagedGame = new ManagedGame(slpFilePath);
@@ -126,8 +145,6 @@ public class SlippiFileWatcher : IDisposable
         };
         gameUpdatePoller.Elapsed += PollUpdate;
         gameUpdatePoller.Enabled = true;
-        // Kick off initial processing
-        //currentManagedGame.SlpGame.Process();
     }
 
     private void PollUpdate(object sender, ElapsedEventArgs e)

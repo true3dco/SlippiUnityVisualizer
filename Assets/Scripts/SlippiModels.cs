@@ -9,11 +9,11 @@ public class SlippiGame
     public List<SlippiFramePlayerInfo> frames;
     public bool gameFinished = false;
 
-    public static SlippiGame FromSlippiCSGame(SlippiCS.SlippiGame slippiCsGame) =>
+    public static SlippiGame FromSlippiCSGame(SlippiCS.SlippiGame slippiCsGame, bool consumeFrames = false) =>
         new SlippiGame
         {
             settings = SettingsFromSlippiCS(slippiCsGame.GetSettings()),
-            frames = FramesFromSlippiCS(slippiCsGame.GetFrames())
+            frames = consumeFrames ? FramesFromSlippiCS(slippiCsGame.GetFrames()) : new List<SlippiFramePlayerInfo>()
         };
 
     public static List<SlippiFramePlayerInfo> FramesFromSlippiCS(Dictionary<int, SlippiCS.FrameEntryType> slpFrames)

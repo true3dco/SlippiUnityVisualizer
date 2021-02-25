@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +30,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
     public Button StartButton;
     private Slippi.SlippiPlayer slippiPlayer;
     private SlippiFileWatcher slippiFileWatcher;
-    private readonly ConcurrentQueue<Action> runInUpdate = new ConcurrentQueue<Action>();
+    private readonly Queue<Action> runInUpdate = new Queue<Action>();
     private string _slippiDolphinExePath = "";
     private string SlippiDolphinExePath {
         get
@@ -93,6 +93,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
         slippiFileWatcher.GameStart += (object sender, GameStartEventArgs e) =>
         {
             var game = e.Game;
+            runInUpdate.Clear();
             runInUpdate.Enqueue(() =>
             {
                 if (slippiPlayer.game?.gameFinished ?? false)
@@ -125,6 +126,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
         slippiFileWatcher.GameEnd += (object sender, EventArgs e) =>
         {
+            runInUpdate.Clear();
             runInUpdate.Enqueue(() =>
             {
                 slippiPlayer.game.gameFinished = true;
@@ -132,12 +134,14 @@ public class SlippiVisualizerViewController : MonoBehaviour
         };
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        while (runInUpdate.TryDequeue(out var action))
+        while (runInUpdate.Count > 0)
         {
+            var action = runInUpdate.Dequeue();
             action.Invoke();
         }
+        slippiPlayer.Tick();
     }
 
     private string TryLoadSlippiExePathFromSettings()
