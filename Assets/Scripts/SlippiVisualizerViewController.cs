@@ -30,7 +30,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
     public Button StartButton;
     private Slippi.SlippiPlayer slippiPlayer;
     private SlippiFileWatcher slippiFileWatcher;
-    private ConcurrentQueue<Action> runInUpdate = new ConcurrentQueue<Action>();
+    private readonly ConcurrentQueue<Action> runInUpdate = new ConcurrentQueue<Action>();
     private string _slippiDolphinExePath = "";
     private string SlippiDolphinExePath {
         get
@@ -92,9 +92,9 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
         slippiFileWatcher.GameStart += (object sender, GameStartEventArgs e) =>
         {
+            var game = e.Game;
             runInUpdate.Enqueue(() =>
             {
-                var game = e.Game;
                 if (slippiPlayer.game?.gameFinished ?? false)
                 {
                     slippiPlayer.nextGame = game;
@@ -109,9 +109,9 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
         slippiFileWatcher.Frames += (object sender, FramesEventArgs e) =>
         {
+            var frames = e?.Frames;
             runInUpdate.Enqueue(() =>
             {
-                var frames = e.Frames;
                 if (slippiPlayer.game.gameFinished)
                 {
                     slippiPlayer.nextGame.frames.AddRange(frames);
