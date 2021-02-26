@@ -229,7 +229,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
     private void OnSlippiExeFileSelect()
     {
-        var paths = StandaloneFileBrowser.OpenFilePanel("Slippi Dolphin Executable", "", "exe", false);
+        var paths = StandaloneFileBrowser.OpenFilePanel("Slippi Dolphin Executable", "", new[] { new ExtensionFilter("Applications", new[] { "exe", "app" }) }, false);
         if (paths.Length == 0)
         {
             return;
