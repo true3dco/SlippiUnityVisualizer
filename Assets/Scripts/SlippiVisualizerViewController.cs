@@ -201,7 +201,21 @@ public class SlippiVisualizerViewController : MonoBehaviour
             throw new GetSlippiOutputPathException("Slippi Dolphin Path not set");
         }
 
-        var configPath = Path.Combine(Path.GetDirectoryName(SlippiDolphinExePath), "User", "Config", "Dolphin.ini");
+        string configPath;
+        switch (Application.platform)
+        {
+            case RuntimePlatform.WindowsEditor:
+            case RuntimePlatform.WindowsPlayer:
+                configPath = Path.Combine(Path.GetDirectoryName(SlippiDolphinExePath), "User", "Config", "Dolphin.ini");
+                break;
+            case RuntimePlatform.OSXEditor:
+            case RuntimePlatform.OSXPlayer:
+                // On OSX, Applications are folders which contain package contents, housing the configuration and other info.
+                configPath = Path.Combine(SlippiDolphinExePath, "Contents", "Resources", "User", "Config", "Dolphin.ini");
+                break;
+            default:
+                throw new PlatformNotSupportedException($"Runtime platform {Application.platform} not supported.");
+        }
         if (!File.Exists(configPath))
         {
             throw new GetSlippiOutputPathException($"Could not find expected Dolphin configuration file {configPath} - Please let the True3D team know about this :(");
