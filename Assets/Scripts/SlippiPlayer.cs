@@ -9,6 +9,11 @@ namespace Slippi
     public class SlippiPlayer : MonoBehaviour
     {
         private static ISet<string> STAGES_NEEDING_POINT8_REDUCTION = new HashSet<string> { "Fountain_Of_Dreams", "DietBattlefield" };
+        private static Vector3 DEFAULT_CHARACTER_SCALE = new Vector3(100, 100, 100);
+        private static Dictionary<string, Vector3> SPECIAL_CHARACTER_SCALES = new Dictionary<string, Vector3>
+        {
+            {"Pichu", new Vector3(45, 45, 45)}
+        };
 
         // Start is called before the first frame update
         private Transform player1;
@@ -110,19 +115,7 @@ namespace Slippi
             }
 
             // Load Characters
-
-            UnityEngine.Object p1Prefab = Resources.Load("CharacterPrefabs/" + p1Name + "/" + p1Name);
-            GameObject p1;
-            if (p1Prefab == null)
-            {
-                p1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                p1.transform.localScale = new Vector3(10, 10, 10);
-            }
-            else
-            {
-                p1 = Instantiate(p1Prefab) as GameObject;
-                p1.transform.localScale = new Vector3(100, 100, 100);
-            }
+            GameObject p1 = InstantiateCharacter(p1Name);
             Animation _1Animation = p1.AddComponent(typeof(Animation)) as Animation;
             p1Animation = _1Animation;
             GameObject p1G = new GameObject();
@@ -147,23 +140,9 @@ namespace Slippi
             }
 
 
-            UnityEngine.Object p2Prefab = Resources.Load("CharacterPrefabs/" + p2Name + "/" + p2Name);
-
-            GameObject p2;
-            if (p2Prefab == null)
-            {
-                p2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                p2.transform.localScale = new Vector3(10, 10, 10);
-            }
-            else
-            {
-                p2 = Instantiate(p2Prefab) as GameObject;
-                p2.transform.localScale = new Vector3(100, 100, 100);
-            }
-
+            var p2 = InstantiateCharacter(p2Name);
             Animation _2Animation = p2.AddComponent(typeof(Animation)) as Animation;
             p2Animation = _2Animation;
-
             p2.transform.parent = player2;
             p2.transform.localPosition = new Vector3(0, 0, 0);
 
@@ -202,12 +181,12 @@ namespace Slippi
             player2Shield.SetActive(false);
 
             // ================ End Shield Stuff
-  
+
             // Prepare Animations
             LoadAnimationClips(p1Name, p1Animation);
             Debug.Log("Player1 Animation Clip Count" + p1Animation.GetClipCount());
             LoadAnimationClips(p2Name, p2Animation);
-  
+
             // Lock Animations for offending objects that change entire model location
             foreach (Transform child in p1.transform.GetComponentsInChildren<Transform>())
             {
@@ -251,7 +230,7 @@ namespace Slippi
             hsdkc.sceneID = sceneID;
         }
 
-        void EndMatch()
+        public void EndMatch()
         {
             Debug.Log("END MATCH");
             matchStarted = false;
@@ -442,7 +421,7 @@ namespace Slippi
             counter++;
         }
 
-        void ShowWaitingForNextMatch()
+        private void ShowWaitingForNextMatch()
         {
             GameObject loadingIndicator = GameObject.CreatePrimitive(PrimitiveType.Plane);
             loadingIndicator.transform.parent = world;
@@ -453,13 +432,13 @@ namespace Slippi
             Material loadingMaterial = Resources.Load("Materials/LoadingMaterial") as Material;
 
             mr.sharedMaterial = loadingMaterial;
-            sceneID ++;
+            sceneID++;
             hsdkc = GetComponent<HyperSDKController>();
             hsdkc.sceneID = sceneID;
 
         }
 
-        void InstantiateStocks(int stockCount, int playerNumber, Material material, List<GameObject> emptyStocks)
+        private void InstantiateStocks(int stockCount, int playerNumber, Material material, List<GameObject> emptyStocks)
         {
             var i = 0;
             while (i < stockCount)
@@ -475,7 +454,7 @@ namespace Slippi
 
         }
 
-        void AdjustStockCount(int newStockCount, List<GameObject> stocks)
+        private void AdjustStockCount(int newStockCount, List<GameObject> stocks)
         {
 
             var i = 0;
@@ -493,7 +472,7 @@ namespace Slippi
             }
         }
 
-        void LoadAnimationClips(string playerName, Animation playerAnimationComponent) {
+        private void LoadAnimationClips(string playerName, Animation playerAnimationComponent) {
 
             string animationDir = "CharacterPrefabs/" + playerName + "/Animation";
             Object[] clipObjs = Resources.LoadAll(animationDir, typeof(Object));
@@ -508,5 +487,27 @@ namespace Slippi
                 playerAnimationComponent.AddClip(clip, animationName);
             }
         }
+        private GameObject InstantiateCharacter(string characterName)
+        {
+            UnityEngine.Object prefab = Resources.Load("CharacterPrefabs/" + characterName + "/" + characterName);
+            GameObject character;
+            if (prefab == null)
+            {
+                character = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                character.transform.localScale = new Vector3(10, 10, 10);
+            }
+            else
+            {
+                character = Instantiate(prefab) as GameObject;
+                if (!SPECIAL_CHARACTER_SCALES.TryGetValue(characterName, out Vector3 scale))
+                {
+                    scale = DEFAULT_CHARACTER_SCALE;
+                }
+                character.transform.localScale = scale;
+            }
+
+            return character;
+        }
+
     }
 }
