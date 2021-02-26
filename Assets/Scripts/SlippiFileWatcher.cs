@@ -55,6 +55,12 @@ public class SlippiFileWatcher : IDisposable
             throw new InvalidOperationException("Cannot watch when already watching!");
         }
 
+        if (!Directory.Exists(slippiOutputPath))
+        {
+            Debug.LogWarning("[SlippiFileWatcher] Slippi output path does not exist. This could mean the user has not yet streamed. Creating.");
+            Directory.CreateDirectory(slippiOutputPath);
+        }
+
         Debug.Log($"[SlippiFileWatcher] Watching: {slippiOutputPath}");
         gameCreationWatcher.Path = slippiOutputPath; 
         gameCreationWatcher.Created += HandleNewGameCreated;
