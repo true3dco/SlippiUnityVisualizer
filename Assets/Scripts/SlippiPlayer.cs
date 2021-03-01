@@ -1,54 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
+using Object = UnityEngine.Object;
 
 namespace Slippi
 {
     [RequireComponent(typeof(HyperSDKController))]
     public class SlippiPlayer : MonoBehaviour
     {
-        private static ISet<string> STAGES_NEEDING_POINT8_REDUCTION = new HashSet<string> { "Fountain_Of_Dreams", "DietBattlefield" };
+        private static readonly ISet<string> STAGES_NEEDING_POINT8_REDUCTION = new HashSet<string> { "Fountain_Of_Dreams", "DietBattlefield" };
         private static Vector3 DEFAULT_CHARACTER_SCALE = new Vector3(100, 100, 100);
-        private static Dictionary<string, Vector3> SPECIAL_CHARACTER_SCALES = new Dictionary<string, Vector3>
+        private static readonly Dictionary<string, Vector3> SPECIAL_CHARACTER_SCALES = new Dictionary<string, Vector3>
         {
             {"Pichu", new Vector3(45, 45, 45)}
         };
 
-        // Start is called before the first frame update
-        private Transform player1;
-        private Transform player2;
         public Transform world;
-        private int sceneID = 0;
-        public Text counterText;
         public Text frameText;
         public Text player1Action;
         public Text player2Action;
         public bool ManuallyAdvanceFrames = false;
         public bool TestMode = false;
         public string TestModeFile = "Hello";
-
-        private GameObject player1Shield;
-        private GameObject player2Shield;
-
-        private float worldScale = .1f;
-
-        private Transform p1RotationToReset;
-        private Transform p2RotationToReset;
-        //JOBJ_2
-        private int player1Index;
-        private int player2Index;
-
-
-        private int player1Stock = 0;
-        private int player2Stock = 0;
-
-        private List<GameObject> player1Stocks = new List<GameObject>();
-        private List<GameObject> player2Stocks = new List<GameObject>();
-
-        private int player1ASID = -1;
-        private int player2ASID = -1;
-
         [HideInInspector]
         public int counter = 1;
         [HideInInspector]
@@ -57,13 +32,25 @@ namespace Slippi
         public SlippiGame nextGame = null;
 
 
+        private Transform player1;
+        private Transform player2;
+        private int sceneID = 0;
+        public Text counterText;
+        private GameObject player1Shield;
+        private GameObject player2Shield;
+        private float worldScale = .1f;
+        private Transform p1RotationToReset;
+        private Transform p2RotationToReset;
+        private int player1Index;
+        private int player2Index;
+        private int player1ASID = -1;
+        private int player2ASID = -1;
         private HyperSDKController hsdkc;
         private Animation p1Animation;
         private Animation p2Animation;
-
-        private GameObject stockHolder;
         private bool matchStarted = false;
-        private bool stocksInstantiated = false;
+
+        private Stocks stocks;
 
         void Start()
         {
@@ -159,7 +146,7 @@ namespace Slippi
             }
 
             // ================= Initiate Shield Stuff
-            UnityEngine.Object shieldPrefab = Resources.Load("CharacterPrefabs/" + p2Name + "/" + p2Name);
+            Object shieldPrefab = Resources.Load("CharacterPrefabs/" + p2Name + "/" + p2Name);
 
             player1Shield = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             player2Shield = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -222,6 +209,7 @@ namespace Slippi
 
 
             world.localScale = new Vector3(1 * worldScale, 1 * worldScale, 1 * worldScale);
+            stocks = new Stocks(stage);
             matchStarted = true;
 
             // Tell Hypersdk players to reload
@@ -234,11 +222,11 @@ namespace Slippi
         {
             Debug.Log("END MATCH");
             matchStarted = false;
-            stocksInstantiated = false;
             game = null;
             counter = 0;
             world.localScale = new Vector3(1, 1, 1);
             // Remove all Smash Objects from the scene
+            stocks.Dispose();
             foreach (Transform child in world.transform)
             {
                 GameObject.Destroy(child.gameObject);
@@ -391,32 +379,7 @@ namespace Slippi
             }
 
 
-            // Adjust Stock Count
-            if (!stocksInstantiated)
-            {
-                stocksInstantiated = true;
-                stockHolder = new GameObject("Stocks");
-                stockHolder.transform.parent = world.transform;
-
-                player1Stocks = new List<GameObject>();
-                player2Stocks = new List<GameObject>();
-                InstantiateStocks(post1.stocksRemaining, 1, Resources.Load("Materials/Player1Material") as Material, player1Stocks);
-                InstantiateStocks(post1.stocksRemaining, 2, Resources.Load("Materials/Player2Material") as Material, player2Stocks);
-                stockHolder.transform.localScale = new Vector3(5, 5, 2);
-                stockHolder.transform.localPosition = new Vector3(0, 0, -28);
-                player1Stock = post1.stocksRemaining;
-                player2Stock = post1.stocksRemaining;
-            }
-
-            if (player1Stock != post1.stocksRemaining)
-            {
-                AdjustStockCount(post1.stocksRemaining, player1Stocks);
-            }
-            if (player2Stock != post2.stocksRemaining)
-            {
-                AdjustStockCount(post2.stocksRemaining, player2Stocks);
-            }
-
+            stocks.Update(post1.stocksRemaining, post2.stocksRemaining);
             frameText.text = "Frame: " + pre1.frame;
             counter++;
         }
@@ -435,41 +398,6 @@ namespace Slippi
             sceneID++;
             hsdkc = GetComponent<HyperSDKController>();
             hsdkc.sceneID = sceneID;
-
-        }
-
-        private void InstantiateStocks(int stockCount, int playerNumber, Material material, List<GameObject> emptyStocks)
-        {
-            var i = 0;
-            while (i < stockCount)
-            {
-                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                sphere.transform.position = new Vector3(i + playerNumber * 5 - 9, -2f, 0);
-                sphere.transform.parent = stockHolder.transform;
-                MeshRenderer meshRenderer = sphere.GetComponent<MeshRenderer>();
-                meshRenderer.material = material;
-                emptyStocks.Add(sphere);
-                i++;
-            }
-
-        }
-
-        private void AdjustStockCount(int newStockCount, List<GameObject> stocks)
-        {
-
-            var i = 0;
-            while (i < stocks.Count)
-            {
-                if (i >= newStockCount)
-                {
-                    stocks[i].SetActive(false);
-                }
-                else
-                {
-                    stocks[i].SetActive(true);
-                }
-                i++;
-            }
         }
 
         private void LoadAnimationClips(string playerName, Animation playerAnimationComponent) {
@@ -487,6 +415,7 @@ namespace Slippi
                 playerAnimationComponent.AddClip(clip, animationName);
             }
         }
+
         private GameObject InstantiateCharacter(string characterName)
         {
             UnityEngine.Object prefab = Resources.Load("CharacterPrefabs/" + characterName + "/" + characterName);
@@ -509,5 +438,110 @@ namespace Slippi
             return character;
         }
 
+        #region Supplemental classes
+        private class Stocks : IDisposable
+        {
+            private enum StockPosition
+            {
+                LEFT,
+                RIGHT
+            }
+            private static readonly float STOCK_SPACING = 1.2f;
+            private static readonly float STOCK_INSET = -5f;
+
+            private readonly Vector3 worldTopLeft = new Vector3();
+            private readonly Vector3 worldTopRight = new Vector3();
+            private readonly GameObject stockHolder = new GameObject("Stocks");
+            private readonly Material player1Material = Resources.Load("Materials/Player1Material") as Material;
+            private readonly List<GameObject> player1Stocks = new List<GameObject>();
+            private int p1StocksRemaining = -1;
+            private readonly Material player2Material = Resources.Load("Materials/Player2Material") as Material;
+            private readonly List<GameObject> player2Stocks = new List<GameObject>();
+            private int p2StocksRemaining = -1;
+
+            public Stocks(GameObject stage)
+            {
+                // FIXME: Unsure currently how to compute the actual size of the stage.
+                var width = 10;
+                var height = 13;
+                worldTopLeft.x = stage.transform.position.x - (width / 2);
+                worldTopLeft.y = stage.transform.position.y + (height / 2);
+                worldTopRight.x = stage.transform.position.x + (width / 2);
+                worldTopRight.y = stage.transform.position.y + (height / 2);
+
+                stockHolder.transform.parent = stage.transform;
+                stockHolder.transform.position = new Vector3(0, height, stage.transform.position.z + 8);
+            }
+
+            public void Dispose()
+            {
+                Destroy(stockHolder);
+            }
+
+            public void Update(int p1StocksRemaining, int p2StocksRemaining)
+            {
+                var stocksNeedInstantiation = player1Stocks.Count == 0;
+                if (stocksNeedInstantiation)
+                {
+                    InstantiateStocks(p1StocksRemaining, p2StocksRemaining);
+                    return;
+                }
+
+                AdjustCounts(p1StocksRemaining, p2StocksRemaining);
+            }
+
+            private void InstantiateStocks(int p1StocksRemaining, int p2StocksRemaining)
+            {
+                this.p1StocksRemaining = p1StocksRemaining;
+                InstantiateStock(p1StocksRemaining, 1, StockPosition.LEFT, player1Material, player1Stocks);
+
+                this.p2StocksRemaining = p2StocksRemaining;
+                InstantiateStock(p2StocksRemaining, 2, StockPosition.RIGHT, player2Material, player2Stocks);
+            }
+
+            private void InstantiateStock(int stockCount, int playerNumber, StockPosition position, Material material, List<GameObject> emptyStocks)
+            {
+                var inset = position == StockPosition.LEFT ? STOCK_INSET : -STOCK_INSET;
+                var startX = position == StockPosition.LEFT ? 0 : (worldTopRight.x - worldTopLeft.x) - (stockCount * (1 + STOCK_SPACING) + inset);
+                for (var i = 0; i < stockCount; i++)
+                {
+                    GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    MeshRenderer meshRenderer = sphere.GetComponent<MeshRenderer>();
+                    meshRenderer.material = material;
+                    sphere.transform.parent = stockHolder.transform;
+
+                    var stockX = startX + i * STOCK_SPACING + inset;
+                    sphere.transform.localPosition = new Vector3(stockX, 0);
+
+                    emptyStocks.Add(sphere);
+                }
+            }
+
+            private void AdjustCounts(int p1StocksRemaining, int p2StocksRemaining)
+            {
+                if (this.p1StocksRemaining != p1StocksRemaining)
+                {
+                    this.p1StocksRemaining = p1StocksRemaining;
+                    AdjustCount(p1StocksRemaining, player1Stocks);
+                }
+
+                if (this.p2StocksRemaining != p2StocksRemaining)
+                {
+                    this.p2StocksRemaining = p2StocksRemaining;
+                    AdjustCount(p2StocksRemaining, player2Stocks);
+                }
+            }
+
+            private void AdjustCount(int newStockCount, List<GameObject> stocks)
+            {
+                for (var i = 0; i < stocks.Count; i++)
+                {
+                    var showStock = i < newStockCount;
+                    stocks[i].SetActive(showStock);
+                }
+            }
+        }
+
+        #endregion
     }
 }
