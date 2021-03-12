@@ -259,7 +259,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start!
+  m_Text: Initialize
 --- !u!222 &100855900
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 764930994}
   - component: {fileID: 764930993}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Initialize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SlippiFileSelect: {fileID: 1709154377}
-  StartButton: {fileID: 764930993}
+  InitButton: {fileID: 764930993}
 --- !u!114 &1096493945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,6 +721,7 @@ MonoBehaviour:
   DebugProgram: 0
   includeAllGameObjects: 1
   sceneID: 0
+  ShowGUI: 1
 --- !u!114 &1096493946
 MonoBehaviour:
   m_ObjectHideFlags: 0

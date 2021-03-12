@@ -7,6 +7,7 @@ using SFB;
 using IniParser;
 
 [RequireComponent(typeof(Slippi.SlippiPlayer))]
+[RequireComponent(typeof(HyperSDKController))]
 public class SlippiVisualizerViewController : MonoBehaviour
 {
     private static string PREF_SLIPPI_DOLPHIN_EXE_PATH = "SlippiDolphinExePath";
@@ -27,9 +28,10 @@ public class SlippiVisualizerViewController : MonoBehaviour
     }
 
     public Button SlippiFileSelect;
-    public Button StartButton;
+    public Button InitButton;
     private Slippi.SlippiPlayer slippiPlayer;
     private SlippiFileWatcher slippiFileWatcher;
+    private HyperSDKController hsdk;
     private readonly Queue<Action> runInUpdate = new Queue<Action>();
     private string _slippiDolphinExePath = "";
     private string SlippiDolphinExePath {
@@ -43,16 +45,16 @@ public class SlippiVisualizerViewController : MonoBehaviour
             if (_slippiDolphinExePath.Length == 0)
             {
                 SlippiFileSelect.GetComponentInChildren<Text>().text = "Click to select Slippi Dolphin Executable";
-                StartButton.interactable = false;
+                InitButton.interactable = false;
                 PlayerPrefs.DeleteKey(PREF_SLIPPI_DOLPHIN_EXE_PATH);
             }
             else
             {
                 Debug.Log($"Dolphin Executable path set: {_slippiDolphinExePath}");
                 SlippiFileSelect.GetComponentInChildren<Text>().text = $"Slippi Executable (click to change): {_slippiDolphinExePath}";
-                StartButton.interactable = true;
+                InitButton.interactable = true;
                 // Clear out any error messages
-                StartButton.GetComponentInChildren<Text>().text = "Start!";
+                InitButton.GetComponentInChildren<Text>().text = "Initialize";
                 PlayerPrefs.SetString(PREF_SLIPPI_DOLPHIN_EXE_PATH, _slippiDolphinExePath);
             }
         }
@@ -61,7 +63,10 @@ public class SlippiVisualizerViewController : MonoBehaviour
     void Awake()
     {
         slippiPlayer = GetComponent<Slippi.SlippiPlayer>();
+        hsdk = GetComponent<HyperSDKController>();
         slippiFileWatcher = new SlippiFileWatcher();
+
+        hsdk.ShowGUI = false;
     }
 
     private void OnDestroy()
@@ -72,7 +77,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (StartButton == null || SlippiFileSelect == null)
+        if (InitButton == null || SlippiFileSelect == null)
         {
             Debug.LogWarning("UI Controls for local file manager not found. Bailing.");
             return;
@@ -81,14 +86,14 @@ public class SlippiVisualizerViewController : MonoBehaviour
         if (slippiPlayer.TestMode)
         {
             SlippiFileSelect.gameObject.SetActive(false);
-            StartButton.gameObject.SetActive(false);
+            InitButton.gameObject.SetActive(false);
         }
 #endif
 
         SlippiDolphinExePath = TryLoadSlippiExePathFromSettings();
 
         SlippiFileSelect.onClick.AddListener(OnSlippiExeFileSelect);
-        StartButton.onClick.AddListener(OnStartButtonClick);
+        InitButton.onClick.AddListener(OnInitButtonClick);
 
         slippiFileWatcher.GameStart += (object sender, GameStartEventArgs e) =>
         {
@@ -168,7 +173,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
         }
     }
 
-    private void OnStartButtonClick()
+    private void OnInitButtonClick()
     {
         // TODO: Handle errors if Slippi Moved or Output path not set.
         if (SlippiDolphinExePath.Length == 0)
@@ -185,13 +190,14 @@ public class SlippiVisualizerViewController : MonoBehaviour
         {
             Debug.LogWarning("SLIPPI OUTPUT PATH EXCEPTION!");
             Debug.LogWarning(ex);
-            StartButton.GetComponentInChildren<Text>().text = $"Error getting slippi output path (click to try again): {ex.Message}";
+            InitButton.GetComponentInChildren<Text>().text = $"Error getting slippi output path (click to try again): {ex.Message}";
             return;
         }
 
         SlippiFileSelect.gameObject.SetActive(false);
-        StartButton.gameObject.SetActive(false);
+        InitButton.gameObject.SetActive(false);
         slippiFileWatcher.BeginWatchingAtPath(slippiOutputPath);
+        hsdk.ShowGUI = true;
     }
 
     private string GetSlippiOutputPath()
