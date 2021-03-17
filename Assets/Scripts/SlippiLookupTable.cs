@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Slippi {
-	public class SlippiLookupTable : MonoBehaviour
+namespace Slippi
+{
+    public class SlippiLookupTable
 	{
 		public static string GetCharacterName(int characterID)
 		{

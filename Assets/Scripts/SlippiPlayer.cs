@@ -273,7 +273,8 @@ namespace Slippi
             }
 
             counterText.text = "Counter: " + counter;
-            if (game.frames.Count <= counter)
+            var outOfFrames = game.frames.Count <= counter;
+            if (outOfFrames)
             {
                 if (game.gameFinished)
                 {
