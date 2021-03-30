@@ -5,12 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using SFB;
 using IniParser;
+using System.Runtime.Serialization;
 
 [RequireComponent(typeof(Slippi.SlippiPlayer))]
 [RequireComponent(typeof(HyperSDKController))]
 public class SlippiVisualizerViewController : MonoBehaviour
 {
     private static string PREF_SLIPPI_DOLPHIN_EXE_PATH = "SlippiDolphinExePath";
+    private static string PREF_MELEE_ST_EXE_PATH = "MeleeSTExePath";
 
     private class GetSlippiOutputPathException : ApplicationException
     {
@@ -27,10 +29,14 @@ public class SlippiVisualizerViewController : MonoBehaviour
         }
     }
 
+    public Text SlippiFileSelectLabel;
     public Button SlippiFileSelect;
+    public Text MeleeSTSelectLabel;
+    public Button MeleeSTSelect;
     public Button InitButton;
     private Slippi.SlippiPlayer slippiPlayer;
     private SlippiFileWatcher slippiFileWatcher;
+    private MeleeMetadataWatcher meleeMetadataWatcher;
     private HyperSDKController hsdk;
     private readonly Queue<Action> runInUpdate = new Queue<Action>();
     private string _slippiDolphinExePath = "";
@@ -60,11 +66,34 @@ public class SlippiVisualizerViewController : MonoBehaviour
         }
     } 
 
+    private string _meleeSTExePath = "";
+    private string MeleeSTExePath
+    {
+        get => _meleeSTExePath;
+
+        set
+        {
+            _meleeSTExePath = value;
+            if (string.IsNullOrEmpty(_meleeSTExePath))
+            {
+                MeleeSTSelect.GetComponentInChildren<Text>().text = "(Optional) Click to select Melee ST Executable";
+                PlayerPrefs.DeleteKey(PREF_MELEE_ST_EXE_PATH);
+            } else
+            {
+                Debug.Log($"Melee ST Exe path set to {_meleeSTExePath}");
+                MeleeSTSelect.GetComponentInChildren<Text>().text = $"ST Executable (click to change): {_meleeSTExePath}";
+                PlayerPrefs.SetString(PREF_MELEE_ST_EXE_PATH, _meleeSTExePath);
+            }
+        }
+    }
+
+
     void Awake()
     {
         slippiPlayer = GetComponent<Slippi.SlippiPlayer>();
         hsdk = GetComponent<HyperSDKController>();
         slippiFileWatcher = new SlippiFileWatcher();
+        meleeMetadataWatcher = new MeleeMetadataWatcher();
 
         hsdk.ShowGUI = false;
     }
@@ -72,6 +101,7 @@ public class SlippiVisualizerViewController : MonoBehaviour
     private void OnDestroy()
     {
         slippiFileWatcher.Dispose();
+        meleeMetadataWatcher.Dispose();
     }
 
     // Start is called before the first frame update
@@ -85,14 +115,19 @@ public class SlippiVisualizerViewController : MonoBehaviour
 #if UNITY_EDITOR
         if (slippiPlayer.TestMode)
         {
+            SlippiFileSelectLabel.gameObject.SetActive(false);
             SlippiFileSelect.gameObject.SetActive(false);
+            MeleeSTSelectLabel.gameObject.SetActive(false);
+            MeleeSTSelect.gameObject.SetActive(false);
             InitButton.gameObject.SetActive(false);
         }
 #endif
 
         SlippiDolphinExePath = TryLoadSlippiExePathFromSettings();
+        MeleeSTExePath = TryLoadMeleeSTExePathFromSettings();
 
         SlippiFileSelect.onClick.AddListener(OnSlippiExeFileSelect);
+        MeleeSTSelect.onClick.AddListener(OnMeleeSTExeFileSelect);
         InitButton.onClick.AddListener(OnInitButtonClick);
 
         slippiFileWatcher.GameStart += (object sender, GameStartEventArgs e) =>
@@ -137,6 +172,25 @@ public class SlippiVisualizerViewController : MonoBehaviour
                 slippiPlayer.game.gameFinished = true;
             });
         };
+
+        meleeMetadataWatcher.Changed += (object sender, MeleeMetadataChangedEventArgs e) =>
+        {
+            hsdk.UpdateMetadata(new HyperSDK.MetadataUpdate
+            {
+                P1Name = e.Metadata.p1Name,
+                P2Name = e.Metadata.p2Name
+            });
+        };
+    }
+
+    private void OnMeleeSTExeFileSelect()
+    {
+        var paths = StandaloneFileBrowser.OpenFilePanel("Melee ST Executable", "", new[] { new ExtensionFilter("Applications", new[] { "exe", "app" }) }, false);
+        if (paths.Length == 0)
+        {
+            return;
+        }
+        MeleeSTExePath = paths[0];
     }
 
     void FixedUpdate()
@@ -159,6 +213,21 @@ public class SlippiVisualizerViewController : MonoBehaviour
 
         var dolphinStillExistsAtLocation = File.Exists(savedExePath);
         if (!dolphinStillExistsAtLocation)
+        {
+            return "";
+        }
+        return savedExePath;
+    }
+    private string TryLoadMeleeSTExePathFromSettings()
+    {
+        var savedExePath = PlayerPrefs.GetString(PREF_MELEE_ST_EXE_PATH, "");
+        if (savedExePath.Length == 0)
+        {
+            return savedExePath;
+        }
+
+        var meleeSTStillExistsAtLocation = File.Exists(savedExePath);
+        if (!meleeSTStillExistsAtLocation)
         {
             return "";
         }
@@ -193,11 +262,50 @@ public class SlippiVisualizerViewController : MonoBehaviour
             InitButton.GetComponentInChildren<Text>().text = $"Error getting slippi output path (click to try again): {ex.Message}";
             return;
         }
+        var meleeMetadataPath = "";
+        try
+        {
+            meleeMetadataPath = GetMeleeMetadataPath();
+        } catch (GetMeleeMetadataPathException ex)
+        {
+            Debug.LogWarning("MELEE OUTPUT PATH EXCEPTION!");
+            Debug.LogWarning(ex);
+            MeleeSTSelect.GetComponentInChildren<Text>().text = $"!! Metadata will not be streamed: {ex.Message}";
+        }
+        // TODO: Clear path (probs won't implement this time around)
 
+        SlippiFileSelectLabel.gameObject.SetActive(false);
         SlippiFileSelect.gameObject.SetActive(false);
+        MeleeSTSelectLabel.gameObject.SetActive(false);
+        MeleeSTSelect.gameObject.SetActive(false);
         InitButton.gameObject.SetActive(false);
         slippiFileWatcher.BeginWatchingAtPath(slippiOutputPath);
+        if (!string.IsNullOrEmpty(meleeMetadataPath))
+        {
+            meleeMetadataWatcher.BeginWatchingAtPath(meleeMetadataPath);
+        }
         hsdk.ShowGUI = true;
+    }
+
+    private string GetMeleeMetadataPath()
+    {
+        if (string.IsNullOrEmpty(MeleeSTExePath))
+        {
+            return "";
+        }
+
+        if (Application.platform != RuntimePlatform.WindowsEditor && Application.platform != RuntimePlatform.WindowsPlayer)
+        {
+            Debug.LogWarning("For now, we only support Melee ST on Windows");
+            return "";
+        }
+
+        var jsonPath = Path.Combine(Path.GetDirectoryName(MeleeSTExePath), "Resources", "Texts", "ScoreboardInfo.json");
+        if (!File.Exists(jsonPath))
+        {
+            throw new GetMeleeMetadataPathException($"Path does not exist: {jsonPath}");
+        }
+        return jsonPath;
     }
 
     private string GetSlippiOutputPath()
@@ -255,5 +363,25 @@ public class SlippiVisualizerViewController : MonoBehaviour
             return;
         }
         SlippiDolphinExePath = paths[0];
+    }
+
+    [Serializable]
+    private class GetMeleeMetadataPathException : Exception
+    {
+        public GetMeleeMetadataPathException()
+        {
+        }
+
+        public GetMeleeMetadataPathException(string message) : base(message)
+        {
+        }
+
+        public GetMeleeMetadataPathException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected GetMeleeMetadataPathException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
     }
 }

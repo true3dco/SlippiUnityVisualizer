@@ -177,7 +177,7 @@ namespace SlippiCS
         }
     }
 
-    // NOTE: Don't care about buffer stuff for now.
+    // NOTE: Don't care about reading from a buffer vs. a file for now.
 
     public class SlpReader
     {
@@ -256,16 +256,18 @@ namespace SlippiCS
                             // Nametag stuff
                             // FIXME: Disabled for now as shift-jis stuff breaks in standalone builds
                             // (probably have to add a DLL to the assembly or something)
-                            /*var nametagOffset = playerIndex * 0x10;
+                            var nametagOffset = playerIndex * 0x10;
                             var nametagStart = 0x161 + nametagOffset;
-                            var nametagBuf = payload.Skip(nametagOffset).Take(16).ToArray();
+                            var nametagBuf = new byte[16];
+                            for (var i = nametagStart; i < nametagBuf.Length; i++)
+                            {
+                                nametagBuf[i] = payload[nametagStart + i];
+                            }
                             var nameTagString = Encoding.GetEncoding("shift_jis")
                                 .GetString(nametagBuf)
                                 .Split(new char[] { '\0' })
                                 .FirstOrDefault();
                             var nametag = nameTagString != null ? FullWidth.ToHalfWidth(nameTagString) : "";
-                            */
-                            var nametag = "<not implemented>";
 
                             var offset = playerIndex * 0x24;
                             return new PlayerType

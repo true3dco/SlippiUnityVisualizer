@@ -10,11 +10,16 @@ namespace Slippi
     [RequireComponent(typeof(HyperSDKController))]
     public class SlippiPlayer : MonoBehaviour
     {
-        private static readonly ISet<string> STAGES_NEEDING_POINT8_REDUCTION = new HashSet<string> { "Fountain_Of_Dreams", "DietBattlefield" };
         private static Vector3 DEFAULT_CHARACTER_SCALE = new Vector3(100, 100, 100);
         private static readonly Dictionary<string, Vector3> SPECIAL_CHARACTER_SCALES = new Dictionary<string, Vector3>
         {
             {"Pichu", new Vector3(45, 45, 45)}
+        };
+        private static readonly Dictionary<string, Vector3> SPECIAL_STAGE_SCALES = new Dictionary<string, Vector3>
+        {
+            {"Fountain_Of_Dreams", new Vector3(0.8f, 0.8f, 0.8f) },
+            {"DietBattlefield", new Vector3(0.8f, 0.8f, 0.8f) },
+            {"DietYoshisStory", new Vector3(0.7f, 0.7f, 0.7f) },
         };
 
         public Transform world;
@@ -95,10 +100,10 @@ namespace Slippi
             stage.transform.localPosition = new Vector3(0, 0, 0);
             stage.transform.eulerAngles = new Vector3(0, 180, 0);
             // Fountain of Dreams needs to be reduced to look good
-            if (STAGES_NEEDING_POINT8_REDUCTION.Contains(stageName))
+            if (SPECIAL_STAGE_SCALES.TryGetValue(stageName, out var scale))
             {
-                Debug.LogWarning($"Scaling {stageName} down to .8 - If this is no longer needed, remove this code");
-                stage.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+                Debug.LogWarning($"Scaling {stageName} down to ({scale.x}, {scale.y}, {scale.z}) - If this is no longer needed, remove this code");
+                stage.transform.localScale = scale;
             }
 
             // Load Characters
@@ -215,6 +220,12 @@ namespace Slippi
             // Tell Hypersdk players to reload
             hsdkc = GetComponent<HyperSDKController>();
             sceneID++;
+            hsdkc.UpdateMetadata(new HyperSDK.MetadataUpdate
+            {
+                ShowBadges = true,
+                P1NamePos = stocks.GetP1NamePos(),
+                P2NamePos = stocks.GetP2NamePos(),
+            });
             hsdkc.sceneID = sceneID;
         }
 
@@ -398,6 +409,10 @@ namespace Slippi
             mr.sharedMaterial = loadingMaterial;
             sceneID++;
             hsdkc = GetComponent<HyperSDKController>();
+            hsdkc.UpdateMetadata(new HyperSDK.MetadataUpdate
+            {
+                ShowBadges = false
+            });
             hsdkc.sceneID = sceneID;
         }
 
@@ -491,6 +506,27 @@ namespace Slippi
                 AdjustCounts(p1StocksRemaining, p2StocksRemaining);
             }
 
+            public Vector3 GetP1NamePos() {
+                // HACK: These are hard-coded for now based on 4-stock rules.
+                return new Vector3(-5, 2, 0);
+            }
+
+            public Vector3 GetP2NamePos()
+            {
+                return new Vector3(4.8f, 2, 0);
+            }
+
+            private float GetStartXForPosition(StockPosition position, int stockCount = 4)
+            {
+                float inset = GetInsetForPosition(position);
+                return position == StockPosition.LEFT ? 0 : (worldTopRight.x - worldTopLeft.x) - (stockCount * (1 + STOCK_SPACING) + inset);
+            }
+
+            private static float GetInsetForPosition(StockPosition position)
+            {
+                return position == StockPosition.LEFT ? STOCK_INSET : -STOCK_INSET;
+            }
+
             private void InstantiateStocks(int p1StocksRemaining, int p2StocksRemaining)
             {
                 this.p1StocksRemaining = p1StocksRemaining;
@@ -502,8 +538,7 @@ namespace Slippi
 
             private void InstantiateStock(int stockCount, int playerNumber, StockPosition position, Material material, List<GameObject> emptyStocks)
             {
-                var inset = position == StockPosition.LEFT ? STOCK_INSET : -STOCK_INSET;
-                var startX = position == StockPosition.LEFT ? 0 : (worldTopRight.x - worldTopLeft.x) - (stockCount * (1 + STOCK_SPACING) + inset);
+                var startX = GetStartXForPosition(position, stockCount);
                 for (var i = 0; i < stockCount; i++)
                 {
                     GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -511,7 +546,7 @@ namespace Slippi
                     meshRenderer.material = material;
                     sphere.transform.parent = stockHolder.transform;
 
-                    var stockX = startX + i * STOCK_SPACING + inset;
+                    var stockX = startX + i * STOCK_SPACING + GetInsetForPosition(position);
                     sphere.transform.localPosition = new Vector3(stockX, 0);
 
                     emptyStocks.Add(sphere);
