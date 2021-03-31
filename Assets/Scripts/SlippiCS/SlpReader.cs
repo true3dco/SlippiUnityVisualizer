@@ -256,6 +256,8 @@ namespace SlippiCS
                             // Nametag stuff
                             // FIXME: Disabled for now as shift-jis stuff breaks in standalone builds
                             // (probably have to add a DLL to the assembly or something)
+                            var nametag = "";
+                            /*
                             var nametagOffset = playerIndex * 0x10;
                             var nametagStart = 0x161 + nametagOffset;
                             var nametagBuf = new byte[16];
@@ -268,6 +270,7 @@ namespace SlippiCS
                                 .Split(new char[] { '\0' })
                                 .FirstOrDefault();
                             var nametag = nameTagString != null ? FullWidth.ToHalfWidth(nameTagString) : "";
+                            */
 
                             var offset = playerIndex * 0x24;
                             return new PlayerType
